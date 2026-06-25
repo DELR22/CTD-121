@@ -1,0 +1,471 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Assignment 00: Autonomous Sketching &middot; CTD 121</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --crimson:      #9E1B32;
+      --crimson-dark: #7A1424;
+      --crimson-mid:  #B8273E;
+      --crimson-pale: #F7EAED;
+      --white:        #FFFFFF;
+      --off-white:    #FAFAF8;
+      --warm-gray:    #F0ECE8;
+      --rule:         #DDD8D2;
+      --mid-gray:     #9A9189;
+      --dark-gray:    #3A3530;
+      --charcoal:     #1A1714;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--charcoal);
+      background: var(--off-white);
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0; z-index: 200; background: var(--charcoal);
+      border-bottom: 2px solid var(--crimson); height: 52px; padding: 0 56px;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-brand { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: var(--white); }
+    .nav-brand em { color: var(--crimson-mid); font-style: normal; }
+    nav ul { list-style: none; display: flex; gap: 22px; }
+    nav ul a {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--mid-gray); text-decoration: none; transition: color .2s; white-space: nowrap;
+    }
+    nav ul a:hover { color: #fff; }
+
+    /* ── HERO ── */
+    .hero { background: var(--crimson); padding: 96px 56px 84px; position: relative; overflow: hidden; }
+    .hero::after {
+      content: '00'; position: absolute; right: -40px; top: -80px;
+      font-family: 'Source Sans 3', sans-serif; font-size: 540px; font-weight: 900; line-height: 1;
+      color: var(--crimson-dark); pointer-events: none; user-select: none; letter-spacing: -0.04em;
+    }
+    .hero-eyebrow {
+      font-size: 10.5px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase;
+      color: rgba(255,255,255,.5); margin-bottom: 18px; position: relative; z-index: 1;
+    }
+    .hero h1 {
+      font-size: clamp(40px, 5.5vw, 66px); font-weight: 700; line-height: 1.08; color: var(--white);
+      max-width: 700px; margin-bottom: 24px; position: relative; z-index: 1;
+    }
+    .hero h1 em { font-style: italic; color: rgba(255,255,255,.8); }
+    .hero-sub {
+      font-size: 16px; color: rgba(255,255,255,.65); max-width: 580px; line-height: 1.7;
+      margin-bottom: 60px; position: relative; z-index: 1;
+    }
+    .hero-stats { display: grid; grid-template-columns: repeat(4, auto); gap: 0; width: fit-content; position: relative; z-index: 1; }
+    .stat { padding: 0 40px 0 20px; border-left: 2px solid rgba(255,255,255,.2); }
+    .stat:first-child { padding-left: 0; border-left: none; }
+    .stat-num { font-size: 38px; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 5px; }
+    .stat-lbl { font-size: 10px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,.45); }
+
+    /* ── SHARED SECTION CHROME ── */
+    .section { padding: 88px 56px; }
+    .section.alt  { background: var(--white); }
+    .section.warm { background: var(--warm-gray); }
+    .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--crimson); margin-bottom: 12px; }
+    .sec-title { font-size: clamp(28px, 3.8vw, 46px); font-weight: 700; line-height: 1.12; color: var(--charcoal); margin-bottom: 32px; }
+    .sec-rule { border: none; border-top: 1px solid var(--rule); margin-bottom: 48px; }
+
+    /* ── TWO-COL ── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .desc-body p { font-size: 16px; color: var(--dark-gray); line-height: 1.8; margin-bottom: 18px; }
+    .desc-body p:last-child { margin-bottom: 0; }
+
+    /* ── DARK CALLOUT ── */
+    .dark-callout { background: var(--charcoal); padding: 28px 32px; border-left: 4px solid var(--crimson); }
+    .dark-callout-label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--crimson-mid); margin-bottom: 14px; }
+    .dark-callout p { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,.72); margin-bottom: 10px; }
+    .dark-callout p:last-child { margin-bottom: 0; }
+    .dark-callout em { font-style: italic; color: rgba(255,255,255,.9); }
+    .dark-callout strong { font-weight: 700; color: rgba(255,255,255,.9); }
+
+    /* ── DIRECTION CARDS (Front-to-Back / Back-to-Front) ── */
+    .direction-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 32px; }
+    .direction-card { background: var(--white); border: 1px solid var(--rule); padding: 28px 28px 24px; position: relative; overflow: hidden; }
+    .direction-card.flip { background: var(--charcoal); border-color: var(--charcoal); }
+    .direction-arrow { font-size: 30px; font-weight: 700; color: var(--crimson); line-height: 1; margin-bottom: 12px; }
+    .direction-card.flip .direction-arrow { color: var(--crimson-mid); }
+    .direction-title { font-size: 17px; font-weight: 700; color: var(--charcoal); margin-bottom: 10px; }
+    .direction-card.flip .direction-title { color: var(--white); }
+    .direction-body { font-size: 13.5px; color: var(--dark-gray); line-height: 1.7; }
+    .direction-card.flip .direction-body { color: rgba(255,255,255,.7); }
+
+    /* ── PART CARDS (the 4 sketchbook categories) ── */
+    .part-block {
+      display: grid; grid-template-columns: 96px 1fr; gap: 28px;
+      padding: 36px 0; border-bottom: 1px solid var(--rule);
+    }
+    .part-block:first-child { padding-top: 0; }
+    .part-block:last-child { border-bottom: none; padding-bottom: 0; }
+    .part-num {
+      width: 56px; height: 56px; background: var(--charcoal); color: var(--white);
+      display: flex; align-items: center; justify-content: center; font-size: 18px; font-weight: 700; text-align: center; line-height: 1.1;
+    }
+    .part-block.accent .part-num { background: var(--crimson); }
+    .part-title { font-size: 21px; font-weight: 700; color: var(--charcoal); margin-bottom: 4px; }
+    .part-count-tag {
+      display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--crimson); margin-bottom: 14px;
+    }
+    .meta-row { display: flex; flex-direction: column; gap: 8px; margin-bottom: 14px; }
+    .meta-item { font-size: 14px; color: var(--dark-gray); line-height: 1.7; }
+    .meta-item strong { color: var(--charcoal); font-weight: 700; }
+    .part-list { list-style: none; display: flex; flex-direction: column; gap: 10px; margin-top: 6px; }
+    .part-list li { font-size: 14px; color: var(--dark-gray); line-height: 1.7; padding-left: 18px; position: relative; }
+    .part-list li::before { content: '\2014'; position: absolute; left: 0; color: var(--crimson); font-weight: 700; }
+    .part-list strong { color: var(--charcoal); font-weight: 700; }
+
+    /* ── ARTIFACT / NOTE CALLOUT ── */
+    .safety-note {
+      margin-top: 14px; padding: 12px 18px; background: var(--crimson-pale); border-left: 3px solid var(--crimson);
+      font-size: 13px; font-style: italic; color: var(--dark-gray); line-height: 1.6;
+    }
+
+    /* ── SUBMISSION INFO ── */
+    .submission-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 8px; }
+    .submission-card { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--crimson); padding: 24px 24px 20px; }
+    .submission-label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--crimson); margin-bottom: 10px; }
+    .submission-body { font-size: 14px; color: var(--dark-gray); line-height: 1.7; }
+    .filename-chip {
+      display: inline-block; margin-top: 10px; font-family: monospace; font-size: 12.5px; font-weight: 600;
+      color: var(--white); background: var(--charcoal); padding: 6px 12px;
+    }
+
+    /* ── RUBRIC ── */
+    table.rubric { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    table.rubric thead tr { background: var(--crimson); }
+    table.rubric thead th {
+      padding: 14px 18px; font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: rgba(255,255,255,.9); text-align: left;
+    }
+    table.rubric thead th.col-excellent  { color: #a8d8a0; }
+    table.rubric thead th.col-proficient { color: #f5c97a; }
+    table.rubric thead th.col-developing { color: #e08080; }
+    table.rubric tbody tr { border-bottom: 1px solid var(--rule); transition: background .15s; }
+    table.rubric tbody tr:hover { background: var(--crimson-pale); }
+    table.rubric td { padding: 16px 18px; vertical-align: top; color: var(--dark-gray); line-height: 1.65; border-right: 1px solid var(--rule); }
+    table.rubric td:last-child { border-right: none; }
+    table.rubric td.item-col { background: var(--warm-gray); min-width: 150px; }
+    .item-name { font-size: 13.5px; font-weight: 700; color: var(--charcoal); display: block; margin-bottom: 4px; }
+    .item-pts { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--crimson); }
+    .range-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; padding: 3px 8px; margin-bottom: 8px; }
+    .range-excellent  { background: #d4edda; color: #2d6a3f; border: 1px solid #a8d8a0; }
+    .range-proficient { background: #fef3cd; color: #856404; border: 1px solid #f5c97a; }
+    .range-developing { background: #f8d7da; color: #842029; border: 1px solid #e08080; }
+    table.rubric tbody tr.total-row { background: var(--charcoal); border-bottom: none; }
+    table.rubric tbody tr.total-row td { font-size: 13px; font-weight: 700; color: var(--white); border-right-color: rgba(255,255,255,.08); }
+    table.rubric tbody tr.total-row td.item-col { background: var(--charcoal); color: var(--white); }
+
+    /* ── ANIMATIONS ── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; }
+    .d4 { transition-delay: .4s; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--charcoal); border-top: 2px solid var(--crimson); padding: 28px 56px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-school { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.45); }
+    footer p { font-size: 11.5px; color: rgba(255,255,255,.25); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      nav ul { display: none; }
+      .hero, .section { padding: 64px 24px; }
+      .hero-stats { grid-template-columns: 1fr 1fr; gap: 24px; }
+      .hero::after { font-size: 280px; right: -20px; }
+      .two-col, .direction-grid { grid-template-columns: 1fr; gap: 32px; }
+      .submission-grid { grid-template-columns: 1fr; }
+      .part-block { grid-template-columns: 1fr; gap: 14px; }
+      footer { flex-direction: column; gap: 10px; text-align: center; padding: 24px; }
+      table.rubric { font-size: 12px; }
+      table.rubric td { padding: 12px 12px; }
+    }
+  
+  /* ===== CTD 121 GLOBAL SITE NAVIGATION ===== */
+  .ctd-global-nav { background: #1A1714; border-bottom: 1px solid rgba(255,255,255,.1); position: relative; z-index: 500; }
+  .ctd-global-nav-inner { max-width: 1320px; margin: 0 auto; padding: 11px 28px; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+  .ctd-global-brand { font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #fff; text-decoration: none; white-space: nowrap; }
+  .ctd-global-brand span { color: rgba(255,255,255,.38); font-weight: 500; margin-left: 8px; letter-spacing: .03em; text-transform: none; }
+  .ctd-global-links { display: flex; gap: 3px; flex-wrap: wrap; }
+  .ctd-global-links a { font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: rgba(255,255,255,.5); text-decoration: none; padding: 7px 11px; border-radius: 3px; transition: all .15s ease; white-space: nowrap; }
+  .ctd-global-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
+  .ctd-global-links a.is-active { color: #fff; background: #9E1B32; }
+  nav { position: static !important; top: auto !important; }
+  @media (max-width: 960px) {
+    .ctd-global-nav-inner { padding: 10px 16px; }
+    .ctd-global-links { gap: 2px; }
+    .ctd-global-links a { padding: 6px 8px; font-size: 9px; }
+  }
+
+  /* ===== MOBILE SAFETY FIXES ===== */
+  html, body { overflow-x: hidden; max-width: 100%; }
+  @media (max-width: 560px) {
+    .ctd-global-brand span { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="ctd-global-nav">
+    <div class="ctd-global-nav-inner">
+      <a href="index.html" class="ctd-global-brand">CTD 121<span>Introduction to Interior Design</span></a>
+      <div class="ctd-global-links">
+      <a href="index.html">Home</a>
+      <a href="a00.html" class="is-active">A00</a>
+      <a href="a01.html">A01</a>
+      <a href="a02.html">A02</a>
+      <a href="a03.html">A03</a>
+      <a href="a04.html">A04</a>
+      <a href="a05.html">A05</a>
+      <a href="a06.html">A06</a>
+      <a href="final-project.html">Final</a>      </div>
+    </div>
+  </div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand"><em>UA</em> &middot; CTD 121 &middot; Introduction to Interior Design</div>
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#format">Format</a></li>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#submission">Submission</a></li>
+    <li><a href="#rubric">Rubric</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="overview">
+  <p class="hero-eyebrow">The University of Alabama &middot; Clothing, Textile &amp; Interior Design &middot; Assignment 00</p>
+  <h1>Autonomous <em>Sketching</em></h1>
+  <p class="hero-sub">Design does not only happen in the studio during class hours. This semester-long assignment builds the most important habit of a professional designer: Continuous Observation.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">20</div><div class="stat-lbl">Entries Minimum</div></div>
+    <div class="stat"><div class="stat-num">4</div><div class="stat-lbl">Parts</div></div>
+    <div class="stat"><div class="stat-num">300</div><div class="stat-lbl">Points Total</div></div>
+    <div class="stat"><div class="stat-num">1</div><div class="stat-lbl">Semester-Long</div></div>
+  </div>
+</header>
+
+<!-- SECTION 01: INTRODUCTION -->
+<section class="section alt" id="introduction">
+  <p class="eyebrow">Section 01</p>
+  <h2 class="sec-title">Introduction</h2>
+  <hr class="sec-rule">
+
+  <div class="two-col reveal">
+    <div class="desc-body">
+      <p>Design does not only happen in the studio during class hours. Inspiration strikes in a coffee shop or at the park; a technical detail reveals itself in a library chair; a lighting condition appears in a hallway.</p>
+      <p>This semester-long assignment is designed to build the most important habit of a professional designer: <strong>Continuous Observation</strong>. You are required to carry your sketchbook with you everywhere. It is your external hard drive. You will use it to record ideas, measure reality, and capture space.</p>
+    </div>
+    <div>
+      <div class="dark-callout">
+        <p class="dark-callout-label">Continuous Observation</p>
+        <p>This is an exercise in <strong>discipline, curiosity, and muscle memory</strong>. The sketchbook is not a place to draw only when assigned&mdash;it is a place to draw because you cannot help it.</p>
+        <p><em>Make drawing a habit. Do not leave these activities until the last minute.</em></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 02: THE FORMAT -->
+<section class="section warm" id="format">
+  <p class="eyebrow">Section 02</p>
+  <h2 class="sec-title">The Format &mdash; Back-to-Front</h2>
+  <hr class="sec-rule">
+  <p style="font-size:16px;color:var(--dark-gray);line-height:1.8;max-width:720px;" class="reveal">To distinguish your Formal Class Work from your Field Research, you will organize your sketchbook physically into two halves, read from opposite ends.</p>
+
+  <div class="direction-grid reveal d1">
+    <div class="direction-card">
+      <div class="direction-arrow">&rarr;</div>
+      <div class="direction-title">Front-to-Back</div>
+      <div class="direction-body">Reserved for regular Assignments (A01, A02, A03, etc.). Start on the first page and work forward, as in a normal notebook.</div>
+    </div>
+    <div class="direction-card flip">
+      <div class="direction-arrow">&larr;</div>
+      <div class="direction-title">Back-to-Front</div>
+      <div class="direction-body">Reserved for Autonomous Sketching. Start on the very last page of your notebook and work backward toward the middle. This is the home for everything in this assignment.</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 03: THE REQUIREMENTS -->
+<section class="section alt" id="requirements">
+  <p class="eyebrow">Section 03</p>
+  <h2 class="sec-title">The Requirements</h2>
+  <hr class="sec-rule">
+  <p style="font-size:16px;color:var(--dark-gray);line-height:1.8;max-width:760px;margin-bottom:40px;" class="reveal">Over the course of the semester, you must produce a minimum of <strong>20 high-quality entries</strong> in the back of your sketchbook, divided into four specific categories of five entries each.</p>
+
+  <div style="background:var(--warm-gray);padding:8px 40px;" class="reveal d1">
+
+    <div class="part-block accent">
+      <div class="part-num">Part&nbsp;1</div>
+      <div>
+        <p class="part-title">Conceptual Ideation</p>
+        <p class="part-count-tag">5 Entries</p>
+        <div class="meta-row">
+          <div class="meta-item"><strong>Goal:</strong> Capture fleeting ideas and moods.</div>
+          <div class="meta-item"><strong>Subject:</strong> Interior design concepts, furniture ideas, material combinations, or abstract thoughts.</div>
+          <div class="meta-item"><strong>Technique:</strong> Mixed Media. You are encouraged to use color (markers, watercolors), texture rubbings, or collage.</div>
+        </div>
+        <div class="safety-note"><strong>The Artifact Rule:</strong> If an idea strikes you while you are drawing on a napkin in a restaurant, keep the napkin. Paste it into your sketchbook. If you find a material sample or a ticket stub with a great color palette, tape it in. This section is for inspiration.</div>
+      </div>
+    </div>
+
+    <div class="part-block">
+      <div class="part-num">Part&nbsp;2</div>
+      <div>
+        <p class="part-title">Object Analysis</p>
+        <p class="part-count-tag">5 Entries</p>
+        <div class="meta-row">
+          <div class="meta-item"><strong>Goal:</strong> Understand how things are built and sized.</div>
+          <div class="meta-item"><strong>Subject:</strong> Furniture, millwork (cabinetry), or interesting design objects found in the real world (cafes, libraries, your home).</div>
+          <div class="meta-item"><strong>Technique:</strong> Pencil (Graphite).</div>
+        </div>
+        <p style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;color:var(--crimson);margin-top:18px;margin-bottom:8px;">The Views &mdash; For Each Object</p>
+        <ul class="part-list">
+          <li><strong>Photograph.</strong> Take a single, well-taken, clear, and comprehensive photograph of each object, capturing its three-dimensional nature&mdash;form, joinery, and overall configuration. Print and paste it into your sketchbook.</li>
+          <li><strong>Orthographic Views.</strong> Draw Top, Front, and Side views, as instructed in the Orthographic Projections Assignment.</li>
+          <li><strong>The Data.</strong> Use a tape measure to record actual dimensions&mdash;seat height, leg thickness, backrest angle, or whatever dimensions define the object&rsquo;s essential character. Include these dimensions in your orthogonal view drawings.</li>
+        </ul>
+        <div class="safety-note"><strong>Note: Do not guess. Measure.</strong> Format: in a single page, include the photograph, Top, Front, and Side views with general measurements.</div>
+      </div>
+    </div>
+
+    <div class="part-block accent">
+      <div class="part-num">Part&nbsp;3</div>
+      <div>
+        <p class="part-title">Traced Floor Plans, Elevation &amp; Perspective Combos</p>
+        <p class="part-count-tag">5 Entries</p>
+        <div class="meta-row">
+          <div class="meta-item"><strong>Goal:</strong> Learn from the Masters.</div>
+          <div class="meta-item"><strong>Task:</strong> The teacher will provide a list of reference works of architecture and interior design, each composed of a floor plan, an elevation or section, and an interior perspective. Print and paste five combos from the list and trace over them using tracing paper and accurate pencils to adjust for line widths.</div>
+          <div class="meta-item"><strong>Technique:</strong> Freehand-traced drawings. Focus on line weights and textures.</div>
+        </div>
+        <div class="safety-note"><strong>Labeling:</strong> Identify the building (e.g., &ldquo;Villa Savoye&rdquo;), location (e.g., &ldquo;Poissy, France&rdquo;), and designer (e.g., &ldquo;Le Corbusier&rdquo;).</div>
+      </div>
+    </div>
+
+    <div class="part-block">
+      <div class="part-num">Part&nbsp;4</div>
+      <div>
+        <p class="part-title">Spatial Renderings</p>
+        <p class="part-count-tag">5 Entries</p>
+        <div class="meta-row">
+          <div class="meta-item"><strong>Goal:</strong> Capture volume, light, and perspective.</div>
+          <div class="meta-item"><strong>Subject:</strong> Interesting spaces found within the University of Alabama campus&mdash;interiors (lobbies, stairwells, classrooms) or exteriors (plazas, colonnades, porticos).</div>
+          <div class="meta-item"><strong>Technique:</strong> Freehand Perspective. Focus on depth and shadow.</div>
+        </div>
+        <div class="safety-note"><strong>Labeling:</strong> Identify the building and the specific location (e.g., &ldquo;Gorgas Library, Main Reading Room&rdquo;).</div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 04: SUBMISSION & EVALUATION -->
+<section class="section warm" id="submission">
+  <p class="eyebrow">Section 04</p>
+  <h2 class="sec-title">Submission &amp; Evaluation</h2>
+  <hr class="sec-rule">
+
+  <div class="submission-grid reveal d1">
+    <div class="submission-card">
+      <div class="submission-label">Deadline</div>
+      <div class="submission-body">This is a semester-long project. Each part must be submitted as indicated in the course syllabus. Make drawing a habit&mdash;do not leave these activities until the last minute.</div>
+    </div>
+    <div class="submission-card">
+      <div class="submission-label">Deliverable</div>
+      <div class="submission-body">Scan all 20 or more entries and compile them into a single PDF.</div>
+    </div>
+    <div class="submission-card">
+      <div class="submission-label">File Name</div>
+      <div class="submission-body">Name your compiled PDF using the format below.<br><span class="filename-chip">CTD-121_SKETCHBOOK_LASTNAME</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 05: RUBRIC -->
+<section class="section alt" id="rubric">
+  <p class="eyebrow">Section 05</p>
+  <h2 class="sec-title">Evaluation Rubric</h2>
+  <hr class="sec-rule">
+  <div style="overflow-x: auto;" class="reveal d1">
+    <table class="rubric">
+      <thead>
+        <tr>
+          <th style="width: 18%;">Criteria</th>
+          <th class="col-excellent"  style="width: 27.3%;">Excellent (90&ndash;100)</th>
+          <th class="col-proficient" style="width: 27.3%;">Proficient (70&ndash;89)</th>
+          <th class="col-developing" style="width: 27.4%;">Developing (0&ndash;69)</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="item-col"><span class="item-name">Part 1 &mdash; Conceptual Ideation</span><span class="item-pts">75 pts</span></td>
+          <td><div><span class="range-badge range-excellent">90&ndash;100%</span></div>The five ideas demonstrate genuine creative restlessness. The student uses the sketchbook as a thinking tool. Mixed media is employed intentionally: color, texture, and collage serve the idea rather than decorate the page. Entries read as temporally distributed and authentically spontaneous.</td>
+          <td><div><span class="range-badge range-proficient">70&ndash;89%</span></div>Ideation entries are present and show engagement with the assignment&rsquo;s spirit. Mixed media appears limited. The student is building the habit of capturing ideas outside the studio, though entries do not yet reflect sustained commitment.</td>
+          <td><div><span class="range-badge range-developing">0&ndash;69%</span></div>Entries are present but function as obligatory sketches rather than genuine ideation. Media use is limited. The work reads as retroactive rather than spontaneous.</td>
+        </tr>
+        <tr>
+          <td class="item-col"><span class="item-name">Part 2 &mdash; Object Analysis</span><span class="item-pts">75 pts</span></td>
+          <td><div><span class="range-badge range-excellent">90&ndash;100%</span></div>Each object is documented with a single, well-composed photograph that conveys its three-dimensional form, construction logic, and material character. Orthographic views are proportionally sound and internally consistent with the photographic evidence. Tape-measure dimensions are recorded with specificity.</td>
+          <td><div><span class="range-badge range-proficient">70&ndash;89%</span></div>Photographs are present and adequate. Orthographic views demonstrate understanding of the projection system, though inconsistencies in proportions or missing dimensions indicate incomplete observational rigor.</td>
+          <td><div><span class="range-badge range-developing">0&ndash;69%</span></div>Photographs are absent, unclear, or fail to convey the object&rsquo;s form. Orthographic views are loosely rendered without dimensional grounding. Dimensions are inaccurate or missing entirely.</td>
+        </tr>
+        <tr>
+          <td class="item-col"><span class="item-name">Part 3 &mdash; Traced Masters</span><span class="item-pts">75 pts</span></td>
+          <td><div><span class="range-badge range-excellent">90&ndash;100%</span></div>Each traced combo demonstrates that the student read the drawings before tracing them. Line weights are differentiated with purpose: cut lines, seen lines, and surface textures are graphically distinguished. Labeling is complete and accurate.</td>
+          <td><div><span class="range-badge range-proficient">70&ndash;89%</span></div>Traced drawings are present and legible. Some line weight differentiation is evident, though it may be inconsistent across the five entries. Labeling is mostly complete.</td>
+          <td><div><span class="range-badge range-developing">0&ndash;69%</span></div>Traced drawings are present but treated as copying exercises rather than analytical acts. Line weights are uniform or ignored. Labeling is incomplete or absent.</td>
+        </tr>
+        <tr>
+          <td class="item-col"><span class="item-name">Part 4 &mdash; Spatial Rendering</span><span class="item-pts">75 pts</span></td>
+          <td><div><span class="range-badge range-excellent">90&ndash;100%</span></div>The five campus spaces are rendered with genuine spatial intelligence. Perspective is coherent. The student sought out challenging, architecturally rich spaces rather than defaulting to convenient or visually simple locations. Each entry is labeled with the building and the specific location.</td>
+          <td><div><span class="range-badge range-proficient">70&ndash;89%</span></div>Spatial renderings demonstrate an emerging understanding of perspective and depth. The choice of spaces shows some ambition, though the student may gravitate toward simpler compositions. Labeling is present.</td>
+          <td><div><span class="range-badge range-developing">0&ndash;69%</span></div>Perspective is fundamentally inconsistent or absent. Drawings are flat. Spaces chosen are generic or visually undifferentiated. Labeling is incomplete or missing.</td>
+        </tr>
+        <tr class="total-row">
+          <td class="item-col">Total</td>
+          <td colspan="3"><span class="range-badge range-excellent">300 pts</span> &nbsp;across four parts of 75 pts each</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-school">The University of Alabama &middot; Clothing, Textile &amp; Interior Design &middot; Daniel Ronderos M.Arch.</div>
+  <p>CTD 121 &middot; Introduction to Interior Design &middot; Assignment 00: Autonomous Sketching</p>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  els.forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>

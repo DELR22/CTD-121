@@ -1,0 +1,746 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Final Project: The Synthesis &middot; CTD 121</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --crimson:      #9E1B32;
+      --crimson-dark: #7A1424;
+      --crimson-mid:  #B8273E;
+      --crimson-pale: #F7EAED;
+      --white:        #FFFFFF;
+      --off-white:    #FAFAF8;
+      --warm-gray:    #F0ECE8;
+      --rule:         #DDD8D2;
+      --mid-gray:     #9A9189;
+      --dark-gray:    #3A3530;
+      --charcoal:     #1A1714;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--charcoal);
+      background: var(--off-white);
+      line-height: 1.65;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: var(--charcoal);
+      border-bottom: 2px solid var(--crimson);
+      height: 52px;
+      padding: 0 56px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .nav-brand { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: var(--white); }
+    .nav-brand em { color: var(--crimson-mid); font-style: normal; }
+    nav ul { list-style: none; display: flex; gap: 22px; }
+    nav ul a {
+      font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--mid-gray); text-decoration: none; transition: color .2s; white-space: nowrap;
+    }
+    nav ul a:hover { color: #fff; }
+
+    /* ── HERO ── */
+    .hero { background: var(--crimson); padding: 96px 56px 84px; position: relative; overflow: hidden; }
+    .hero::after {
+      content: 'FP'; position: absolute; right: -20px; top: -80px;
+      font-family: 'Source Sans 3', sans-serif; font-size: 460px; font-weight: 900; line-height: 1;
+      color: var(--crimson-dark); pointer-events: none; user-select: none; letter-spacing: -0.04em;
+    }
+    .hero-eyebrow {
+      font-size: 10.5px; font-weight: 700; letter-spacing: 0.24em; text-transform: uppercase;
+      color: rgba(255,255,255,.5); margin-bottom: 18px; position: relative; z-index: 1;
+    }
+    .hero h1 {
+      font-size: clamp(40px, 5.5vw, 66px); font-weight: 700; line-height: 1.08; color: var(--white);
+      max-width: 700px; margin-bottom: 24px; position: relative; z-index: 1;
+    }
+    .hero h1 em { font-style: italic; color: rgba(255,255,255,.8); }
+    .hero-sub {
+      font-size: 16px; color: rgba(255,255,255,.65); max-width: 600px; line-height: 1.7;
+      margin-bottom: 60px; position: relative; z-index: 1;
+    }
+    .hero-stats { display: grid; grid-template-columns: repeat(5, auto); gap: 0; width: fit-content; position: relative; z-index: 1; }
+    .stat { padding: 0 32px 0 18px; border-left: 2px solid rgba(255,255,255,.2); }
+    .stat:first-child { padding-left: 0; border-left: none; }
+    .stat-num { font-size: 34px; font-weight: 700; color: var(--white); line-height: 1; margin-bottom: 5px; }
+    .stat-lbl { font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,.45); }
+
+    /* ── SHARED SECTION CHROME ── */
+    .section { padding: 88px 56px; }
+    .section.alt  { background: var(--white); }
+    .section.warm { background: var(--warm-gray); }
+    .eyebrow { font-size: 10px; font-weight: 700; letter-spacing: 0.26em; text-transform: uppercase; color: var(--crimson); margin-bottom: 12px; }
+    .sec-title { font-size: clamp(28px, 3.8vw, 46px); font-weight: 700; line-height: 1.12; color: var(--charcoal); margin-bottom: 32px; }
+    .sec-rule { border: none; border-top: 1px solid var(--rule); margin-bottom: 48px; }
+
+    /* ── TWO-COL ── */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+    .desc-body p { font-size: 16px; color: var(--dark-gray); line-height: 1.8; margin-bottom: 18px; }
+    .desc-body p:last-child { margin-bottom: 0; }
+
+    /* ── DARK CALLOUT ── */
+    .dark-callout { background: var(--charcoal); padding: 28px 32px; border-left: 4px solid var(--crimson); }
+    .dark-callout-label { font-size: 9.5px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--crimson-mid); margin-bottom: 14px; }
+    .dark-callout p { font-size: 14px; line-height: 1.8; color: rgba(255,255,255,.72); margin-bottom: 10px; }
+    .dark-callout p:last-child { margin-bottom: 0; }
+    .dark-callout em { font-style: italic; color: rgba(255,255,255,.9); }
+    .dark-callout strong { font-weight: 700; color: rgba(255,255,255,.9); }
+
+    /* ── CRIMSON CALLOUT (scenario figures) ── */
+    .figure-row { display: flex; gap: 24px; margin-top: 28px; flex-wrap: wrap; }
+    .figure-card { background: var(--charcoal); color: var(--white); padding: 22px 28px; flex: 1; min-width: 140px; }
+    .figure-num { font-size: 30px; font-weight: 700; line-height: 1; margin-bottom: 6px; }
+    .figure-lbl { font-size: 10px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(255,255,255,.45); }
+
+    /* ── CIDA / SLO LIST ── */
+    .cida-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .cida-list li { font-size: 14px; color: var(--dark-gray); line-height: 1.7; padding: 14px 16px; background: var(--warm-gray); border-left: 3px solid var(--rule); }
+    .cida-list li strong { color: var(--charcoal); }
+
+    /* ── REQUIREMENT GRID (spatial minimums) ── */
+    .req-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin-top: 8px; }
+    .req-card { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--crimson); padding: 22px 22px 18px; text-align: center; }
+    .req-count { font-size: 30px; font-weight: 700; color: var(--crimson); line-height: 1; margin-bottom: 8px; }
+    .req-name { font-size: 13px; font-weight: 700; color: var(--charcoal); letter-spacing: 0.01em; }
+    .req-note { font-size: 11.5px; color: var(--mid-gray); margin-top: 4px; }
+
+    /* ── PROCESS / PHASE TIMELINE ── */
+    .phase-block {
+      display: grid;
+      grid-template-columns: 96px 1fr;
+      gap: 28px;
+      padding: 32px 0;
+      border-bottom: 1px solid var(--rule);
+    }
+    .phase-block:first-child { padding-top: 0; }
+    .phase-block:last-child { border-bottom: none; padding-bottom: 0; }
+    .phase-marker { display: flex; flex-direction: column; align-items: flex-start; }
+    .phase-num {
+      width: 56px; height: 56px; background: var(--charcoal); color: var(--white);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; font-weight: 700;
+    }
+    .phase-block.accent .phase-num { background: var(--crimson); }
+    .phase-title { font-size: 21px; font-weight: 700; color: var(--charcoal); margin-bottom: 4px; }
+    .phase-format-tag {
+      display: inline-block; font-size: 9.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase;
+      color: var(--crimson); margin-bottom: 14px;
+    }
+    .phase-intro { font-size: 14px; color: var(--dark-gray); line-height: 1.75; margin-bottom: 14px; }
+    .phase-list { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+    .phase-list li {
+      font-size: 14px; color: var(--dark-gray); line-height: 1.7; padding-left: 18px;
+      position: relative;
+    }
+    .phase-list li::before {
+      content: '\2014'; position: absolute; left: 0; color: var(--crimson); font-weight: 700;
+    }
+    .phase-list strong { color: var(--charcoal); font-weight: 700; }
+    .phase-lineweights {
+      margin-top: 12px; display: flex; gap: 14px; flex-wrap: wrap;
+    }
+    .lw-chip {
+      font-size: 11.5px; font-weight: 700; letter-spacing: 0.04em; color: var(--charcoal);
+      background: var(--warm-gray); padding: 5px 12px; border-left: 3px solid var(--mid-gray);
+    }
+    .room-tag-example {
+      background: var(--warm-gray); border-left: 3px solid var(--crimson); padding: 14px 20px;
+      font-size: 13px; margin: 14px 0; line-height: 2; max-width: 360px;
+    }
+    .room-tag-row { display: flex; gap: 24px; }
+    .room-tag-key { color: var(--mid-gray); min-width: 170px; }
+    .room-tag-val { font-weight: 700; color: var(--charcoal); }
+
+    /* ── SYMBOL / LEGEND ── */
+    .legend-list { display: flex; flex-direction: column; gap: 8px; margin: 14px 0; }
+    .legend-row { display: flex; align-items: flex-start; gap: 14px; padding: 10px 14px; background: var(--warm-gray); border-left: 4px solid var(--rule); }
+    .legend-row.l1 { border-left-color: var(--charcoal); }
+    .legend-row.l2 { border-left-color: var(--mid-gray); }
+    .legend-row.l3 { border-left-color: var(--crimson); }
+    .legend-symbol { font-size: 16px; font-weight: 700; min-width: 30px; color: var(--charcoal); }
+    .legend-desc { font-size: 13px; color: var(--dark-gray); line-height: 1.6; }
+    .legend-desc strong { color: var(--charcoal); }
+
+    /* ── SAFETY NOTE ── */
+    .safety-note {
+      margin-top: 14px; padding: 12px 18px; background: var(--crimson-pale); border-left: 3px solid var(--crimson);
+      font-size: 13px; font-style: italic; color: var(--dark-gray); line-height: 1.6;
+    }
+
+    /* ── DELIVERABLES ── */
+    .deliverables-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; }
+    .deliverable-card { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--crimson); padding: 28px 28px 24px; }
+    .deliverable-num { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--crimson); margin-bottom: 10px; }
+    .deliverable-title { font-size: 17px; font-weight: 700; color: var(--charcoal); line-height: 1.25; margin-bottom: 14px; }
+    .deliverable-body { font-size: 14px; color: var(--dark-gray); line-height: 1.8; }
+
+    /* ── RUBRIC ── */
+    table.rubric { width: 100%; border-collapse: collapse; font-size: 13.5px; }
+    table.rubric thead tr { background: var(--crimson); }
+    table.rubric thead th {
+      padding: 14px 18px; font-size: 9.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase;
+      color: rgba(255,255,255,.9); text-align: left;
+    }
+    table.rubric thead th.col-excellent  { color: #a8d8a0; }
+    table.rubric thead th.col-proficient { color: #f5c97a; }
+    table.rubric thead th.col-developing { color: #e08080; }
+    table.rubric tbody tr { border-bottom: 1px solid var(--rule); transition: background .15s; }
+    table.rubric tbody tr:hover { background: var(--crimson-pale); }
+    table.rubric td { padding: 16px 18px; vertical-align: top; color: var(--dark-gray); line-height: 1.65; border-right: 1px solid var(--rule); }
+    table.rubric td:last-child { border-right: none; }
+    table.rubric td.item-col { background: var(--warm-gray); min-width: 170px; }
+    .item-name { font-size: 13.5px; font-weight: 700; color: var(--charcoal); display: block; margin-bottom: 4px; }
+    .item-pts { font-size: 10px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--crimson); }
+    .range-badge { display: inline-block; font-size: 10px; font-weight: 700; letter-spacing: 0.06em; padding: 3px 8px; margin-bottom: 8px; }
+    .range-excellent  { background: #d4edda; color: #2d6a3f; border: 1px solid #a8d8a0; }
+    .range-proficient { background: #fef3cd; color: #856404; border: 1px solid #f5c97a; }
+    .range-developing { background: #f8d7da; color: #842029; border: 1px solid #e08080; }
+    table.rubric tbody tr.total-row { background: var(--charcoal); border-bottom: none; }
+    table.rubric tbody tr.total-row td { font-size: 13px; font-weight: 700; color: var(--white); border-right-color: rgba(255,255,255,.08); }
+    table.rubric tbody tr.total-row td.item-col { background: var(--charcoal); color: var(--white); }
+
+    /* ── ANIMATIONS ── */
+    .reveal { opacity: 0; transform: translateY(22px); transition: opacity .65s ease, transform .65s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+    .d1 { transition-delay: .1s; }
+    .d2 { transition-delay: .2s; }
+    .d3 { transition-delay: .3s; }
+    .d4 { transition-delay: .4s; }
+
+    /* ── FOOTER ── */
+    footer { background: var(--charcoal); border-top: 2px solid var(--crimson); padding: 28px 56px; display: flex; justify-content: space-between; align-items: center; }
+    .footer-school { font-size: 13px; font-weight: 700; color: rgba(255,255,255,.45); }
+    footer p { font-size: 11.5px; color: rgba(255,255,255,.25); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 960px) {
+      nav { padding: 0 24px; }
+      nav ul { display: none; }
+      .hero, .section { padding: 64px 24px; }
+      .hero-stats { grid-template-columns: 1fr 1fr; gap: 20px; }
+      .hero::after { font-size: 240px; right: -10px; }
+      .two-col { grid-template-columns: 1fr; gap: 32px; }
+      .req-grid { grid-template-columns: 1fr 1fr; }
+      .deliverables-grid { grid-template-columns: 1fr; }
+      .phase-block { grid-template-columns: 1fr; gap: 14px; }
+      footer { flex-direction: column; gap: 10px; text-align: center; padding: 24px; }
+      table.rubric { font-size: 12px; }
+      table.rubric td { padding: 12px 12px; }
+    }
+    @media (max-width: 480px) {
+      .req-grid { grid-template-columns: 1fr; }
+    }
+  
+  /* ===== CTD 121 GLOBAL SITE NAVIGATION ===== */
+  .ctd-global-nav { background: #1A1714; border-bottom: 1px solid rgba(255,255,255,.1); position: relative; z-index: 500; }
+  .ctd-global-nav-inner { max-width: 1320px; margin: 0 auto; padding: 11px 28px; display: flex; align-items: center; justify-content: space-between; gap: 18px; flex-wrap: wrap; }
+  .ctd-global-brand { font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: .14em; text-transform: uppercase; color: #fff; text-decoration: none; white-space: nowrap; }
+  .ctd-global-brand span { color: rgba(255,255,255,.38); font-weight: 500; margin-left: 8px; letter-spacing: .03em; text-transform: none; }
+  .ctd-global-links { display: flex; gap: 3px; flex-wrap: wrap; }
+  .ctd-global-links a { font-size: 10px; font-weight: 700; letter-spacing: .05em; text-transform: uppercase; color: rgba(255,255,255,.5); text-decoration: none; padding: 7px 11px; border-radius: 3px; transition: all .15s ease; white-space: nowrap; }
+  .ctd-global-links a:hover { color: #fff; background: rgba(255,255,255,.08); }
+  .ctd-global-links a.is-active { color: #fff; background: #9E1B32; }
+  nav { position: static !important; top: auto !important; }
+  @media (max-width: 960px) {
+    .ctd-global-nav-inner { padding: 10px 16px; }
+    .ctd-global-links { gap: 2px; }
+    .ctd-global-links a { padding: 6px 8px; font-size: 9px; }
+  }
+
+  /* ===== MOBILE SAFETY FIXES ===== */
+  html, body { overflow-x: hidden; max-width: 100%; }
+  @media (max-width: 560px) {
+    .ctd-global-brand span { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="ctd-global-nav">
+    <div class="ctd-global-nav-inner">
+      <a href="index.html" class="ctd-global-brand">CTD 121<span>Introduction to Interior Design</span></a>
+      <div class="ctd-global-links">
+      <a href="index.html">Home</a>
+      <a href="a00.html">A00</a>
+      <a href="a01.html">A01</a>
+      <a href="a02.html">A02</a>
+      <a href="a03.html">A03</a>
+      <a href="a04.html">A04</a>
+      <a href="a05.html">A05</a>
+      <a href="a06.html">A06</a>
+      <a href="final-project.html" class="is-active">Final</a>      </div>
+    </div>
+  </div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand"><em>UA</em> &middot; CTD 121 &middot; Final Project</div>
+  <ul>
+    <li><a href="#overview">Overview</a></li>
+    <li><a href="#outcomes">Outcomes</a></li>
+    <li><a href="#requirements">Requirements</a></li>
+    <li><a href="#phases">Phases</a></li>
+    <li><a href="#deliverables">Deliverables</a></li>
+    <li><a href="#rubric">Rubric</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<header class="hero" id="overview">
+  <p class="hero-eyebrow">The University of Alabama &middot; Clothing, Textile &amp; Interior Design &middot; Final Project</p>
+  <h1>The Synthesis: Designing a <em>Shared Home</em></h1>
+  <p class="hero-sub">Interior design is, at its core, a discipline of translation. You are not designing for a hypothetical client&mdash;you are designing for two friends, a 1,213 sq. ft. house, and a friendship that the space must nurture.</p>
+  <div class="hero-stats">
+    <div class="stat"><div class="stat-num">10</div><div class="stat-lbl">Phases</div></div>
+    <div class="stat"><div class="stat-num">5</div><div class="stat-lbl">Project Formats</div></div>
+    <div class="stat"><div class="stat-num">450</div><div class="stat-lbl">Points Total</div></div>
+    <div class="stat"><div class="stat-num">6</div><div class="stat-lbl">Deliverables</div></div>
+    <div class="stat"><div class="stat-num">3</div><div class="stat-lbl">Inhabitants</div></div>
+  </div>
+</header>
+
+<!-- SECTION 01: INTRODUCTION & SCENARIO -->
+<section class="section alt" id="introduction">
+  <p class="eyebrow">Section 01</p>
+  <h2 class="sec-title">Introduction &amp; Scenario</h2>
+  <hr class="sec-rule">
+
+  <div class="two-col reveal">
+    <div class="desc-body">
+      <p>Interior design is, at its core, a discipline of translation. A designer receives raw human experience and translates it into built form: walls, thresholds, light, materials, and proportion.</p>
+      <p>This final project places you at the center of that translation process. You are not designing for a hypothetical client. You are designing for people you know, whose habits and preferences you can observe and question. This proximity is a gift. Good design is specific&mdash;particular to the people who will inhabit a space, shaped by their peculiarities and their rhythms, not by generic assumptions about how people live.</p>
+    </div>
+    <div>
+      <div class="dark-callout">
+        <p class="dark-callout-label">The Scenario</p>
+        <p>You are an interior designer who has recently won a small lottery. With your winnings, you decide to purchase a modest house and transform it into something far more meaningful than a private residence: a <strong>shared home</strong>, a hub of friendship, creativity, and community, where you and your two best friends will live together.</p>
+        <p>Your task is to thoughtfully design this shared residence so it functions not only as a place to live, but as a space that actively supports and nurtures the friendship among its three inhabitants.</p>
+      </div>
+      <div class="figure-row">
+        <div class="figure-card">
+          <div class="figure-num">32&prime; &times; 41&prime;</div>
+          <div class="figure-lbl">Building Footprint</div>
+        </div>
+        <div class="figure-card">
+          <div class="figure-num">1,213</div>
+          <div class="figure-lbl">Sq. Ft. Total Area</div>
+        </div>
+        <div class="figure-card">
+          <div class="figure-num">3</div>
+          <div class="figure-lbl">Inhabitants</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="two-col reveal d1" style="margin-top: 56px; border-top: 1px solid var(--rule); padding-top: 48px;">
+    <div>
+      <p class="eyebrow" style="margin-bottom: 12px;">The Iterative Process</p>
+      <p style="font-size:15px;color:var(--dark-gray);line-height:1.8;">The design process is iterative, not linear. You will receive feedback on your documents as <strong>Red Marks</strong>. Leave those markings as evidence of the process&mdash;do not erase or cover them. Corrections must be made in the subsequent phase. At the end, your final deliverable will reveal the full story of your design development, including Red Marks. This project is not only about the result, but about the value of <em>reflective, nurtured design</em>.</p>
+    </div>
+    <div>
+      <p class="eyebrow" style="margin-bottom: 12px;">You Must Empathize with Your Clients</p>
+      <p style="font-size:15px;color:var(--dark-gray);line-height:1.8;">Your two friends are your primary clients and your most important research sources. Every spatial decision in your design must be traceable back to something you learned from those conversations. <strong>The quality of your listening will determine the quality of your spaces.</strong></p>
+      <p style="font-size:14px;color:var(--dark-gray);line-height:1.8;margin-top:12px;">Ask about daily routines, sleeping habits, cooking preferences, work or study needs, social patterns, noise sensitivity, and personal style. Ask what they love and hate about where they currently live. Ask about the DOs and DON&rsquo;Ts you should consider. Ask what a perfect Sunday afternoon at home looks like for them.</p>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 02: STUDENT LEARNING OUTCOMES -->
+<section class="section warm" id="outcomes">
+  <p class="eyebrow">Section 02</p>
+  <h2 class="sec-title">Student Learning Outcomes</h2>
+  <hr class="sec-rule">
+
+  <div class="two-col" style="gap: 56px; align-items: start;">
+    <div class="reveal">
+      <p class="eyebrow" style="margin-bottom: 16px;">Bloom&rsquo;s Taxonomy (2001)</p>
+      <ol class="phase-list" style="list-style:none;display:flex;flex-direction:column;gap:14px;">
+        <li style="background:var(--white);padding:14px 16px;border-left:3px solid var(--charcoal);"><strong>Remember</strong> the graphic conventions of architectural drawing, and apply them consistently across multiple floor plan iterations.</li>
+        <li style="background:var(--white);padding:14px 16px;border-left:3px solid var(--mid-gray);"><strong>Understand</strong> the relationship between user behavior, spatial need, and built form by analyzing client interviews and translating observations into a written spatial profile.</li>
+        <li style="background:var(--white);padding:14px 16px;border-left:3px solid var(--crimson);"><strong>Apply</strong> design process tools in sequence to generate a spatially logical residential design.</li>
+        <li style="background:var(--white);padding:14px 16px;border-left:3px solid var(--charcoal);"><strong>Analyze</strong> the functional and social dynamics of a shared residence by evaluating how spatial organization supports the specific needs of its inhabitants.</li>
+        <li style="background:var(--white);padding:14px 16px;border-left:3px solid var(--mid-gray);"><strong>Evaluate</strong> design decisions across iterative drafts by interpreting instructor feedback, identifying design problems, and producing documented corrections in subsequent phases.</li>
+        <li style="background:var(--white);padding:14px 16px;border-left:3px solid var(--crimson);"><strong>Create</strong> a fully furnished, multi-scale floor plan and a freestanding foam-board presentation that communicates the complete arc of the design process, from user research to a resolved spatial layout.</li>
+      </ol>
+    </div>
+    <div class="reveal d1">
+      <p class="eyebrow" style="margin-bottom: 16px;">CIDA / NASAD Standards</p>
+      <ul class="cida-list">
+        <li><strong>Design Process:</strong> Demonstrate the ability to apply a sequential, iterative design process, making decisions that are traceable back to user-specific evidence.</li>
+        <li><strong>Global Context for Design:</strong> Design for real individuals whose cultural habits, social patterns, and personal preferences shape spatial requirements, developing sensitivity to the specificity of human experience as a design driver.</li>
+        <li><strong>Human-Centered Design:</strong> Conduct original user research through direct conversation, synthesize findings, and use that knowledge as the functional basis for all subsequent spatial design decisions.</li>
+        <li><strong>Interior Building Systems &amp; Integration:</strong> Apply scale, proportion, wall thickness, door clearances, and circulation logic to produce a technically compliant schematic floor plan at different scales.</li>
+        <li><strong>Design Communication:</strong> Communicate design intent through partial and final technical documents, reference boards, and a physical presentation structure that fully narrates the design process.</li>
+        <li><strong>Collaboration:</strong> Engage real clients in a participatory validation process, modeling professional client-designer communication.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 03: MINIMUM SPATIAL REQUIREMENTS -->
+<section class="section alt" id="requirements">
+  <p class="eyebrow">Section 03</p>
+  <h2 class="sec-title">Minimum Spatial Requirements</h2>
+  <hr class="sec-rule">
+  <p style="font-size:16px;color:var(--dark-gray);line-height:1.8;max-width:680px;margin-bottom:8px;" class="reveal">The completed design must include, at a minimum, the following spaces. Additional spaces may be incorporated based on the needs and preferences identified through your conversations with your two friends.</p>
+
+  <div class="req-grid reveal d1">
+    <div class="req-card">
+      <div class="req-count">2</div>
+      <div class="req-name">Bedrooms</div>
+    </div>
+    <div class="req-card">
+      <div class="req-count">2</div>
+      <div class="req-name">Bathrooms</div>
+    </div>
+    <div class="req-card">
+      <div class="req-count">1</div>
+      <div class="req-name">Study / Work Area</div>
+    </div>
+    <div class="req-card">
+      <div class="req-count">1</div>
+      <div class="req-name">Common Area</div>
+      <div class="req-note">Living room or shared gathering space</div>
+    </div>
+    <div class="req-card">
+      <div class="req-count">1</div>
+      <div class="req-name">Kitchen</div>
+    </div>
+    <div class="req-card">
+      <div class="req-count">1</div>
+      <div class="req-name">Laundry Room</div>
+    </div>
+  </div>
+</section>
+
+<!-- SECTION 04: THE DESIGN CHALLENGE -->
+<section class="section warm" id="phases">
+  <p class="eyebrow">Section 04</p>
+  <h2 class="sec-title">The Design Challenge &mdash; Ten Phases</h2>
+  <hr class="sec-rule">
+  <p style="font-size:16px;color:var(--dark-gray);line-height:1.8;max-width:760px;margin-bottom:40px;" class="reveal">The design challenge unfolds through ten sequential phases. Each phase builds directly on the work completed in the previous one. Students who skip ahead or attempt to complete phases out of order will find that their design lacks the logical foundation necessary to make defensible decisions at later stages.</p>
+
+  <div style="background:var(--white);padding:8px 40px;" class="reveal d1">
+
+    <div class="phase-block accent">
+      <div class="phase-marker"><div class="phase-num">01</div></div>
+      <div>
+        <p class="phase-title">User Research</p>
+        <p class="phase-format-tag">Use Project Format 1 &middot; available on Blackboard</p>
+        <p class="phase-intro">Your two friends are your clients. Before making any design decision, you must understand who they are and how they live.</p>
+        <ul class="phase-list">
+          <li>Conduct a minimum of <strong>five text message conversations</strong> with each of your two friends. Explore lifestyle and daily habits, spatial preferences, current living frustrations, and how the three of you envision your shared life together.</li>
+          <li>Take <strong>screenshots</strong> of these conversations and print them. Paste the printed screenshots on Project Format 1 where indicated.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-marker"><div class="phase-num">02</div></div>
+      <div>
+        <p class="phase-title">Client Profile</p>
+        <p class="phase-format-tag">Use Project Format 1 &middot; available on Blackboard</p>
+        <p class="phase-intro">With your conversations in hand, your task now is to listen carefully&mdash;not just to what your friends say, but to how they say it, and to what is implied but left unspoken.</p>
+        <ul class="phase-list">
+          <li>For each friend, write at least <strong>one comprehensive paragraph</strong> describing who they are, what they do, and how they live. Address their spatial preferences, and the materials, colors, and textures they are drawn to&mdash;and those they want no part of.</li>
+          <li>Write all text using <strong>technical lettering</strong>, drawing on the skills developed in Assignment 02.</li>
+          <li>Record all client profiles in the space indicated on Project Format 1.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-block accent">
+      <div class="phase-marker"><div class="phase-num">03</div></div>
+      <div>
+        <p class="phase-title">Design Diagrams &amp; Reference Boards</p>
+        <p class="phase-format-tag">Use Final Project Format 2 &middot; available on Blackboard</p>
+        <p class="phase-intro">With a clear picture of your clients, you are now ready to begin translating that knowledge into spatial logic.</p>
+        <ul class="phase-list">
+          <li>Develop the project&rsquo;s <strong>Adjacency Matrix</strong> using the three-symbol key for all spaces in the program.</li>
+          <li>Using the matrix as a logical guide, draw the <strong>Bubble Diagram</strong> with circles proportional to each space&rsquo;s relative size and role. Connect bubbles with the appropriate line-type symbols. For a review of these conventions, refer to <strong>Assignment 06</strong>.</li>
+          <li>Develop a <strong>Mood Board</strong> for each significant space&mdash;an image collage addressing flooring, wall treatments, ceiling concepts, and color palette. Present boards to your friends for validation and record any adjustments made in response to their feedback.</li>
+          <li>Place all elements on Final Project Format 2 where indicated.</li>
+        </ul>
+        <div class="legend-list">
+          <div class="legend-row l1"><span class="legend-symbol">&#9679;</span><span class="legend-desc"><strong>Primary Adjacency</strong>&mdash;must be next to each other.</span></div>
+          <div class="legend-row l2"><span class="legend-symbol">&#9675;</span><span class="legend-desc"><strong>Secondary Adjacency</strong>&mdash;should be close or convenient.</span></div>
+          <div class="legend-row l3"><span class="legend-symbol">&ndash;</span><span class="legend-desc"><strong>No Relation</strong>&mdash;proximity does not matter.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-marker"><div class="phase-num">04</div></div>
+      <div>
+        <p class="phase-title">Block Plan, Area Calculations &amp; Object References</p>
+        <p class="phase-format-tag">Use Final Project Format 3 &middot; available on Blackboard</p>
+        <p class="phase-intro">With the spatial logic established through your diagrams, you are now ready to place rooms within the actual building footprint.</p>
+        <ul class="phase-list">
+          <li>At a scale of <strong>1/8&Prime; = 1&prime;-0&Prime;</strong>, develop a Block Plan that places all required spaces within the combined building footprint.</li>
+          <li>Name and calculate the <strong>area</strong> of every space in square feet using the format shown below.</li>
+        </ul>
+        <div class="room-tag-example">
+          <div class="room-tag-row"><span class="room-tag-key">NAME OF THE SPACE</span><span class="room-tag-val">KITCHEN</span></div>
+          <div class="room-tag-row"><span class="room-tag-key">DIMENSIONS in Feet</span><span class="room-tag-val">12&prime; &times; 8&prime;</span></div>
+          <div class="room-tag-row"><span class="room-tag-key">AREA in Square Feet</span><span class="room-tag-val">96 Sq. Ft.</span></div>
+        </div>
+        <ul class="phase-list">
+          <li>Develop an <strong>Object Reference Board</strong> for each significant space&mdash;an image collage of key fixed and loose furniture, bathroom and kitchen fixtures, vanities, and lighting types and fixtures. Present boards to your friends for validation and record adjustments made in response to their feedback.</li>
+          <li>Place all elements on Final Project Format 3 where indicated.</li>
+          <li>Explain your design decision-making process using <strong>technical lettering</strong> where indicated on the format.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-block accent">
+      <div class="phase-marker"><div class="phase-num">05</div></div>
+      <div>
+        <p class="phase-title">Schematic Floor Plan</p>
+        <p class="phase-format-tag">Use Final Project Format 4 &middot; available on Blackboard</p>
+        <p class="phase-intro">With the Block Plan confirmed, you are ready to draw the first version of your floor plan.</p>
+        <ul class="phase-list">
+          <li>Draw a schematic floor plan at <strong>1/8&Prime; = 1&prime;-0&Prime;</strong> scale showing all walls (6&Prime; thick), doors (36&Prime; for rooms and 24&Prime; for closets and pantries), and windows.</li>
+          <li>Every space must display its corresponding <strong>name, dimensions, and area</strong>.</li>
+          <li>Place all elements on Final Project Format 4 where indicated.</li>
+          <li>Explain your design decision-making process using technical lettering where indicated on the format.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-marker"><div class="phase-num">06</div></div>
+      <div>
+        <p class="phase-title">First Draft</p>
+        <p class="phase-format-tag">Use Final Project Format 4 &middot; available on Blackboard</p>
+        <p class="phase-intro">After receiving Red Mark feedback on your Schematic Floor Plan, make the corresponding corrections and develop the design further.</p>
+        <ul class="phase-list">
+          <li>Draw the revised floor plan at 1/8&Prime; = 1&prime;-0&Prime; scale showing all walls (6&Prime; thick), doors (36&Prime;/24&Prime;), and windows.</li>
+          <li>Every space must display its corresponding name, dimensions, and area.</li>
+          <li>Place all elements on Final Project Format 4 where indicated.</li>
+          <li>Explain your design decision-making process using technical lettering where indicated on the format.</li>
+        </ul>
+        <div class="phase-lineweights">
+          <span class="lw-chip">Walls &mdash; 0.9mm</span>
+          <span class="lw-chip">Doors &amp; Windows &mdash; 0.7mm</span>
+          <span class="lw-chip">Furniture Silhouettes &mdash; 0.5mm</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block accent">
+      <div class="phase-marker"><div class="phase-num">07</div></div>
+      <div>
+        <p class="phase-title">Second Draft</p>
+        <p class="phase-format-tag">Use Final Project Format 4 &middot; available on Blackboard</p>
+        <p class="phase-intro">After receiving Red Mark feedback on your First Draft, incorporate all corrections and continue to develop the design. This phase is not only a correction of errors&mdash;it is an evolution of the design. Spatial proportions should be refined, circulation paths should be resolved, and the relationship between spaces should more clearly reflect the needs of your three inhabitants.</p>
+        <ul class="phase-list">
+          <li>Draw the revised floor plan at 1/8&Prime; = 1&prime;-0&Prime; scale showing all walls (6&Prime; thick), doors (36&Prime;/24&Prime;), and windows.</li>
+          <li>Every space must display its corresponding name, dimensions, and area.</li>
+          <li>Place all elements on Final Project Format 4 where indicated.</li>
+          <li>Explain your design decision-making process using technical lettering where indicated on the format.</li>
+        </ul>
+        <div class="phase-lineweights">
+          <span class="lw-chip">Walls &mdash; 0.9mm</span>
+          <span class="lw-chip">Doors &amp; Windows &mdash; 0.7mm</span>
+          <span class="lw-chip">Furniture Silhouettes &mdash; 0.5mm</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-marker"><div class="phase-num">08</div></div>
+      <div>
+        <p class="phase-title">Final Furnished Floor Plan</p>
+        <p class="phase-format-tag">Use Final Project Format 5 &middot; available on Blackboard</p>
+        <p class="phase-intro">After receiving Red Mark feedback on your Second Draft, make all final corrections and produce the fully furnished version of your floor plan.</p>
+        <ul class="phase-list">
+          <li>Draw the resolved, fully furnished floor plan at 1/8&Prime; = 1&prime;-0&Prime; scale showing all walls (6&Prime; thick), doors (36&Prime;/24&Prime;), and windows.</li>
+          <li>Every space must display its corresponding name, dimensions, and area.</li>
+          <li>Place all elements on Final Project Format 5 where indicated.</li>
+          <li>Explain your design decision-making process using technical lettering where indicated on the format.</li>
+        </ul>
+        <div class="phase-lineweights">
+          <span class="lw-chip">Walls &mdash; 0.9mm</span>
+          <span class="lw-chip">Doors &amp; Windows &mdash; 0.7mm</span>
+          <span class="lw-chip">Furniture &mdash; 0.5mm</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block accent">
+      <div class="phase-marker"><div class="phase-num">09</div></div>
+      <div>
+        <p class="phase-title">Final Furnished Floor Plan at 1/4&Prime; Scale</p>
+        <p class="phase-format-tag">Use Final Project Format 5 &middot; available on Blackboard</p>
+        <p class="phase-intro">Redraw the fully furnished floor plan at 1/4&Prime; = 1&prime;-0&Prime; scale, transferring measurements precisely from the 1/8&Prime; version. Furnish every space using the 1/4&Prime; furnishing template from your material kit.</p>
+        <ul class="phase-list">
+          <li>The 1/4&Prime; plan must be drawn on the <strong>same Final Project Format 5</strong> as the fully furnished 1/8&Prime; floor plan from Phase 08&mdash;both scales live side by side on one board.</li>
+          <li>Every space must display its corresponding name, dimensions, and area.</li>
+        </ul>
+        <div class="phase-lineweights">
+          <span class="lw-chip">Walls &mdash; 0.9mm</span>
+          <span class="lw-chip">Doors &amp; Windows &mdash; 0.7mm</span>
+          <span class="lw-chip">Furniture &mdash; 0.5mm</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-marker"><div class="phase-num">10</div></div>
+      <div>
+        <p class="phase-title">Foam Board Presentation</p>
+        <p class="phase-format-tag">Use the Foam Board Templates &middot; available on Blackboard</p>
+        <p class="phase-intro">Mount all work on five rigid foam boards measuring 11&times;17 inches, using the templates provided on Blackboard and completed in the previous nine phases. Connect the boards with masking-tape hinges on the reverse side, so they fold into a freestanding display structure.</p>
+        <div class="dark-callout" style="margin: 16px 0;">
+          <p class="dark-callout-label">Not a Neutral Mounting Exercise</p>
+          <p>You have full creative freedom over the shape, form, and interactions of the object. The structure should <strong>stand independently</strong> and be legible to a viewer who encounters it without prior knowledge of your project.</p>
+          <p>It must function as a <em>physical narrative</em> of the entire design process, from the first client conversation to the final furnished floor plan.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 05: DELIVERABLES -->
+<section class="section alt" id="deliverables">
+  <p class="eyebrow">Section 05</p>
+  <h2 class="sec-title">Deliverables</h2>
+  <hr class="sec-rule">
+  <div class="deliverables-grid">
+
+    <div class="deliverable-card reveal">
+      <div class="deliverable-num">Deliverable 01</div>
+      <div class="deliverable-title">Project Format 1</div>
+      <div class="deliverable-body">Printed client conversation screenshots and written client profiles for each of your two friends.</div>
+    </div>
+
+    <div class="deliverable-card reveal d1">
+      <div class="deliverable-num">Deliverable 02</div>
+      <div class="deliverable-title">Final Project Format 2</div>
+      <div class="deliverable-body">Adjacency Matrix, Bubble Diagram, and Mood Boards for each significant space in the program.</div>
+    </div>
+
+    <div class="deliverable-card reveal d2">
+      <div class="deliverable-num">Deliverable 03</div>
+      <div class="deliverable-title">Final Project Format 3</div>
+      <div class="deliverable-body">Block Plan with area calculations (name, dimensions, area for every space) and Object Reference Boards.</div>
+    </div>
+
+    <div class="deliverable-card reveal d3">
+      <div class="deliverable-num">Deliverable 04</div>
+      <div class="deliverable-title">Final Project Format 4</div>
+      <div class="deliverable-body">Schematic Floor Plan, First Draft, and Second Draft&mdash;with Red Marks preserved as evidence of the iterative process.</div>
+    </div>
+
+    <div class="deliverable-card reveal">
+      <div class="deliverable-num">Deliverable 05</div>
+      <div class="deliverable-title">Final Project Format 5</div>
+      <div class="deliverable-body">Final Furnished Floor Plan at both 1/8&Prime; and 1/4&Prime; scales, fully furnished and dimensioned.</div>
+    </div>
+
+    <div class="deliverable-card reveal d1">
+      <div class="deliverable-num">Deliverable 06</div>
+      <div class="deliverable-title">Foam Board Presentation</div>
+      <div class="deliverable-body">All work mounted on five 11&times;17&Prime; foam boards, connected with masking-tape hinges and assembled as a freestanding display structure that narrates the full design process.</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- SECTION 06: RUBRIC -->
+<section class="section warm" id="rubric">
+  <p class="eyebrow">Section 06</p>
+  <h2 class="sec-title">Evaluation Rubric</h2>
+  <hr class="sec-rule">
+  <div style="overflow-x: auto;" class="reveal d1">
+    <table class="rubric">
+      <thead>
+        <tr>
+          <th style="width: 20%;">Criterion</th>
+          <th class="col-excellent"  style="width: 26.7%;">Excellent</th>
+          <th class="col-proficient" style="width: 26.7%;">Proficient</th>
+          <th class="col-developing" style="width: 26.6%;">Developing</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="item-col"><span class="item-name">User Research &amp; Client Profile</span><span class="item-pts">50 pts</span></td>
+          <td><div><span class="range-badge range-excellent">44&ndash;50 pts</span></div>The client conversations reveal genuine curiosity and disciplined inquiry. The written profiles go beyond surface-level description to articulate specific spatial implications.</td>
+          <td><div><span class="range-badge range-proficient">28&ndash;43 pts</span></div>Conversations are present and cover the required topics, but the written profiles summarize rather than analyze. Spatial implications are stated in general terms rather than traced to specific client evidence.</td>
+          <td><div><span class="range-badge range-developing">0&ndash;27 pts</span></div>Conversations are minimal or do not explore spatial preferences in meaningful depth. Written profiles are superficial, generic, or absent. No clear connection is drawn between client research and design decisions.</td>
+        </tr>
+        <tr>
+          <td class="item-col"><span class="item-name">Design Diagrams &mdash; Adjacency Matrix &amp; Bubble Diagram</span><span class="item-pts">75 pts</span></td>
+          <td><div><span class="range-badge range-excellent">66&ndash;75 pts</span></div>The adjacency matrix is complete, logically consistent, and reflects a careful reading of the client profiles. The bubble diagram uses all three line types meaningfully and proportions circles to reflect each space&rsquo;s role.</td>
+          <td><div><span class="range-badge range-proficient">42&ndash;65 pts</span></div>The matrix is mostly complete, but some relationships are assigned without clear justification. The bubble diagram shows connections, but line types are inconsistently applied, or circle proportions do not reflect spatial hierarchy.</td>
+          <td><div><span class="range-badge range-developing">0&ndash;41 pts</span></div>The matrix is incomplete or assigns relationships arbitrarily. The bubble diagram is missing, uses a single line type, or contradicts the matrix.</td>
+        </tr>
+        <tr>
+          <td class="item-col"><span class="item-name">Reference Boards &mdash; Mood &amp; Object</span><span class="item-pts">50 pts</span></td>
+          <td><div><span class="range-badge range-excellent">44&ndash;50 pts</span></div>Each board is a visually coherent collage that communicates a specific spatial atmosphere traceable to the client profile. Material, color, and object selections are intentional and consistent.</td>
+          <td><div><span class="range-badge range-proficient">28&ndash;43 pts</span></div>Boards are present for most major spaces and show a recognizable aesthetic direction, but the connection to the client profile is assumed rather than demonstrated.</td>
+          <td><div><span class="range-badge range-developing">0&ndash;27 pts</span></div>Boards are missing for one or more major spaces, or present but visually incoherent. Selections appear arbitrary with no traceable relationship to client research.</td>
+        </tr>
+        <tr>
+          <td class="item-col"><span class="item-name">Design Process &amp; Iterative Development</span><span class="item-pts">100 pts</span></td>
+          <td><div><span class="range-badge range-excellent">88&ndash;100 pts</span></div>Each phase of the floor plan reflects a genuine response to prior feedback. The design visibly evolves across iterations. Red marks are preserved as evidence of a living process. The final plan resolves a complex design problem, traceable back to the first client conversation.</td>
+          <td><div><span class="range-badge range-proficient">56&ndash;87 pts</span></div>Feedback is incorporated across phases, but changes tend toward correction of explicit errors rather than deeper spatial development. The final plan is functional but does not fully reflect the specificity of client research.</td>
+          <td><div><span class="range-badge range-developing">0&ndash;55 pts</span></div>Phases show little evidence of genuine response to feedback. The final plan does not resolve design problems identified earlier. Red marks are missing or covered.</td>
+        </tr>
+        <tr>
+          <td class="item-col"><span class="item-name">Technical Drawing &amp; Graphic Precision</span><span class="item-pts">100 pts</span></td>
+          <td><div><span class="range-badge range-excellent">88&ndash;100 pts</span></div>Line weights are consistently differentiated across all floor plan phases and both scales. Walls, doors, windows, and furniture are drawn with rigor and precision. Every space carries its correct name, dimensions, and area. The 1/4&Prime; plan is a precise, fully furnished resolution of the 1/8&Prime; version. Graphic skill is demonstrably stronger in later phases than in earlier ones.</td>
+          <td><div><span class="range-badge range-proficient">56&ndash;87 pts</span></div>Line weights are used but applied inconsistently across phases or between the two scales. Most spaces are labeled correctly, but a few carry errors or omissions in dimensions or area.</td>
+          <td><div><span class="range-badge range-developing">0&ndash;55 pts</span></div>Line weights are largely undifferentiated. Walls, doors, or windows are missing or imprecisely drawn. Room labels, dimensions, or areas are frequently absent or incorrect.</td>
+        </tr>
+        <tr>
+          <td class="item-col"><span class="item-name">Foam Board Presentation &mdash; Narrative &amp; Craft</span><span class="item-pts">75 pts</span></td>
+          <td><div><span class="range-badge range-excellent">66&ndash;75 pts</span></div>The foam board object stands independently and is designed. The form, sequencing, and physical interactions of the panels make the arc of the design process legible to an uninformed viewer without additional explanation. Craft is precise and intentional.</td>
+          <td><div><span class="range-badge range-proficient">42&ndash;65 pts</span></div>The structure stands and presents the work in a recognizable sequence, but the object&rsquo;s physical design does not enhance the narrative it carries. Craft is adequate but uneven.</td>
+          <td><div><span class="range-badge range-developing">0&ndash;41 pts</span></div>The structure does not stand independently, or panels are mounted in an incoherent sequence. The object shows an assembly rather than a presentation. Craft is careless or incomplete.</td>
+        </tr>
+        <tr class="total-row">
+          <td class="item-col">Total</td>
+          <td><span class="range-badge range-excellent">450 pts</span></td>
+          <td><span class="range-badge range-proficient">320 pts max</span></td>
+          <td><span class="range-badge range-developing">204 pts max</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-school">The University of Alabama &middot; Clothing, Textile &amp; Interior Design &middot; Daniel Ronderos M.Arch.</div>
+  <p>CTD 121 &middot; Introduction to Interior Design &middot; Final Project: The Synthesis</p>
+</footer>
+
+<script>
+  const els = document.querySelectorAll('.reveal');
+  const obs = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) { e.target.classList.add('in'); obs.unobserve(e.target); }
+    });
+  }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
+  els.forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
