@@ -469,10 +469,43 @@
       line-height: 1.6;
     }
 
+    .subpart { margin-top: 16px; }
+    .subpart-label {
+      display: inline-block;
+      font-size: 9.5px;
+      font-weight: 700;
+      letter-spacing: 0.16em;
+      text-transform: uppercase;
+      color: var(--white);
+      background: var(--charcoal);
+      padding: 3px 10px;
+      margin-bottom: 8px;
+    }
+    .subpart ul {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .subpart ul li {
+      font-size: 13.5px;
+      color: var(--dark-gray);
+      line-height: 1.65;
+      padding-left: 16px;
+      position: relative;
+    }
+    .subpart ul li::before {
+      content: '\2013';
+      position: absolute;
+      left: 0;
+      color: var(--crimson);
+      font-weight: 700;
+    }
+
     /* ── SETS SECTION ── */
     .sets-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
+      grid-template-columns: repeat(3, 1fr);
       gap: 24px;
       margin-top: 48px;
     }
@@ -832,12 +865,12 @@
   <p class="hero-sub">Design is a response to human need. Anthropometrics &mdash; the relationship between the dimensions of the human body and the objects and spaces built to serve it &mdash; is the foundation of every functional interior.</p>
   <div class="hero-stats">
     <div class="stat">
-      <div class="stat-num">4</div>
+      <div class="stat-num">3</div>
       <div class="stat-lbl">Layouts</div>
     </div>
     <div class="stat">
-      <div class="stat-num">8</div>
-      <div class="stat-lbl">Photographs</div>
+      <div class="stat-num">3</div>
+      <div class="stat-lbl">Reference Boards</div>
     </div>
     <div class="stat">
       <div class="stat-num">150</div>
@@ -859,7 +892,7 @@
   <div class="two-col reveal" style="margin-bottom: 56px;">
     <div class="desc-body">
       <p>Design is a response to human need: a chair supports the spine, a dining table frames a zone for elbows, plates, and conversation. The relationship between the dimensions of the human body and the objects and spaces built to serve it is called <strong>anthropometrics</strong>, and it is the foundation of every functional interior.</p>
-      <p>In this assignment, you will build your own reference library of standard residential objects. Working individually, you will draw and model the residential sets as defined in the provided reference documents, covering four spaces: the living room, the dining room, the kitchen, and the bedroom.</p>
+      <p>In this assignment, you will build your own reference library of standard residential objects. Working individually, you will draw and model the residential sets as defined in the provided reference documents.</p>
     </div>
     <div class="desc-body">
       <p>Recording your process matters as much as the result: photograph your work at each meaningful stage and upload it to the course memory board, the way professionals document their thinking and decisions.</p>
@@ -972,7 +1005,7 @@
           </div>
           <div class="spec-row">
             <span class="spec-k">Formats</span>
-            <span class="spec-v">4 Layouts</span>
+            <span class="spec-v">3 Layouts</span>
           </div>
           <p class="specs-group-label">Drawing Instruments</p>
           <div class="spec-row">
@@ -1034,7 +1067,7 @@
         <span class="scale-badge-value">1/4&Prime; = 1&prime;-0&Prime;</span>
         <span class="scale-badge-label" style="margin-left: 16px;">All Parts &middot; No Exceptions</span>
       </div>
-      <p>The assignment unfolds in six sequential parts. Begin by cataloguing the residential sets in instrument-drawn title blocks; build each piece as a scaled foam-board model; translate the models into orthographic drawings with dimensions and a schematic human figure; assemble drawings and models into four layouts; stage and photograph the human figure interacting with each set; and document every stage progressively on the course memory board.</p>
+      <p>The assignment unfolds in six sequential parts. Begin by cataloguing the residential sets; build each piece as a scaled foam-board model; translate the models into orthographic drawings with dimensions and a schematic human figure; assemble drawings and models into three layouts; then test the human figure against each space, select real materials and furnishings, and use them as the basis for AI-generated interior visualizations; and document every stage progressively on the course memory board.</p>
     </div>
 
     <div class="sec-illus-frame">
@@ -1100,10 +1133,9 @@
     <div class="part-item">
       <span class="part-num">Part 1<br>The<br>Inventory</span>
       <div class="part-body">
-        <p class="part-title">Identifying and Recording the Residential Sets</p>
+        <p class="part-title">Identifying the Residential Sets</p>
         <ul class="part-steps">
-          <li><span><strong>Identify the sets.</strong> Your inventory is limited to the sets listed in the reference documents, which cover four residential spaces: the living room, the dining room, the kitchen, and the bed types.</span></li>
-          <li><span><strong>Record your inventory.</strong> From the reference documents, list every object you will draw and model for each space. List these items along with their governing dimensions in a title block using technical lettering in the bottom-right corner of every 11&Prime;&times;17&Prime; format, leaving right and bottom margins of 1/2&Prime;. One format per set, four in total.</span></li>
+          <li><span><strong>Identify the sets.</strong> Your inventory is limited to the sets listed in the reference documents, which cover three residential spaces: the living room, the dining room, and the kitchen.</span></li>
         </ul>
       </div>
     </div>
@@ -1131,7 +1163,7 @@
           <li><span><strong>Set up your sheets.</strong> On 11&Prime; &times; 17&Prime; white foam boards marked with the corresponding inventories, plan the placement of your drawings using your T-square and triangle rulers.</span></li>
           <li><span><strong>Measure your models.</strong> Use the physical models built in Part 2 as the source for your drawings. Take your measurements directly from the models so the drawings and models correspond exactly.</span></li>
           <li><span><strong>Draw the orthographic views.</strong> For each object or set, draw the top, side, and front views using the T-square, triangles, and architect&rsquo;s scale. Apply a clear line-weight hierarchy: <strong>0.5mm</strong> for projection lines, <strong>0.9mm</strong> to define each object&rsquo;s geometry.</span></li>
-          <li><span><strong>Add a schematic human figure.</strong> Draw a schematic human figure interacting with each set: standing beside the set for scale; seated at the dining table; seated on the sofa or in lounge chairs; and seated or lying on the bed. Draw these figures only in the front or side views &mdash; never in the top view.</span></li>
+          <li><span><strong>Add a schematic human figure.</strong> Draw a schematic human figure interacting with each set: standing beside the set for scale; seated at the dining table; seated on the sofa or in lounge chairs. Draw these figures only in the front or side views &mdash; never in the top view.</span></li>
           <li><span><strong>Dimension the drawings.</strong> Add dimensions to every view. The dimensions are taken from your models and must agree with the reference documents.</span></li>
         </ul>
       </div>
@@ -1143,7 +1175,7 @@
       <div class="part-body">
         <p class="part-title">Assembling Drawing + Model on a Single Format</p>
         <ul class="part-steps">
-          <li><span><strong>Assemble four layouts.</strong> Use the same 11&Prime; &times; 17&Prime; white foam board layouts, one for each space (living room, dining room, kitchen, and bed types). Each layout presents the top, side, and front views of that space&rsquo;s set, along with the physical models placed on the sheet at 1/4&Prime; scale.</span></li>
+          <li><span><strong>Assemble three layouts.</strong> Use the same 11&Prime; &times; 17&Prime; white foam board layouts, one for each space (living room, dining room, and kitchen). Each layout presents the top, side, and front views of that space&rsquo;s set, along with the physical models placed on the sheet at 1/4&Prime; scale.</span></li>
           <li><span><strong>Confirm correspondence.</strong> Position each model directly with its drawn views so that the model footprint aligns with its top view. This side-by-side correspondence proves that your drawing and model share one accurate scale.</span></li>
         </ul>
       </div>
@@ -1153,12 +1185,44 @@
     <div class="part-item">
       <span class="part-num">Part 5<br>Human<br>Figure</span>
       <div class="part-body">
-        <p class="part-title">Staging Interaction &amp; Photographing Each Layout</p>
+        <p class="part-title">Materials, Furnishings &amp; AI-Generated Visualization</p>
         <ul class="part-steps">
           <li><span><strong>Use the provided figure.</strong> You will be given a plastic human figure scaled to represent a 6&prime;-0&Prime; person. Use it to test and demonstrate how the body occupies each space.</span></li>
           <li><span><strong>Stage the interactions.</strong> For each layout, pose the figure interacting with the furniture.</span></li>
-          <li><span><strong>Photograph each layout twice.</strong> For each of the four formats, take one <em>top-parallel</em> photograph (shot straight down, so the drawing-to-model correspondence is legible) and one <em>perspective</em> photograph (at a &ldquo;bird&rsquo;s-eye&rdquo; angle). This produces <strong>eight photographs</strong> in total.</span></li>
         </ul>
+
+        <div class="subpart">
+          <span class="subpart-label">Part 0 &middot; Walls</span>
+          <ul>
+            <li>Model walls, following the guidelines on the formats for each space, surrounding the furniture you created.</li>
+          </ul>
+        </div>
+
+        <div class="subpart">
+          <span class="subpart-label">Part 1 &middot; Photographs &amp; Materials</span>
+          <ul>
+            <li>Capture interesting photographs with your human figure (at least 3 per space).</li>
+            <li>Imagine the material finishes for your living room, dining room, and kitchen.</li>
+            <li>Go down to the basement of Doster Hall, to the material closet, and select samples for the materials you imagine for each space.</li>
+          </ul>
+        </div>
+
+        <div class="subpart">
+          <span class="subpart-label">Part 2 &middot; Catalogs</span>
+          <ul>
+            <li>Look through furniture, light fixture, and equipment catalogs online or in physical publications.</li>
+            <li>Select furniture and fixtures for the different spaces.</li>
+            <li>Print those images.</li>
+          </ul>
+        </div>
+
+        <div class="subpart">
+          <span class="subpart-label">Part 3 &middot; Reference Boards &amp; AI Images</span>
+          <ul>
+            <li>Using the material samples and the printed image references, create three small reference boards (collages) in an 8.5&Prime;&times;11&Prime; format &mdash; one each for the living room, kitchen, and dining room.</li>
+            <li>Photograph the reference boards and use them as stylistic, material, and aesthetic references to create AI images using the same photographs taken in Part 1.</li>
+          </ul>
+        </div>
       </div>
     </div>
 
@@ -1176,9 +1240,9 @@
 
   </div>
 
-  <!-- The Four Sets -->
+  <!-- The Three Sets -->
   <div class="reveal d2" style="margin-top: 64px;">
-    <p class="eyebrow">The Four Residential Sets</p>
+    <p class="eyebrow">The Three Residential Sets</p>
     <h3 style="font-size: 22px; font-weight: 700; color: var(--charcoal); margin-bottom: 12px; line-height: 1.2;">One 11&Prime; &times; 17&Prime; Format Per Space</h3>
     <hr class="sec-rule" style="margin-bottom: 32px;">
     <div class="sets-grid">
@@ -1212,18 +1276,6 @@
           <li data-n="2">Upper Cabinets</li>
           <li data-n="3">Island / Peninsula</li>
           <li data-n="4">Appliances</li>
-        </ul>
-      </div>
-
-      <div class="set-card">
-        <p class="set-label">Format 04</p>
-        <p class="set-name">Bed Types</p>
-        <ul class="set-items">
-          <li data-n="1">Twin Bed</li>
-          <li data-n="2">Full / Double Bed</li>
-          <li data-n="3">Queen Bed</li>
-          <li data-n="4">King Bed</li>
-          <li data-n="5">Nightstands</li>
         </ul>
       </div>
 
@@ -1369,24 +1421,42 @@
 
     <div class="deliverable-card reveal">
       <div class="deliverable-num">Deliverable 01</div>
-      <div class="deliverable-tag">In Class &middot; Physical</div>
-      <div class="deliverable-title">Four 11&Prime; &times; 17&Prime; Layouts</div>
+      <div class="deliverable-tag">Blackboard &middot; PDF</div>
+      <div class="deliverable-title">Layout Photographs &mdash; Drawings Only</div>
       <div class="deliverable-body">
-        Bring your four foam board layouts &mdash; one per residential space &mdash; for display and in-class review. Each layout must include the hand-drawn orthographic views (top, side, and front), the physical foam board models positioned at 1/4&Prime; scale, and the title block inventory in the bottom-right corner with 1/2&Prime; margins. The model footprint must align with its drawn top view.
+        Parallel photographs or scans of each of the three formats, showing the drawings alone. Images must be high-quality, flat, and free of outside noise &mdash; the goal is to showcase the boards themselves.
       </div>
     </div>
 
     <div class="deliverable-card reveal d1">
       <div class="deliverable-num">Deliverable 02</div>
       <div class="deliverable-tag">Blackboard &middot; PDF</div>
-      <div class="deliverable-title">Layout Photographs &mdash; Single PDF</div>
+      <div class="deliverable-title">Layout Photographs &mdash; Model + Drawings</div>
       <div class="deliverable-body">
-        Compile the four title-block inventory lists and all eight photographs into a single PDF submitted through Blackboard. The eight photographs consist of one top-parallel shot and one perspective (bird&rsquo;s-eye) shot for each of the four layouts. Top-parallel shots must be taken straight overhead; perspective shots at a clear diagonal angle. All images must be well-lit and correctly framed.
+        One parallel photograph and one perspective (diagonal, bird&rsquo;s-eye) photograph of each of the three formats &mdash; three parallel and three perspective images in total &mdash; with the physical models pasted into the space assigned to the top view. High-quality, flat, and free of outside noise.
       </div>
     </div>
 
     <div class="deliverable-card reveal d2">
       <div class="deliverable-num">Deliverable 03</div>
+      <div class="deliverable-tag">Blackboard &middot; PDF</div>
+      <div class="deliverable-title">The Three Reference Boards</div>
+      <div class="deliverable-body">
+        Parallel photographs or scans of each of the three 8.5&Prime;&times;11&Prime; material and image reference boards (collages) &mdash; one for the living room, dining room, and kitchen.
+      </div>
+    </div>
+
+    <div class="deliverable-card reveal d3">
+      <div class="deliverable-num">Deliverable 04</div>
+      <div class="deliverable-tag">Blackboard &middot; PDF</div>
+      <div class="deliverable-title">Side-by-Side AI Comparisons</div>
+      <div class="deliverable-body">
+        One comparison image per space, placing the original photograph of the human figure with the modeled furniture on the left and the AI-generated image &mdash; created using the reference board as a stylistic, material, and aesthetic guide &mdash; on the right.
+      </div>
+    </div>
+
+    <div class="deliverable-card reveal">
+      <div class="deliverable-num">Deliverable 05</div>
       <div class="deliverable-tag">Course Memory Board &middot; Ongoing</div>
       <div class="deliverable-title">Process Documentation</div>
       <div class="deliverable-body">
@@ -1394,14 +1464,23 @@
       </div>
     </div>
 
-    <div class="deliverable-card reveal d3">
+    <div class="deliverable-card reveal d1">
+      <div class="deliverable-num">Deliverable 06</div>
+      <div class="deliverable-tag">In Class &middot; Physical</div>
+      <div class="deliverable-title">Three 11&Prime; &times; 17&Prime; Layouts</div>
+      <div class="deliverable-body">
+        Bring your three foam board layouts &mdash; one per residential space &mdash; with drawings and foam models, for display and in-class review.
+      </div>
+    </div>
+
+    <div class="deliverable-card reveal d2" style="grid-column: 1 / -1;">
       <div class="deliverable-num">Summary</div>
       <div class="deliverable-tag">At a Glance</div>
       <div class="deliverable-title">What to Submit &amp; Where</div>
       <div class="deliverable-body">
-        <strong>In class:</strong> four 11&Prime; &times; 17&Prime; foam board layouts with drawings and models.<br><br>
-        <strong>Blackboard:</strong> single PDF with inventory title blocks and eight photographs (4 top-parallel + 4 perspective).<br><br>
-        <strong>Memory board:</strong> progressive process images uploaded throughout the assignment, not only at submission.
+        <strong>Blackboard (PDF):</strong> drawings-only layout photos, model+drawings layout photos (3 parallel + 3 perspective), the three reference boards, and three side-by-side AI comparison images.<br><br>
+        <strong>Memory board:</strong> progressive process images uploaded throughout the assignment, not only at submission.<br><br>
+        <strong>In class:</strong> three 11&Prime; &times; 17&Prime; foam board layouts with drawings and models.
       </div>
     </div>
 
