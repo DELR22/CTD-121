@@ -624,6 +624,106 @@
   @media (max-width: 560px) {
     .ctd-global-brand span { display: none; }
   }
+
+    /* ── INVADERS TRIVIA ── */
+    .lvbar { background: var(--charcoal); border-bottom: 2px solid var(--crimson); padding: 14px 56px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; scroll-margin-top: 8px; }
+    .lvbar-lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-right: 10px; }
+    .lv-btn { font-family: inherit; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,.7); background: transparent; border: 1px solid rgba(255,255,255,.18); padding: 7px 11px; border-radius: 3px; cursor: pointer; white-space: nowrap; transition: all .15s ease; }
+    .lv-btn:hover:not(:disabled) { color: #fff; background: rgba(255,255,255,.08); }
+    .lv-btn.done { color: #fff; border-color: rgba(255,255,255,.45); }
+    .lv-btn.done::after { content: " \2713"; }
+    .lv-btn.current { color: #fff; background: var(--crimson); border-color: var(--crimson); }
+    .lv-btn:disabled { color: rgba(255,255,255,.28); cursor: not-allowed; }
+    .lvbar-right { margin-left: auto; display: flex; align-items: center; gap: 16px; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+    .lvbar-right button { font: inherit; letter-spacing: inherit; text-transform: inherit; color: rgba(255,255,255,.45); background: none; border: none; text-decoration: underline; cursor: pointer; }
+    .lvbar-right button:hover { color: #fff; }
+    .lvbar-msg { flex-basis: 100%; font-size: 12px; font-weight: 600; color: #f0b9c2; }
+    .lvbar-msg:empty { display: none; }
+    .level { display: none; }
+    .level.on { display: block; }
+    body.review .level { display: block; }
+    body.review .arena, body.review .lvbar, body.review .howto-steps { display: none; }
+    .lv-phases .s03-svg { max-width: 760px; margin: 0 auto 56px; }
+    .level[data-level="3"] .lv-phases { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "svg p1" "svg p2"; column-gap: 56px; align-items: start; }
+    .level[data-level="3"] .lv-phases .s03-svg { max-width: none; margin: 0; position: sticky; top: 24px; }
+    .level[data-level="3"] .lv-phases .inst-part-block + .inst-part-block { margin-top: 40px; }
+    .film-callout p.film-link { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.9); }
+    .film-callout p.film-link a { color: #fff; font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--crimson-mid); }
+    .film-callout p.film-link a:hover { border-bottom-color: #fff; }
+    .video-cta { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 32px; padding: 24px 28px; background: var(--crimson); color: #fff; text-decoration: none; transition: background .15s ease; }
+    .video-cta:hover { background: var(--crimson-dark); }
+    .video-cta-label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-bottom: 6px; }
+    .video-cta-title { display: block; font-size: 22px; font-weight: 700; line-height: 1.2; color: #fff; }
+    .video-cta-arrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; border: 1px solid rgba(255,255,255,.6); padding: 12px 20px; white-space: nowrap; }
+    .red-note { background: var(--crimson-pale); border-left: 8px solid var(--crimson); color: var(--crimson); font-size: 21px; font-weight: 700; line-height: 1.45; padding: 26px 30px; margin: 0 0 40px; }
+    .sub-step { display: block; margin-top: 12px; padding-left: 14px; border-left: 2px solid var(--crimson); }
+    .sub-step b { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: var(--crimson); margin-right: 10px; }
+    .deliverable-body strong { color: var(--crimson); font-weight: 700; }
+    .deliverable-body p + p { margin-top: 10px; }
+    @media (max-width: 960px) {
+      .level[data-level="3"] .lv-phases { grid-template-columns: 1fr; grid-template-areas: "svg" "p1" "p2"; }
+      .level[data-level="3"] .lv-phases .s03-svg { position: static; margin-bottom: 40px; }
+      .video-cta-title { font-size: 18px; }
+      .red-note { font-size: 18px; padding: 22px 22px; }
+    }
+    .howto-steps { max-width: 760px; }
+    .gate { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--charcoal); padding: 28px 28px 24px; max-width: 760px; margin-top: 40px; }
+    .gate-title { font-size: 17px; font-weight: 700; color: var(--charcoal); margin-bottom: 12px; }
+    .gate ul { list-style: none; }
+    .gate li { position: relative; padding: 3px 0 3px 18px; font-size: 14px; color: var(--dark-gray); line-height: 1.7; }
+    .gate li::before { content: ""; position: absolute; left: 0; top: 13px; width: 6px; height: 6px; background: var(--crimson); }
+    .gate-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 16px; }
+    .gate-row[hidden], #gate-reset[hidden] { display: none; }
+    .gate-row label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-gray); }
+    .gate-row input { flex: 1; min-width: 180px; font-family: inherit; font-size: 14px; color: var(--charcoal); background: var(--off-white); border: 1px solid var(--rule); padding: 11px 14px; }
+    .gate-msg { font-size: 13px; font-weight: 600; margin-top: 12px; }
+    .gate-msg:empty { display: none; }
+    .gate-msg.bad { color: var(--crimson); }
+    .gate-msg.good { color: #2d6a3f; }
+    .g-btn { font-family: inherit; display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; background: var(--crimson); border: 1px solid var(--crimson); padding: 12px 22px; cursor: pointer; transition: background .15s ease; }
+    .g-btn:hover { background: var(--crimson-dark); }
+    .g-btn.line { background: transparent; color: var(--crimson); margin-top: 14px; }
+    .g-btn.line:hover { background: var(--crimson-pale); }
+    .arena { background: var(--charcoal); padding: 80px 56px; color: #fff; }
+    .arena .eyebrow { color: var(--crimson-mid); }
+    .arena-title { font-size: 30px; font-weight: 700; line-height: 1.15; color: #fff; margin-bottom: 32px; }
+    .arena-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+    .arena.cleared .stage-col { display: none; }
+    .arena.cleared .arena-grid { grid-template-columns: minmax(0, 640px); }
+    canvas#stage { display: block; width: 100%; aspect-ratio: 640 / 400; background: #14110f; border: 1px solid rgba(255,255,255,.18); touch-action: none; }
+    canvas#stage:focus-visible { outline: 2px solid var(--crimson-mid); outline-offset: 3px; }
+    .stage-status { margin-top: 12px; min-height: 18px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+    .stage-status b { color: #fff; }
+    .pad { display: flex; gap: 8px; margin-top: 12px; }
+    .pad button { font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; background: transparent; border: 1px solid rgba(255,255,255,.3); padding: 12px 20px; cursor: pointer; touch-action: manipulation; user-select: none; -webkit-user-select: none; }
+    .pad button:active { border-color: #fff; }
+    .pad .fire { flex: 1; background: var(--crimson); border-color: var(--crimson); }
+    .qcard { background: var(--white); border-top: 3px solid var(--crimson); padding: 28px 28px 24px; color: var(--charcoal); min-height: 260px; }
+    .qcard:focus { outline: none; }
+    .q-kicker { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--crimson); margin-bottom: 10px; }
+    .q-text { font-size: 17px; font-weight: 700; line-height: 1.35; color: var(--charcoal); margin-bottom: 18px; }
+    .q-idle { font-size: 14px; color: var(--dark-gray); line-height: 1.8; }
+    .q-opt { display: grid; grid-template-columns: 26px 1fr; gap: 8px; width: 100%; text-align: left; font-family: inherit; font-size: 14px; line-height: 1.55; color: var(--dark-gray); background: var(--off-white); border: 1px solid var(--rule); padding: 11px 14px; margin-bottom: 8px; cursor: pointer; transition: all .15s ease; }
+    .q-opt:hover:not(:disabled), .q-opt:focus-visible { border-color: var(--crimson); background: var(--crimson-pale); }
+    .q-opt:disabled { opacity: 0.5; cursor: not-allowed; }
+    .q-opt .k { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: var(--crimson); padding-top: 4px; }
+    .q-fb { font-size: 13px; font-weight: 600; min-height: 20px; margin-top: 10px; }
+    .q-fb.bad { color: var(--crimson); }
+    .q-fb.good { color: #2d6a3f; }
+    .qcard .g-btn { margin-top: 14px; }
+    #results[hidden] { display: none; }
+    .results-list { list-style: none; max-width: 760px; }
+    .results-list li { font-size: 14px; color: var(--dark-gray); line-height: 1.7; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+    .results-list li:last-child { border-bottom: none; }
+    .results-list strong { color: var(--charcoal); }
+    .results-note { font-size: 15px; color: var(--dark-gray); line-height: 1.8; max-width: 760px; margin-bottom: 28px; }
+    .results-note strong { color: var(--charcoal); }
+    @media (max-width: 960px) {
+      .lvbar, .arena { padding-left: 24px; padding-right: 24px; }
+      .arena { padding-top: 56px; padding-bottom: 56px; }
+      .arena-grid { grid-template-columns: 1fr; }
+      .lv-name { display: none; }
+    }
 </style>
 </head>
 <body>
@@ -680,7 +780,45 @@
   </div>
 </header>
 
-<!-- SECTION 01: DESCRIPTION + SLOs -->
+<!-- HOW TO PLAY -->
+<section class="section warm" id="howto">
+  <p class="eyebrow">How to Play</p>
+  <h2 class="sec-title">The guide is now a game</h2>
+  <hr class="sec-rule">
+  <ol class="instruction-list howto-steps">
+    <li><span><strong>Read the level.</strong> Each level shows one part of the assignment guide. Read it first.</span></li>
+    <li><span><strong>Shoot the ships.</strong> Five alien ships descend on the stage below the guide. Move with the left and right arrow keys and fire with the space bar, or use the on-screen buttons.</span></li>
+    <li><span><strong>Answer the question.</strong> Each time you hit a ship, you get a question about the guide. A correct answer destroys the ship. A wrong answer keeps it alive, and you try again.</span></li>
+    <li><span><strong>Clear the level.</strong> Destroy all five ships to unlock the next level. There are 7 levels and 35 questions.</span></li>
+  </ol>
+  <form class="gate" id="gate" autocomplete="off">
+    <p class="gate-title">Already completed the game?</p>
+    <ul>
+      <li>Send a screenshot of your <strong>Results</strong> to your teacher.</li>
+      <li>Your teacher gives you a password.</li>
+      <li>Enter it here to open the full guide without playing again.</li>
+    </ul>
+    <div class="gate-row" id="gate-row">
+      <label for="gate-pw">Password</label>
+      <input id="gate-pw" type="text" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <button class="g-btn" type="submit">Open the guide</button>
+    </div>
+    <p class="gate-msg" id="gate-msg" role="status" aria-live="polite"></p>
+    <button class="g-btn line" type="button" id="gate-reset" hidden>Reset the game</button>
+  </form>
+</section>
+
+<!-- LEVEL BAR -->
+<div class="lvbar" id="game">
+  <span class="lvbar-lbl">Levels</span>
+  <span id="lv-steps" style="display:contents"></span>
+  <span class="lvbar-right"><span id="lv-count"></span><button type="button" id="lv-reset">Reset progress</button></span>
+  <p class="lvbar-msg" id="lv-msg" role="status" aria-live="polite"></p>
+</div>
+
+<div id="levels">
+<!-- LEVEL 01 -->
+<div class="level" data-level="1">
 <section class="section alt" id="description">
   <p class="eyebrow">Section 01</p>
   <h2 class="sec-title">Introduction &amp; Student Learning Outcomes</h2>
@@ -696,6 +834,7 @@
         <p class="film-callout-label">The Film Synopsis &mdash; A Stage for Behavior</p>
         <p><em>Dogville</em> is a parable set in a small American mining town during the Great Depression. The film is shot entirely on a bare soundstage. Buildings are represented only by white chalk outlines on the floor. When a character opens a door, the sound effect plays, but there is no physical door.</p>
         <p>This device makes the walls transparent, allowing the viewer to see simultaneous actions across the entire town. It transforms the &ldquo;floor plan&rdquo;&mdash;usually a technical drawing&mdash;into a living, breathing stage for human interaction.</p>
+        <p class="film-link">Visit the <a href="https://www.imdb.com/title/tt0276919/mediaindex/" target="_blank" rel="noopener">Dogville image gallery on IMDb &rarr;</a> to get a sense of the movie&rsquo;s spatial design and aesthetic vision.</p>
       </div>
     </div>
   </div>
@@ -756,8 +895,10 @@
     </ul>
   </div>
 </section>
+</div>
 
-<!-- SECTION 02: MATERIALS & RESOURCES -->
+<!-- LEVEL 02 -->
+<div class="level" data-level="2">
 <section class="inst-sec warm" id="materials">
   <div class="ghost-label">02</div>
   <div class="inst-inner">
@@ -776,6 +917,10 @@
         </ol>
       </div>
     </div>
+    <a class="video-cta reveal" href="https://alabama.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=b0a6ee36-6de4-46e7-9985-b3f60037351b" target="_blank" rel="noopener">
+      <span><span class="video-cta-label">Video Tutorial Playlist</span><span class="video-cta-title">Watch the Assignment 05 videos on Panopto</span></span>
+      <span class="video-cta-arrow">Open the playlist &rarr;</span>
+    </a>
     <div class="specs-panel-horiz reveal" style="margin-top: 32px;">
       <div class="specs-horiz-group">
         <p class="specs-group-label">Phase 2 &mdash; Drafting Materials</p>
@@ -837,13 +982,15 @@
     </div>
   </div>
 </section>
+</div>
 
-<!-- SECTION 03: INSTRUCTIONS -->
+<!-- LEVEL 03 -->
+<div class="level" data-level="3">
 <section class="section alt" id="instructions">
   <p class="eyebrow">Section 03</p>
   <h2 class="sec-title">Instructions</h2>
   <hr class="sec-rule">
-  <div class="sec03-layout">
+  <div class="lv-phases">
       <div class="reveal s03-svg">
         <svg width="100%" viewBox="0 0 690 520" xmlns="http://www.w3.org/2000/svg" role="img">
         <title>Abstract workflow illustration for the Dogville Initiative assignment</title>
@@ -1083,60 +1230,79 @@
         <text x="480" y="505" font-family="sans-serif" font-size="5.5" fill="#B0A8A0" letter-spacing="4" opacity="0.5">INHABIT</text>
       </svg>
       </div>
-
-
     <div class="inst-part-block reveal d1 s03-p1">
       <p class="instructions-label">Phase 1 &mdash; Orientation</p>
       <ol class="instruction-list">
+        <li><span><strong>Follow in-class instructions.</strong> The teacher will review the assignment structure. Attend and take notes, as the in-class explanations clarify the expectations for all required deliverables.</span></li>
         <li><span><strong>Watch the video explanation.</strong> Before beginning any drawing or model work, watch the <a href="https://alabama.hosted.panopto.com/Panopto/Pages/Sessions/List.aspx?folderID=b0a6ee36-6de4-46e7-9985-b3f60037351b" target="_blank" rel="noopener">Assignment 05 Explanation videos posted on Panopto</a>. The video covers the overall sequence, the source documents on Blackboard, and key decisions you will need to make throughout the phases.</span></li>
-        <li><span><strong>Follow in-class instructions.</strong> Your instructor will review the assignment structure during the Phase 1 session. Attend and take notes&mdash;in-class context clarifies the expectations for both models and the photography phase.</span></li>
       </ol>
     </div>
-
     <div class="inst-part-block reveal d2 s03-p2">
       <p class="instructions-label">Phase 2 &mdash; Scale Transfer &mdash; Drafting at 1/4&Prime;&nbsp;=&nbsp;1&prime;&#8209;0&Prime;</p>
       <ol class="instruction-list">
-        <li><span><strong>Obtain the source documents.</strong> Download the 1/8&Prime;&nbsp;=&nbsp;1&prime;&#8209;0&Prime; floor plan and exterior elevations from Blackboard (Assignment 5 module). These are the only documents from which you may take measurements.</span></li>
-        <li><span><strong>Set up your 20&Prime;&times;30&Prime; board.</strong> Using T-square and triangle rulers, plan the layout so the floor plan and all elevations fit within the board with adequate margins. Do not cut the board at this stage&mdash;it will be used again in Phase 3.</span></li>
-        <li><span><strong>Transfer and redraw at 1/4&Prime;&nbsp;=&nbsp;1&prime;&#8209;0&Prime;.</strong> Measure each wall, opening, and fixture from the 1/8&Prime; original using the architect&rsquo;s scale, then redraw at double the scale. All measurements must be transferred with precision.</span></li>
+        <li><span><strong>Obtain the source documents.</strong> Download and print the 1/8&Prime;&nbsp;=&nbsp;1&prime;&#8209;0&Prime; floor plan and exterior elevations from Blackboard (Assignment 5 module). You must print the 11&Prime;&times;8.5&Prime; and 11&Prime;&times;17&Prime; formats, as these are the only documents from which you may take measurements.</span></li>
+        <li><span><strong>Set up your 20&Prime;&times;30&Prime; board.</strong> Using T-square and triangle rulers, plan the layout so the floor plan and all elevations fit within the board with adequate margins. Do NOT cut the board at this stage, as the edges will be used in future phases of the assignment.</span></li>
+        <li><span><strong>Transfer and redraw from 1/8&Prime;&nbsp;=&nbsp;1&prime;&#8209;0&Prime; to 1/4&Prime;&nbsp;=&nbsp;1&prime;&#8209;0&Prime;.</strong> Measure each wall, opening, and fixture from the 1/8&Prime; original (the 11&Prime;&times;17&Prime; printout) using the architect&rsquo;s scale, then redraw at 1/4&Prime; scale. All measurements must be transferred with precision, as they are the same, just at a larger scale. This is the ultimate exercise to understand scale as a mathematical and technical tool that allows designers to draw the true (real world) dimensions of objects in augmented or reduced visualizations.</span></li>
         <li><span><strong>Apply the line-weight hierarchy.</strong> Use <strong>0.5mm</strong> for construction lines and floor texture; <strong>0.7mm</strong> for furniture, doors, and windows; <strong>0.9mm</strong> for walls. Pencils must be well-sharpened throughout.</span></li>
-        <li><span><strong>Use templates for all furniture and fixtures.</strong> Draw all doors (including swing arcs), windows, furniture, and bathroom fixtures using your 1/4&Prime; templates. Freehand representation of these elements is not acceptable.</span></li>
+        <li><span><strong>Use templates for all furniture and fixtures.</strong> Draw all doors (including swing arcs), windows, furniture, and bathroom fixtures using your 1/4&Prime; templates, included in the course&rsquo;s material kit. Freehand representation of these elements is not acceptable.</span></li>
       </ol>
     </div>
+  </div>
+</section>
+</div>
 
+<!-- LEVEL 04 -->
+<div class="level" data-level="4">
+<section class="section alt" id="phase3">
+  <p class="eyebrow">Section 03 &middot; Continued</p>
+  <h2 class="sec-title">Instructions</h2>
+  <hr class="sec-rule">
+  <div class="lv-phases">
     <div class="inst-part-block reveal d3 s03-p3">
       <p class="instructions-label">Phase 3 &mdash; Model Construction</p>
+      <p class="red-note">Detailed documenting of both model making processes is fundamental for the exercise, as the sequence of photographs must convey your understanding of vertical planes, and the construction of elevations using orthogonal projections.</p>
 
       <p class="inst-sub-label">Model 1 &mdash; 1/8&Prime; Scale Volumetric Model</p>
       <ol class="instruction-list">
         <li><span><strong>Prepare the base.</strong> Paste the provided 1/8&Prime; scale floor plan onto an 11&Prime;&times;8.5&Prime; foam board. This is the base plate of your model.</span></li>
-        <li><span><strong>Build the wall structure.</strong> Using white cardboard, construct all walls, vertical partitions, window openings, and doorways. The length and thickness of every element must match the 1/8&Prime; floor plan exactly.</span></li>
-        <li><span><strong>Match heights to the elevations.</strong> Wall, window, and doorway heights must correspond to the dimensions shown in the elevations provided alongside the 1/8&Prime; floor plan.</span></li>
+        <li><span><strong>Build the wall structure.</strong> Using white backing cardboard, construct all walls, vertical partitions, window openings, and doorways. The length and thickness of every element must match the 1/8&Prime; floor plan exactly, as indicated in the video tutorial.<span class="sub-step"><b>2.1</b>The base of this model must be the 1/8&Prime;-scale floor plan on the 8.5&Prime;&times;11&Prime; format with all your measurements and annotations.</span></span></li>
+        <li><span><strong>Match heights to the elevations.</strong> Wall, window, and doorway heights must correspond to the dimensions shown in the elevations provided alongside the 1/8&Prime; floor plan, as shown in the video tutorials.</span></li>
       </ol>
 
       <p class="inst-sub-label">Model 2 &mdash; 1/4&Prime; Scale Elevation-to-Wall Model</p>
       <ol class="instruction-list">
-        <li><span><strong>Cut the elevations from your Phase 2 board.</strong> Once all drawing is complete, carefully cut each hand-drawn 1/4&Prime; elevation panel out of the 20&Prime;&times;30&Prime; foam board. Cuts must be precise so the panels read as clean wall surfaces.</span></li>
-        <li><span><strong>Rotate each elevation into a vertical wall.</strong> Stand each panel upright so it becomes a three-dimensional exterior wall, with the drawn door and window openings fully expressed.</span></li>
-        <li><span><strong>Assemble on the 1/4&Prime; floor plan.</strong> Paste the rotated elevation walls onto the corresponding exterior walls of your 1/4&Prime; hand-drawn floor plan, assembling the complete perimeter of the house.</span></li>
+        <li><span><strong>Cut the elevations from your 1/4&Prime; scale board.</strong> Once you have transferred the complete floor plan from 1/8&Prime; scale to 1/4&Prime; scale, carefully cut each hand-drawn 1/4&Prime; elevation panel out of the 20&Prime;&times;30&Prime; foam board. Cuts must be precise so the panels read as clean wall surfaces.</span></li>
+        <li><span><strong>Rotate each elevation into a vertical wall.</strong> Stand each panel upright so it becomes a three-dimensional exterior wall, with the drawn door and window openings fully expressed, as shown in the video tutorials.</span></li>
+        <li><span><strong>Assemble on the 1/4&Prime; floor plan.</strong> Paste the rotated elevation walls onto the corresponding exterior walls of your 1/4&Prime; hand-drawn floor plan, assembling the complete perimeter of the house, as shown in the video tutorials.</span></li>
       </ol>
       <div class="safety-note">Safety: always cut on a mat, draw the blade away from your hand, and cap or retract it when not in use. Replace dull blades before cutting the foam board panels&mdash;a dull blade tears rather than slices cleanly.</div>
     </div>
+  </div>
+</section>
+</div>
 
+<!-- LEVEL 05 -->
+<div class="level" data-level="5">
+<section class="section alt" id="phase4">
+  <p class="eyebrow">Section 03 &middot; Continued</p>
+  <h2 class="sec-title">Instructions</h2>
+  <hr class="sec-rule">
+  <div class="lv-phases">
     <div class="inst-part-block reveal d1 s03-p4">
       <p class="instructions-label">Phase 4 &mdash; Narrative Photography</p>
       <ol class="instruction-list">
-        <li><span><strong>Populate the model.</strong> Use the human-scale figure and furniture models from Assignment 04 to populate the 1/4&Prime; scale floor plan/model. Figures and furniture should be actively placed to suggest occupancy, not simply set in frame.</span></li>
+        <li><span><strong>Populate the model.</strong> Use the human-scale figure and furniture models from Assignment 04, and the Beds models (<a href="https://alabama.hosted.panopto.com/Panopto/Pages/Viewer.aspx?id=ed9f8ca6-d4d3-407f-9f17-b3eb0144469d" target="_blank" rel="noopener">watch the video tutorial on Panopto</a>), to populate the 1/4&Prime; scale floor plan/model. Figures and furniture should be actively placed to show the activities that take place inside each room.<span class="sub-step"><b>1.1</b>Drawing from your experience in creating interesting spatial photographs from previous assignments, create compelling and narrative scenes that situate us inside the house you have drawn and modeled.</span></span></li>
         <li><span><strong>Explore varied vantage points.</strong> Each photograph must represent a distinct perspective within the model&mdash;overhead, eye-level, room-to-room, threshold views. The ten images should collectively invite the viewer to imagine inhabiting the space.</span></li>
         <li><span><strong>Control the background.</strong> Shoot against a clean, neutral, shadow-free surface. No external objects or distracting backgrounds should appear in any frame.</span></li>
-        <li><span><strong>Produce ten photographs in total.</strong> Compile all ten narrative images into your Blackboard PDF submission alongside the floor plan and model photographs (see Deliverables).</span></li>
+        <li><span><strong>Produce ten photographs in total.</strong> Create a coherent narrative with ten photographs of your 1/4&Prime;-scale model.</span></li>
       </ol>
     </div>
-
   </div>
 </section>
+</div>
 
-<!-- SECTION 04: RUBRIC -->
+<!-- LEVEL 06 -->
+<div class="level" data-level="6">
 <section class="section warm" id="rubric">
   <p class="eyebrow">Section 04</p>
   <h2 class="sec-title">Evaluation Rubric</h2>
@@ -1252,8 +1418,10 @@
     </table>
   </div>
 </section>
+</div>
 
-<!-- SECTION 05: DELIVERABLES -->
+<!-- LEVEL 07 -->
+<div class="level" data-level="7">
 <section class="section alt" id="deliverables">
   <p class="eyebrow">Section 05</p>
   <h2 class="sec-title">Deliverables</h2>
@@ -1263,13 +1431,13 @@
     <div class="deliverable-card reveal">
       <div class="deliverable-num">Deliverable 01 &mdash; Blackboard PDF</div>
       <div class="deliverable-title">1/4&Prime; Scale Floor Plan &amp; Elevations</div>
-      <div class="deliverable-body">Parallel photographs of the hand-drawn floor plan and elevations transferred accurately from the provided 1/8&Prime; scale. Consistent line weight from well-sharpened pencils; all doors (with swings), windows, furniture, and fixtures drawn using 1/4&Prime; templates.</div>
+      <div class="deliverable-body"><p>Parallel photographs, directly from above, of the hand-drawn floor plan and elevations of the 1/4&Prime; scale drawings.</p><p><strong>NOTE: TAKE THESE PHOTOGRAPHS BEFORE CUTTING THE ELEVATIONS FROM THE FOAM BOARD AND BUILDING THE 1/4&Prime; SCALE MODEL.</strong></p><p>Be sure to use consistent line weight from well-sharpened pencils; all doors (with swings), windows, furniture, and fixtures drawn using 1/4&Prime; templates.</p></div>
     </div>
 
     <div class="deliverable-card reveal d1">
       <div class="deliverable-num">Deliverable 02 &mdash; Blackboard PDF</div>
-      <div class="deliverable-title">1/8&Prime; Scale Volumetric Model</div>
-      <div class="deliverable-body">Two photographs of the white cardboard model built from the 1/8&Prime; floor plan and elevations on an 11&Prime;&times;8.5&Prime; foam board base. Walls, partitions, windows, and doorways must match the source documents precisely in dimension and height.</div>
+      <div class="deliverable-title">1/8&Prime; Scale Volumetric Model, bring it to class.</div>
+      <div class="deliverable-body">Two photographs of the white cardboard model built from the 1/8&Prime; floor plan and elevations on an 11&Prime;&times;8.5&Prime; foam board base with your measurements and annotations. Walls, partitions, windows, and doorways must match the source documents precisely in dimension and height.</div>
     </div>
 
     <div class="deliverable-card reveal d2">
@@ -1281,16 +1449,45 @@
     <div class="deliverable-card reveal d3">
       <div class="deliverable-num">Deliverable 04 &mdash; Blackboard PDF</div>
       <div class="deliverable-title">Ten Narrative Photographs</div>
-      <div class="deliverable-body">Ten high-quality images of the 1/4&Prime; scale model populated with Assignment 04&rsquo;s human-scale figures and furniture, set against a neutral, shadow-free background. Each photograph should explore a distinct vantage point that invites the viewer to imagine inhabiting the space.</div>
+      <div class="deliverable-body">A single PDF that compiles the ten-photograph narrative of the interior spaces created in the 1/4&Prime; scale model. The model must be populated with the human-scale figures and furniture. Set against a neutral, shadow-free background.</div>
     </div>
 
     <div class="deliverable-card reveal d4">
       <div class="deliverable-num">Deliverable 05 &mdash; Memory Board</div>
       <div class="deliverable-title">Collaborative Memory Board</div>
-      <div class="deliverable-body">Continuous process documentation uploaded throughout all four phases&mdash;measuring, drafting, cutting, building, and photographing. Entries must show genuine progression across the assignment. Documentation uploaded only at submission will not meet this requirement.</div>
+      <div class="deliverable-body">Continuous process documentation uploaded throughout all phases&mdash;measuring, drafting, cutting, building, and photographing. Entries must show genuine progression across the assignment, <strong>NOT ONLY FINALIZED WORK</strong>. Documentation uploaded only at submission in Blackboard will <strong>NOT</strong> meet this requirement.</div>
     </div>
 
   </div>
+</section>
+</div>
+</div>
+
+<!-- ARENA -->
+<section class="arena" id="arena">
+  <p class="eyebrow" id="arena-eyebrow">Checkpoint</p>
+  <h2 class="arena-title" id="arena-title">Shoot the five ships</h2>
+  <div class="arena-grid">
+    <div class="stage-col">
+      <canvas id="stage" tabindex="0" aria-label="Game stage. Move with the left and right arrow keys and fire with the space bar. Each ship you hit opens a question."></canvas>
+      <div class="stage-status" id="stage-status" role="status" aria-live="polite"></div>
+      <div class="pad" aria-label="Game controls">
+        <button type="button" data-key="left" aria-label="Move left">&#9664;</button>
+        <button type="button" class="fire" data-key="fire">Fire</button>
+        <button type="button" data-key="right" aria-label="Move right">&#9654;</button>
+      </div>
+    </div>
+    <div class="qcard" id="qcard" tabindex="-1" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="section warm" id="results" hidden>
+  <p class="eyebrow">Results &middot; Assignment 05</p>
+  <h2 class="sec-title">All 7 levels cleared</h2>
+  <hr class="sec-rule">
+  <p class="results-note"><strong>Take a screenshot of this Results section and send it to your teacher.</strong> Your teacher will give you the password that opens the full guide without playing again.</p>
+  <ul class="results-list" id="results-list"></ul>
 </section>
 
 <!-- FOOTER -->
@@ -1307,6 +1504,375 @@
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
   els.forEach(el => obs.observe(el));
+</script>
+<script>
+/* ── INVADERS TRIVIA ──
+   Each level is one wave of 5 ships. Each ship asks one question when hit.
+   QUIZ[level][question] : a = index of the correct option (options are shuffled when shown). */
+(function(){
+var LEVELS=[
+ {short:"Introduction",name:"Introduction & Student Learning Outcomes"},
+ {short:"Materials",name:"Materials & Resources"},
+ {short:"Phases 1–2",name:"Phases 1–2: Orientation & Scale Transfer"},
+ {short:"Phase 3",name:"Phase 3: Model Construction"},
+ {short:"Phase 4",name:"Phase 4: Narrative Photography"},
+ {short:"Rubric",name:"Evaluation Rubric"},
+ {short:"Deliverables",name:"Deliverables"}
+];
+var NAVMAP={"#materials":2,"#instructions":3,"#rubric":6,"#deliverables":7};
+var QUIZ=[
+ [
+  {q:"Between which two scales do you transfer the measurements?",opts:["From 1/8″ = 1′-0″ to 1/4″ = 1′-0″","From 1/4″ = 1′-0″ to 1/8″ = 1′-0″","From 1/16″ = 1′-0″ to 1/8″ = 1′-0″","From 1/4″ = 1′-0″ to 1/2″ = 1′-0″"],a:0},
+  {q:"How are the buildings represented in the film Dogville?",opts:["By white chalk outlines on the floor of a bare soundstage","By full-size wooden houses on a real street","By painted backdrops behind the actors","By computer-generated models"],a:0},
+  {q:"What does that device do to the walls?",opts:["It makes them transparent, so the viewer sees simultaneous actions across the entire town","It makes them taller than in a real town","It hides the actors when they go indoors","It removes the floor plan from view"],a:0},
+  {q:"Under “Create”, what do you construct?",opts:["Two physical models: a 1/8″ cardboard volumetric model and a 1/4″ elevation-derived wall model","One digital model of the house","Three models at 1/2″ scale","One 1/4″ model made of wood"],a:0},
+  {q:"Why should you visit the Dogville image gallery on IMDb?",opts:["To get a sense of the movie’s spatial design and aesthetic vision","To download the floor plan and elevations","To watch the assignment tutorial videos","To upload your progress photographs"],a:0}
+ ],
+ [
+  {q:"Where do you upload progress photographs throughout all phases?",opts:["To the Collaborative Memory Board","To Panopto","To a personal folder, only at the end","To the Blackboard PDF only"],a:0},
+  {q:"What must you do before beginning any drawing or construction?",opts:["Watch the Assignment 05 Explanation video on Panopto and follow the in-class instructions","Cut the foam board into wall panels","Take the ten narrative photographs","Build the 1/8″ model"],a:0},
+  {q:"What is the 20″ × 30″ foam board used for?",opts:["It carries the drawings in Phase 2 and becomes the wall panels in Phase 3","It is the base plate of Model 1","It is the background for the photographs","It protects the table when cutting"],a:0},
+  {q:"Where do all measurements come from?",opts:["The 1/8″ floor plan and elevations posted on Blackboard, with no estimation","Your own estimate of a typical house","A floor plan you find online","The Panopto video frames"],a:0},
+  {q:"Which triangle rulers are listed in the Phase 2 drafting materials?",opts:["45° and 30°/60°","45° only","90° only","15° and 75°"],a:0}
+ ],
+ [
+  {q:"In which formats must you print the source documents?",opts:["11″ × 8.5″ and 11″ × 17″","20″ × 30″ only","11″ × 8.5″ only","Any format; you measure on screen"],a:0},
+  {q:"How do you set up the 20″ × 30″ board?",opts:["Plan the layout so the floor plan and all elevations fit with adequate margins, and do NOT cut the board at this stage","Cut the board into panels first, then draw","Draw only the floor plan and leave the elevations for later","Trim the edges of the board before drawing"],a:0},
+  {q:"How do you transfer the drawing from 1/8″ to 1/4″ scale?",opts:["Measure each wall, opening, and fixture from the 11″ × 17″ printout with the architect’s scale, then redraw at 1/4″ scale","Trace the 1/8″ original at the same size","Enlarge a photocopy and paste it on the board","Estimate the sizes by eye"],a:0},
+  {q:"Which line weight is used for which elements?",opts:["0.5mm for construction lines and floor texture; 0.7mm for furniture, doors, and windows; 0.9mm for walls","0.9mm for construction lines; 0.7mm for walls; 0.5mm for furniture","0.5mm for walls; 0.7mm for floor texture; 0.9mm for furniture","0.7mm for everything"],a:0},
+  {q:"How do you draw doors, windows, furniture, and bathroom fixtures?",opts:["With the 1/4″ templates included in the course’s material kit; freehand is not acceptable","Freehand, for a looser style","With the 1/8″ templates","With a computer printout"],a:0}
+ ],
+ [
+  {q:"What is the base of Model 1?",opts:["The 1/8″-scale floor plan, on the 8.5″ × 11″ format, with all your measurements and annotations, pasted onto foam board","A blank 20″ × 30″ foam board","The 1/4″ hand-drawn floor plan","The cutting mat"],a:0},
+  {q:"What material do you use for the walls of Model 1, and what must they match?",opts:["White backing cardboard; the length and thickness must match the 1/8″ floor plan exactly","Foam board; the length must match the 1/4″ floor plan","Colored paper; any length is acceptable","Wood; the thickness must be 1/4″"],a:0},
+  {q:"Where do the wall, window, and doorway heights of Model 1 come from?",opts:["The elevations provided alongside the 1/8″ floor plan","Your own estimate","The height of the Assignment 04 figures","The size of the foam board"],a:0},
+  {q:"How do you build Model 2?",opts:["Cut each hand-drawn 1/4″ elevation from the 20″ × 30″ board, stand it upright, and paste it onto the exterior walls of your 1/4″ floor plan","Build new walls from white cardboard on the 11″ × 8.5″ base","Print the elevations and fold them","Glue the uncut board vertically behind the floor plan"],a:0},
+  {q:"Why is detailed documenting of both model making processes fundamental?",opts:["The sequence of photographs must convey your understanding of vertical planes and the construction of elevations using orthogonal projections","It replaces the ten narrative photographs","It is only needed if the model breaks","It shows how many blades you used"],a:0}
+ ],
+ [
+  {q:"What do you use to populate the 1/4″ model?",opts:["The human-scale figure and furniture models from Assignment 04, and the Beds models","Only new figures bought for this assignment","Drawings of people pasted on the walls","Nothing; the model is photographed empty"],a:0},
+  {q:"How should the figures and furniture be placed?",opts:["Actively, to show the activities that take place inside each room","All together in one room","Outside the model","In a straight line along one wall"],a:0},
+  {q:"What must each photograph represent?",opts:["A distinct perspective, such as overhead, eye-level, room-to-room, or threshold views","The same overhead view, repeated","Only the exterior of the model","Only close-ups of the furniture"],a:0},
+  {q:"What background do you shoot against?",opts:["A clean, neutral, shadow-free surface, with no external objects","A window with strong sunlight","A patterned tablecloth","Your studio desk with tools in view"],a:0},
+  {q:"How many photographs do you produce, and what must they create?",opts:["Ten, creating a coherent narrative of your 1/4″-scale model","Two, showing the front and the back","Five, one for each deliverable","Twenty, with no particular order"],a:0}
+ ],
+ [
+  {q:"How many points is the assignment worth in total?",opts:["350","100","300","500"],a:0},
+  {q:"Which criterion is worth the most points?",opts:["1/4″ Scale Floor Plan & Elevations: Drafting Accuracy (90 pts)","1/8″ Scale Volumetric Model (75 pts)","Ten Narrative Photographs (50 pts)","Collaborative Memory Board (75 pts)"],a:0},
+  {q:"Which two criteria are worth 75 points each?",opts:["The 1/8″ Scale Volumetric Model and the Collaborative Memory Board","The 1/4″ Floor Plan & Elevations and the Ten Narrative Photographs","The 1/4″ Elevation-to-Wall Model and the Ten Narrative Photographs","The 1/8″ Volumetric Model and the 1/4″ Elevation-to-Wall Model"],a:0},
+  {q:"How many points are the Ten Narrative Photographs worth?",opts:["50","60","75","90"],a:0},
+  {q:"Your Memory Board entries are clustered near submission instead of spread across the assignment. Which band is that?",opts:["Proficient","Excellent","Developing","It is not graded"],a:0}
+ ],
+ [
+  {q:"How many deliverables are there, and where do they go?",opts:["Five: four in the Blackboard PDF and one on the Memory Board","Three: all in the Blackboard PDF","Five: all handed in as physical models","Four: all on the Memory Board"],a:0},
+  {q:"When do you take the Deliverable 01 photographs?",opts:["Before cutting the elevations from the foam board and building the 1/4″ scale model","After the 1/4″ model is assembled","After the ten narrative photographs","At any time; the order does not matter"],a:0},
+  {q:"What do you do with the 1/8″ Scale Volumetric Model?",opts:["Submit two photographs of it in the Blackboard PDF, and bring it to class","Submit ten photographs of it, and keep it at home","Hand it in without photographs","Upload a video of it to Panopto"],a:0},
+  {q:"What do you submit for Deliverable 04?",opts:["A single PDF that compiles the ten-photograph narrative of the interior spaces of the 1/4″ scale model","Ten separate image files, one per email","Two photographs of the empty model","The populated model, handed in physically"],a:0},
+  {q:"What happens if you upload your Memory Board documentation only at submission?",opts:["It will not meet the requirement","It is accepted with no penalty","It replaces the ten photographs","It earns extra credit"],a:0}
+ ]
+];
+var N=LEVELS.length, SHIPS=5, KEY="ctd121_a05_invaders", PASS="a2VsbHkgd2VhcnN0bGVy";
+var GW=640, GH=400, AW=40, AH=29, GAP=96, PY=GH-34, TOPY=44;
+var SPRITE=["00100000100","00010001000","00111111100","01101110110","11111111111","10111111101","10100000101","00011011000"];
+var SPRITE2=["00100000100","10010001001","10111111101","11101110111","11111111111","00111111100","00100000100","01000000010"];
+var state={passed:[],wrong:{},landed:{},current:1,review:false,doneAt:null};
+var G=null, lastPad=0, lockUntil=0, keys={left:false,right:false,fire:false}, padHeld=false;
+function $(id){return document.getElementById(id);}
+var canvas=$("stage"), ctx=canvas.getContext("2d"), qcard=$("qcard"), arena=$("arena"), statusEl=$("stage-status");
+
+function load(){
+ try{
+  var s=JSON.parse(localStorage.getItem(KEY)||"null");
+  if(s&&Array.isArray(s.passed)){
+   state.passed=s.passed.filter(function(n){return n>=1&&n<=N;});
+   state.wrong=s.wrong||{};state.landed=s.landed||{};state.current=Number(s.current)||1;
+   state.review=!!s.review;state.doneAt=s.doneAt||null;
+  }
+ }catch(e){}
+}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+function cleared(){var c=0;while(state.passed.indexOf(c+1)>=0)c++;return c;}
+function unlocked(n){return n>=1&&n<=N&&n<=cleared()+1;}
+function pad2(n){return n<10?"0"+n:""+n;}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+
+/* ---------- game ---------- */
+function newGame(n){
+ G={n:n,px:GW/2,bul:[],al:[],fx:(GW-(4*GAP+AW))/2,fy:TOPY,dir:1,mode:"play",down:0,target:null,parts:[],cool:0,flash:"",flashUntil:0,ptr:null,winAt:0};
+ for(var i=0;i<SHIPS;i++)G.al.push({i:i,alive:true});
+ keys.left=keys.right=keys.fire=false;
+ renderIdle("");
+}
+function alienX(a){return G.fx+a.i*GAP;}
+function fire(){if(G.cool<=0){G.bul.push({x:G.px,y:PY-16});G.cool=0.4;}}
+function flash(text,now){G.flash=text;G.flashUntil=(now||performance.now())+3500;updateStatus();}
+function step(dt,now){
+ var mv=(keys.left?-1:0)+(keys.right?1:0);
+ if(G.ptr!=null){var d=G.ptr-G.px;mv=Math.abs(d)<5?0:(d>0?1:-1);}
+ G.px=Math.max(24,Math.min(GW-24,G.px+mv*320*dt));
+ G.cool-=dt;
+ if(keys.fire)fire();
+ var maxfx=GW-20-(4*GAP+AW);
+ G.fx+=G.dir*(44+G.down*7)*dt;
+ if(G.fx<20){G.fx=20;G.dir=1;G.fy+=22;}
+ else if(G.fx>maxfx){G.fx=maxfx;G.dir=-1;G.fy+=22;}
+ if(G.fy+AH>=PY-18){
+  state.landed[G.n]=(state.landed[G.n]||0)+1;save();
+  G.fy=TOPY;G.bul=[];
+  flash("The ships landed. They return to the top. Destroyed ships stay destroyed.",now);
+ }
+ for(var b=G.bul.length-1;b>=0;b--){
+  var s=G.bul[b];s.y-=460*dt;
+  if(s.y<-12){G.bul.splice(b,1);continue;}
+  for(var i=0;i<G.al.length;i++){
+   var a=G.al[i],ax=alienX(a);
+   if(a.alive&&s.x>=ax&&s.x<=ax+AW&&s.y>=G.fy&&s.y<=G.fy+AH){hit(a);return;}
+  }
+ }
+}
+function hit(a){
+ G.bul=[];G.target=a;G.mode="question";G.ptr=null;
+ keys.left=keys.right=keys.fire=false;
+ showQuestion("");
+}
+function burst(x,y){
+ for(var k=0;k<16;k++){var an=Math.PI*2*k/16,sp=60+Math.random()*120;G.parts.push({x:x,y:y,vx:Math.cos(an)*sp,vy:Math.sin(an)*sp,life:0.6,c:k%2?"#FFFFFF":"#B8273E"});}
+}
+function isActive(now){return document.activeElement===canvas||padHeld||now-lastPad<4000;}
+
+/* ---------- drawing ---------- */
+function fit(){
+ var w=canvas.clientWidth,h=canvas.clientHeight;if(!w||!h)return 0;
+ var dpr=window.devicePixelRatio||1;
+ if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);}
+ var s=w/GW;ctx.setTransform(dpr*s,0,0,dpr*s,0,0);
+ return s;
+}
+function sprite(rows,x,y,color){
+ var p=AW/11;ctx.fillStyle=color;
+ for(var r=0;r<rows.length;r++)for(var c=0;c<11;c++)if(rows[r].charAt(c)==="1")ctx.fillRect(x+c*p,y+r*p,p+0.4,p+0.4);
+}
+function draw(now){
+ if(!fit())return;
+ ctx.fillStyle="#14110f";ctx.fillRect(0,0,GW,GH);
+ /* chalk floor-plan lines, as on the Dogville stage */
+ ctx.strokeStyle="rgba(255,255,255,0.07)";ctx.lineWidth=1.5;ctx.setLineDash([7,6]);
+ ctx.strokeRect(40,70,170,120);ctx.strokeRect(210,70,120,200);ctx.strokeRect(330,130,150,140);ctx.strokeRect(480,60,120,150);ctx.strokeRect(70,190,140,110);
+ ctx.setLineDash([]);
+ ctx.strokeStyle="rgba(255,255,255,0.55)";ctx.lineWidth=2;
+ ctx.beginPath();ctx.moveTo(12,PY+16);ctx.lineTo(GW-12,PY+16);ctx.stroke();
+ var frame=Math.floor(now/450)%2?SPRITE2:SPRITE;
+ G.al.forEach(function(a){
+  if(!a.alive)return;
+  var target=G.target===a;
+  sprite(frame,alienX(a),G.fy,target?(Math.floor(now/160)%2?"#FFFFFF":"#F7EAED"):"#B8273E");
+ });
+ ctx.fillStyle="#FFFFFF";
+ G.bul.forEach(function(s){ctx.fillRect(s.x-1.5,s.y-10,3,10);});
+ for(var i=G.parts.length-1;i>=0;i--){
+  var p=G.parts[i];
+  ctx.globalAlpha=Math.max(0,p.life/0.6);ctx.fillStyle=p.c;ctx.fillRect(p.x-2,p.y-2,4,4);
+ }
+ ctx.globalAlpha=1;
+ var x=G.px;
+ ctx.fillStyle="#FFFFFF";
+ ctx.fillRect(x-20,PY,40,10);ctx.fillRect(x-14,PY-6,28,6);ctx.fillRect(x-3,PY-15,6,9);
+ var paused=G.mode==="play"&&!isActive(now),asking=G.mode==="question";
+ if(paused||asking){
+  ctx.fillStyle="rgba(20,17,15,0.74)";ctx.fillRect(0,0,GW,GH);
+  ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillStyle="#FFFFFF";
+  ctx.font="700 19px 'Source Sans 3', sans-serif";
+  if(asking)ctx.fillText("Answer the question to continue",GW/2,GH/2);
+  else{
+   ctx.fillText("Click the stage to play",GW/2,GH/2-16);
+   ctx.font="600 14px 'Source Sans 3', sans-serif";ctx.fillStyle="rgba(255,255,255,0.6)";
+   ctx.fillText("Left and right arrows to move  ·  Space to fire  ·  or use the buttons below",GW/2,GH/2+14);
+  }
+ }
+}
+function updateStatus(){
+ if(!G)return;
+ var now=performance.now();
+ if(G.flash&&now<G.flashUntil){statusEl.textContent=G.flash;return;}
+ statusEl.innerHTML="Ships destroyed <b>"+G.down+" / "+SHIPS+"</b>";
+}
+var last=0,statusTick=0;
+function frame(now){
+ var dt=Math.min(0.05,(now-last)/1000||0);last=now;
+ if(G&&!state.review&&!arena.classList.contains("cleared")){
+  if(padHeld)lastPad=now;
+  for(var i=G.parts.length-1;i>=0;i--){var p=G.parts[i];p.life-=dt;p.x+=p.vx*dt;p.y+=p.vy*dt;if(p.life<=0)G.parts.splice(i,1);}
+  if(G.mode==="play"&&isActive(now))step(dt,now);
+  if(G.mode==="won"&&now>=G.winAt){finishLevel();}
+  if(G){draw(now);if(now-statusTick>400){statusTick=now;updateStatus();}}
+ }
+ requestAnimationFrame(frame);
+}
+
+/* ---------- questions ---------- */
+function renderIdle(msg,good){
+ qcard.innerHTML="";
+ qcard.appendChild(el("div","q-kicker","Ships destroyed "+G.down+" / "+SHIPS));
+ qcard.appendChild(el("p","q-idle","Hit a ship to get a question. Read the guide above before you answer."));
+ if(msg)qcard.appendChild(el("p","q-fb "+(good?"good":"bad"),msg));
+ updateStatus();
+}
+function showQuestion(msg){
+ var q=QUIZ[G.n-1][G.down],order=[0,1,2,3],i,j,t;
+ for(i=order.length-1;i>0;i--){j=Math.floor(Math.random()*(i+1));t=order[i];order[i]=order[j];order[j]=t;}
+ var locked=performance.now()<lockUntil;
+ qcard.innerHTML="";
+ qcard.appendChild(el("div","q-kicker","Question "+(G.down+1)+" of "+SHIPS));
+ qcard.appendChild(el("p","q-text",q.q));
+ order.forEach(function(oi,k){
+  var b=el("button","q-opt");b.type="button";b.disabled=locked;
+  b.appendChild(el("span","k",pad2(k+1)));b.appendChild(el("span",null,q.opts[oi]));
+  b.addEventListener("click",function(){answer(oi);});
+  qcard.appendChild(b);
+ });
+ qcard.appendChild(el("p","q-fb bad",msg||""));
+ if(locked)setTimeout(function(){if(G&&G.mode==="question")showQuestion(msg);},Math.max(50,lockUntil-performance.now()+30));
+ updateStatus();
+}
+function answer(oi){
+ if(!G||G.mode!=="question"||performance.now()<lockUntil)return;
+ var q=QUIZ[G.n-1][G.down];
+ if(oi===q.a){
+  var a=G.target;a.alive=false;G.target=null;G.down++;
+  burst(alienX(a)+AW/2,G.fy+AH/2);
+  if(G.down>=SHIPS){G.mode="won";G.winAt=performance.now()+700;renderIdle("Correct. Last ship destroyed.",true);}
+  else{G.mode="play";renderIdle("Correct. Ship destroyed.",true);}
+  try{canvas.focus({preventScroll:true});}catch(e){canvas.focus();}
+ }else{
+  state.wrong[G.n]=(state.wrong[G.n]||0)+1;save();
+  lockUntil=performance.now()+3000;
+  showQuestion("Incorrect. The ship survives. Read the guide above, then try again in 3 seconds.");
+ }
+}
+function finishLevel(){
+ var n=G.n;
+ if(state.passed.indexOf(n)<0)state.passed.push(n);
+ if(cleared()===N&&!state.doneAt)state.doneAt=new Date().toISOString();
+ save();
+ showLevel(n,false);
+}
+function renderCleared(n){
+ qcard.innerHTML="";
+ qcard.appendChild(el("div","q-kicker","Level "+pad2(n)+" of "+pad2(N)));
+ qcard.appendChild(el("p","q-text","Level cleared ✓"));
+ qcard.appendChild(el("p","q-idle","All five ships destroyed. You can reread this level at any time from the level bar."));
+ var b=el("button","g-btn",n<N?"Continue to Level "+pad2(n+1)+": "+LEVELS[n].short+" →":"See your Results ↓");
+ b.type="button";
+ b.addEventListener("click",function(){if(n<N)showLevel(n+1,true);else $("results").scrollIntoView();});
+ qcard.appendChild(b);
+}
+
+/* ---------- page ---------- */
+function renderSteps(){
+ var box=$("lv-steps");box.innerHTML="";
+ LEVELS.forEach(function(l,i){
+  var n=i+1,b=el("button","lv-btn");b.type="button";
+  b.appendChild(el("span",null,pad2(n)));b.appendChild(el("span","lv-name"," "+l.short));
+  if(state.passed.indexOf(n)>=0)b.classList.add("done");
+  if(n===state.current){b.classList.add("current");b.setAttribute("aria-current","step");}
+  b.disabled=!unlocked(n);
+  b.title="Level "+pad2(n)+": "+l.name+(unlocked(n)?"":" (locked)");
+  b.addEventListener("click",function(){showLevel(n,true);});
+  box.appendChild(b);
+ });
+ $("lv-count").textContent=cleared()+" of "+N+" cleared";
+}
+function renderResults(){
+ var box=$("results"),done=cleared()===N;
+ box.hidden=!done;
+ if(!done)return;
+ var ul=$("results-list"),tw=0,tl=0;ul.innerHTML="";
+ LEVELS.forEach(function(l,i){
+  var w=state.wrong[i+1]||0,d=state.landed[i+1]||0;tw+=w;tl+=d;
+  ul.appendChild(el("li",null,"Level "+pad2(i+1)+" · "+l.name+": 5 of 5 ships destroyed, "+w+(w===1?" wrong answer":" wrong answers")+", "+d+(d===1?" landing":" landings")));
+ });
+ var li=el("li");li.appendChild(el("strong",null,(N*SHIPS)+" of "+(N*SHIPS)+" questions answered · "+tw+" wrong answers · "+tl+" landings in total"));ul.appendChild(li);
+ if(state.doneAt)ul.appendChild(el("li",null,"Completed: "+new Date(state.doneAt).toLocaleString()));
+}
+function renderGate(){
+ var msg=$("gate-msg");
+ $("gate-row").hidden=state.review;
+ $("gate-reset").hidden=!state.review;
+ if(state.review){msg.className="gate-msg good";msg.textContent="Password accepted. The full guide is open below.";}
+ else if(msg.classList.contains("good")){msg.className="gate-msg";msg.textContent="";}
+}
+function showLevel(n,scroll){
+ if(!unlocked(n))n=Math.min(cleared()+1,N);
+ state.current=n;save();
+ document.body.classList.toggle("review",state.review);
+ document.querySelectorAll(".level").forEach(function(s){s.classList.toggle("on",Number(s.dataset.level)===n);});
+ $("arena-eyebrow").textContent="Level "+pad2(n)+" of "+pad2(N)+" · Checkpoint";
+ $("arena-title").textContent=LEVELS[n-1].name;
+ $("lv-msg").textContent="";
+ if(state.passed.indexOf(n)>=0){G=null;arena.classList.add("cleared");renderCleared(n);}
+ else{arena.classList.remove("cleared");newGame(n);}
+ renderSteps();renderResults();renderGate();
+ if(scroll&&!state.review)$("game").scrollIntoView();
+}
+function tryPassword(v){
+ var k="";
+ try{k=btoa(String(v).trim().toLowerCase().replace(/\s+/g," "));}catch(e){}
+ if(k!==PASS){var m=$("gate-msg");m.className="gate-msg bad";m.textContent="Incorrect password. Check it with your teacher.";return;}
+ state.review=true;save();$("gate-pw").value="";
+ showLevel(state.current,false);
+}
+function resetGame(){
+ if(!confirm("Reset your progress and start again from Level 01?"))return;
+ state={passed:[],wrong:{},landed:{},current:1,review:false,doneAt:null};
+ try{localStorage.removeItem(KEY);}catch(e){}
+ showLevel(1,true);
+}
+
+var KEYMAP={ArrowLeft:"left",ArrowRight:"right",a:"left",d:"right",A:"left",D:"right"," ":"fire",Spacebar:"fire",ArrowUp:"fire",w:"fire",W:"fire"};
+canvas.addEventListener("keydown",function(e){
+ var k=KEYMAP[e.key];if(!k)return;
+ e.preventDefault();if(G&&G.mode==="play")keys[k]=true;
+});
+canvas.addEventListener("keyup",function(e){var k=KEYMAP[e.key];if(k){e.preventDefault();keys[k]=false;}});
+canvas.addEventListener("blur",function(){keys.left=keys.right=keys.fire=false;});
+function ptrX(e){var r=canvas.getBoundingClientRect();return (e.clientX-r.left)/r.width*GW;}
+canvas.addEventListener("pointerdown",function(e){
+ lastPad=performance.now();
+ if(G&&G.mode==="play"){G.ptr=ptrX(e);if(e.pointerType!=="mouse")fire();}
+});
+canvas.addEventListener("pointermove",function(e){if(G&&G.ptr!=null&&G.mode==="play"){G.ptr=ptrX(e);lastPad=performance.now();}});
+["pointerup","pointercancel","pointerleave"].forEach(function(t){canvas.addEventListener(t,function(e){if(G){if(t==="pointerup"&&G.mode==="play"&&e.pointerType!=="mouse")fire();G.ptr=null;}});});
+document.querySelectorAll(".pad button").forEach(function(b){
+ var k=b.dataset.key;
+ function on(e){e.preventDefault();padHeld=true;lastPad=performance.now();if(G&&G.mode==="play")keys[k]=true;}
+ function off(){padHeld=false;keys[k]=false;}
+ b.addEventListener("pointerdown",on);
+ b.addEventListener("pointerup",off);b.addEventListener("pointerleave",off);b.addEventListener("pointercancel",off);
+ b.addEventListener("keydown",function(e){if(e.key===" "||e.key==="Enter"){on(e);}});
+ b.addEventListener("keyup",function(e){if(e.key===" "||e.key==="Enter"){off();}});
+});
+document.addEventListener("keydown",function(e){
+ if(!G||G.mode!=="question"||/^(INPUT|TEXTAREA)$/.test(e.target.tagName))return;
+ if(e.key>="1"&&e.key<="4"){var b=qcard.querySelectorAll(".q-opt")[Number(e.key)-1];if(b&&!b.disabled)b.click();}
+});
+document.querySelectorAll('nav ul a').forEach(function(a){
+ a.addEventListener("click",function(e){
+  var n=NAVMAP[a.getAttribute("href")];
+  if(!n||state.review)return;
+  e.preventDefault();
+  if(!unlocked(n)){$("game").scrollIntoView();$("lv-msg").textContent="Locked. Clear Level "+pad2(cleared()+1)+" ("+LEVELS[cleared()].short+") first.";return;}
+  showLevel(n,true);
+ });
+});
+$("gate").addEventListener("submit",function(e){e.preventDefault();tryPassword($("gate-pw").value);});
+$("gate-reset").addEventListener("click",resetGame);
+$("lv-reset").addEventListener("click",resetGame);
+
+load();
+showLevel(state.current,false);
+requestAnimationFrame(frame);
+/*TEST_HOOK*/
+})();
 </script>
 
 </body>
