@@ -597,6 +597,7 @@
       border-top: 3px solid var(--crimson);
       padding: 28px 28px 24px;
     }
+    .deliverable-card.span-2 { grid-column: span 2; }
     .deliverable-num {
       font-size: 10px;
       font-weight: 700;
@@ -688,6 +689,145 @@
   @media (max-width: 560px) {
     .ctd-global-brand span { display: none; }
   }
+
+    /* ── INVADERS TRIVIA ── */
+    .lvbar { background: var(--charcoal); border-bottom: 2px solid var(--crimson); padding: 14px 56px; display: flex; align-items: center; gap: 6px; flex-wrap: wrap; scroll-margin-top: 8px; }
+    .lvbar-lbl { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,.45); margin-right: 10px; }
+    .lv-btn { font-family: inherit; font-size: 10px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; color: rgba(255,255,255,.7); background: transparent; border: 1px solid rgba(255,255,255,.18); padding: 7px 11px; border-radius: 3px; cursor: pointer; white-space: nowrap; transition: all .15s ease; }
+    .lv-btn:hover:not(:disabled) { color: #fff; background: rgba(255,255,255,.08); }
+    .lv-btn.done { color: #fff; border-color: rgba(255,255,255,.45); }
+    .lv-btn.done::after { content: " \2713"; }
+    .lv-btn.current { color: #fff; background: var(--crimson); border-color: var(--crimson); }
+    .lv-btn:disabled { color: rgba(255,255,255,.28); cursor: not-allowed; }
+    .lvbar-right { margin-left: auto; display: flex; align-items: center; gap: 16px; font-size: 10px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+    .lvbar-right button { font: inherit; letter-spacing: inherit; text-transform: inherit; color: rgba(255,255,255,.45); background: none; border: none; text-decoration: underline; cursor: pointer; }
+    .lvbar-right button:hover { color: #fff; }
+    .lvbar-msg { flex-basis: 100%; font-size: 12px; font-weight: 600; color: #f0b9c2; }
+    .lvbar-msg:empty { display: none; }
+    .level { display: none; }
+    .level.on { display: block; }
+    body.review .level { display: block; }
+    body.review .arena, body.review .lvbar, body.review .howto-steps { display: none; }
+    .lv-phases .s03-svg { max-width: 760px; margin: 0 auto 56px; }
+    .level[data-level="3"] .lv-phases { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); grid-template-areas: "svg p1" "svg p2"; column-gap: 56px; align-items: start; }
+    .level[data-level="3"] .lv-phases .s03-svg { max-width: none; margin: 0; position: sticky; top: 24px; }
+    .level[data-level="3"] .lv-phases .inst-part-block + .inst-part-block { margin-top: 40px; }
+    .film-callout p.film-link { margin-top: 18px; padding-top: 16px; border-top: 1px solid rgba(255,255,255,.18); color: rgba(255,255,255,.9); }
+    .film-callout p.film-link a { color: #fff; font-weight: 700; text-decoration: none; border-bottom: 2px solid var(--crimson-mid); }
+    .film-callout p.film-link a:hover { border-bottom-color: #fff; }
+    .video-cta { display: flex; align-items: center; justify-content: space-between; gap: 20px; flex-wrap: wrap; margin-top: 32px; padding: 24px 28px; background: var(--crimson); color: #fff; text-decoration: none; transition: background .15s ease; }
+    .video-cta:hover { background: var(--crimson-dark); }
+    .video-cta-label { display: block; font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: rgba(255,255,255,.7); margin-bottom: 6px; }
+    .video-cta-title { display: block; font-size: 22px; font-weight: 700; line-height: 1.2; color: #fff; }
+    .video-cta-arrow { font-size: 11px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; border: 1px solid rgba(255,255,255,.6); padding: 12px 20px; white-space: nowrap; }
+    .red-note { background: var(--crimson-pale); border-left: 8px solid var(--crimson); color: var(--crimson); font-size: 21px; font-weight: 700; line-height: 1.45; padding: 26px 30px; margin: 0 0 40px; }
+    .sub-step { display: block; margin-top: 12px; padding-left: 14px; border-left: 2px solid var(--crimson); }
+    .sub-step b { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: var(--crimson); margin-right: 10px; }
+    .deliverable-body strong { color: var(--crimson); font-weight: 700; }
+    .deliverable-body p + p { margin-top: 10px; }
+    @media (max-width: 960px) {
+      .level[data-level="3"] .lv-phases { grid-template-columns: 1fr; grid-template-areas: "svg" "p1" "p2"; }
+      .level[data-level="3"] .lv-phases .s03-svg { position: static; margin-bottom: 40px; }
+      .video-cta-title { font-size: 18px; }
+      .red-note { font-size: 18px; padding: 22px 22px; }
+    }
+    .howto-steps { max-width: 760px; }
+    .gate { background: var(--white); border: 1px solid var(--rule); border-top: 3px solid var(--charcoal); padding: 28px 28px 24px; max-width: 760px; margin-top: 40px; }
+    .gate-title { font-size: 17px; font-weight: 700; color: var(--charcoal); margin-bottom: 12px; }
+    .gate ul { list-style: none; }
+    .gate li { position: relative; padding: 3px 0 3px 18px; font-size: 14px; color: var(--dark-gray); line-height: 1.7; }
+    .gate li::before { content: ""; position: absolute; left: 0; top: 13px; width: 6px; height: 6px; background: var(--crimson); }
+    .gate-row { display: flex; gap: 10px; flex-wrap: wrap; align-items: center; margin-top: 16px; }
+    .gate-row[hidden], #gate-reset[hidden] { display: none; }
+    .gate-row label { font-size: 10px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--mid-gray); }
+    .gate-row input { flex: 1; min-width: 180px; font-family: inherit; font-size: 14px; color: var(--charcoal); background: var(--off-white); border: 1px solid var(--rule); padding: 11px 14px; }
+    .gate-msg { font-size: 13px; font-weight: 600; margin-top: 12px; }
+    .gate-msg:empty { display: none; }
+    .gate-msg.bad { color: var(--crimson); }
+    .gate-msg.good { color: #2d6a3f; }
+    .g-btn { font-family: inherit; display: inline-block; font-size: 10.5px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: #fff; background: var(--crimson); border: 1px solid var(--crimson); padding: 12px 22px; cursor: pointer; transition: background .15s ease; }
+    .g-btn:hover { background: var(--crimson-dark); }
+    .g-btn.line { background: transparent; color: var(--crimson); margin-top: 14px; }
+    .g-btn.line:hover { background: var(--crimson-pale); }
+    .arena { background: var(--charcoal); padding: 80px 56px; color: #fff; }
+    .arena .eyebrow { color: var(--crimson-mid); }
+    .arena-title { font-size: 30px; font-weight: 700; line-height: 1.15; color: #fff; margin-bottom: 32px; }
+    .arena-grid { display: grid; grid-template-columns: minmax(0, 1.35fr) minmax(0, 1fr); gap: 32px; align-items: start; }
+    .arena.cleared .stage-col { display: none; }
+    .arena.cleared .arena-grid { grid-template-columns: minmax(0, 640px); }
+    canvas#stage { display: block; width: 100%; aspect-ratio: 640 / 400; background: #14110f; border: 1px solid rgba(255,255,255,.18); touch-action: none; }
+    canvas#stage:focus-visible { outline: 2px solid var(--crimson-mid); outline-offset: 3px; }
+    .stage-status { margin-top: 12px; min-height: 18px; font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: rgba(255,255,255,.55); }
+    .stage-status b { color: #fff; }
+    .pad { display: flex; gap: 8px; margin-top: 12px; }
+    .pad button { font-family: inherit; font-size: 11px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: #fff; background: transparent; border: 1px solid rgba(255,255,255,.3); padding: 12px 20px; cursor: pointer; touch-action: manipulation; user-select: none; -webkit-user-select: none; }
+    .pad button:active { border-color: #fff; }
+    .pad .fire { flex: 1; background: var(--crimson); border-color: var(--crimson); }
+    .qcard { background: var(--white); border-top: 3px solid var(--crimson); padding: 28px 28px 24px; color: var(--charcoal); min-height: 260px; }
+    .qcard:focus { outline: none; }
+    .q-kicker { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--crimson); margin-bottom: 10px; }
+    .q-text { font-size: 17px; font-weight: 700; line-height: 1.35; color: var(--charcoal); margin-bottom: 18px; }
+    .q-idle { font-size: 14px; color: var(--dark-gray); line-height: 1.8; }
+    .q-opt { display: grid; grid-template-columns: 26px 1fr; gap: 8px; width: 100%; text-align: left; font-family: inherit; font-size: 14px; line-height: 1.55; color: var(--dark-gray); background: var(--off-white); border: 1px solid var(--rule); padding: 11px 14px; margin-bottom: 8px; cursor: pointer; transition: all .15s ease; }
+    .q-opt:hover:not(:disabled), .q-opt:focus-visible { border-color: var(--crimson); background: var(--crimson-pale); }
+    .q-opt:disabled { opacity: 0.5; cursor: not-allowed; }
+    .q-opt .k { font-size: 10px; font-weight: 700; letter-spacing: 0.1em; color: var(--crimson); padding-top: 4px; }
+    .q-fb { font-size: 13px; font-weight: 600; min-height: 20px; margin-top: 10px; }
+    .q-fb.bad { color: var(--crimson); }
+    .q-fb.good { color: #2d6a3f; }
+    .qcard .g-btn { margin-top: 14px; }
+    #results[hidden] { display: none; }
+    .results-list { list-style: none; max-width: 760px; }
+    .results-list li { font-size: 14px; color: var(--dark-gray); line-height: 1.7; padding: 12px 0; border-bottom: 1px solid var(--rule); }
+    .results-list li:last-child { border-bottom: none; }
+    .results-list strong { color: var(--charcoal); }
+    .results-note { font-size: 15px; color: var(--dark-gray); line-height: 1.8; max-width: 760px; margin-bottom: 28px; }
+    .results-note strong { color: var(--charcoal); }
+    @media (max-width: 960px) {
+      .lvbar, .arena { padding-left: 24px; padding-right: 24px; }
+      .arena { padding-top: 56px; padding-bottom: 56px; }
+      .arena-grid { grid-template-columns: 1fr; }
+      .lv-name { display: none; }
+    }
+
+    /* ── COIN TRIVIA (platformer) — overrides on the shared A05 game styles ── */
+    canvas#stage { aspect-ratio: 16 / 9; background: #8fc3ff; image-rendering: pixelated; }
+    .q-meta { display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--mid-gray); margin-bottom: 10px; }
+    .q-meta b { color: var(--crimson); }
+    .q-opt.wrong { background: #f8d7da; border-color: #e08080; color: #842029; cursor: not-allowed; opacity: 1; }
+    .q-opt.right { background: #d4edda; border-color: #a8d8a0; color: #2d6a3f; opacity: 1; }
+    .pad .jump { flex: 1; background: var(--crimson); border-color: var(--crimson); }
+    .inst-sub { list-style: none; margin: 8px 0 2px; display: flex; flex-direction: column; gap: 6px; }
+    .inst-sub li { position: relative; padding-left: 16px; font-size: 14px; color: var(--dark-gray); line-height: 1.65; }
+    .inst-sub li::before { content: ""; position: absolute; left: 0; top: 9px; width: 6px; height: 6px; background: var(--crimson); }
+    .inst-sub .inst-sub { margin-left: 4px; }
+    .slice-fig { width: 75%; margin: 0 auto 32px; background: #fff; border: 1px solid var(--rule); padding: 20px; }
+    @media (max-width: 640px) { .slice-fig { width: 100%; } }
+    .res-score { display: flex; align-items: baseline; gap: 12px; margin-bottom: 24px; }
+    .res-score b { font-size: 56px; font-weight: 700; line-height: 1; color: var(--crimson); }
+    .res-score span { font-size: 12px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid-gray); }
+    .res-h { font-size: 20px; font-weight: 700; color: var(--charcoal); margin: 48px 0 8px; }
+    .res-sub { font-size: 14px; color: var(--dark-gray); line-height: 1.7; max-width: 760px; margin-bottom: 20px; }
+    .res-guide { max-width: 900px; }
+    .res-guide h4 { font-size: 11px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--crimson); margin: 28px 0 10px; }
+    .res-guide ol { list-style: none; counter-reset: rq; }
+    .res-guide li { counter-increment: rq; position: relative; padding: 12px 0 12px 36px; border-bottom: 1px solid var(--rule); font-size: 14px; line-height: 1.6; color: var(--dark-gray); }
+    .res-guide li::before { content: counter(rq, decimal-leading-zero); position: absolute; left: 0; top: 14px; font-size: 10px; font-weight: 700; color: var(--crimson); }
+    .res-guide .rq { font-weight: 700; color: var(--charcoal); }
+    .res-guide .ra { margin-top: 4px; }
+    .res-guide .ra b { color: #2d6a3f; }
+    .res-guide .rs { margin-top: 2px; font-size: 12px; color: var(--mid-gray); }
+    .res-gate { max-width: 760px; margin-top: 48px; }
+    .pu-bio { margin-top: 24px; background: var(--white); border: 1px solid var(--rule); border-left: 4px solid var(--crimson); padding: 24px 28px; max-width: 760px; }
+    .pu-bio[hidden] { display: none; }
+    .pu-bio .pu-k { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--crimson); margin-bottom: 6px; }
+    .pu-bio h3 { font-size: 22px; font-weight: 700; color: var(--charcoal); margin-bottom: 4px; }
+    .pu-bio .pu-meta { font-size: 13px; color: var(--mid-gray); margin-bottom: 14px; }
+    .pu-bio p { font-size: 14px; color: var(--dark-gray); line-height: 1.75; margin-bottom: 10px; }
+    .pu-bio a { color: var(--crimson); font-weight: 700; word-break: break-word; }
+    .slice-fig svg { display: block; width: 100%; height: auto; }
+    .slice-fig figcaption { font-size: 13px; color: var(--dark-gray); line-height: 1.6; margin-top: 12px; }
+    .inst-link { color: var(--crimson); font-weight: 600; word-break: break-word; }
 </style>
 </head>
 <body>
@@ -712,8 +852,11 @@
   <div class="nav-brand"><em>UA</em> &middot; CTD 121 &middot; Introduction to Interior Design</div>
   <ul>
     <li><a href="#overview">Overview</a></li>
-    <li><a href="#materials">Materials</a></li>
-    <li><a href="#instructions">Instructions</a></li>
+    <li><a href="#deconstruction">Deconstruction</a></li>
+    <li><a href="#blockplan">Block Plan</a></li>
+    <li><a href="#bubble">Bubble &amp; Matrix</a></li>
+    <li><a href="#client">Client &amp; Materials</a></li>
+    <li><a href="#synthesis">Synthesis</a></li>
     <li><a href="#rubric">Rubric</a></li>
     <li><a href="#deliverables">Deliverables</a></li>
   </ul>
@@ -726,7 +869,7 @@
   <p class="hero-sub">In Assignments 04 and 05 you worked forward&mdash;drawing a floor plan, sizing it against human measurements, and building a scale model. Here you work backward. This is called Reverse Engineering.</p>
   <div class="hero-stats">
     <div class="stat">
-      <div class="stat-num">4</div>
+      <div class="stat-num">5</div>
       <div class="stat-lbl">Steps</div>
     </div>
     <div class="stat">
@@ -734,37 +877,64 @@
       <div class="stat-lbl">Points Total</div>
     </div>
     <div class="stat">
-      <div class="stat-num">4</div>
+      <div class="stat-num">9</div>
       <div class="stat-lbl">Deliverables</div>
     </div>
     <div class="stat">
-      <div class="stat-num">3</div>
+      <div class="stat-num">5</div>
       <div class="stat-lbl">Foam Boards</div>
     </div>
   </div>
 </header>
 
+<!-- HOW TO PLAY -->
+<section class="section warm" id="howto">
+  <p class="eyebrow">How to Play</p>
+  <h2 class="sec-title">The guide is now a game</h2>
+  <hr class="sec-rule">
+  <ol class="instruction-list howto-steps">
+    <li><span><strong>Read the level.</strong> Each level shows one part of the assignment guide. Read it first.</span></li>
+    <li><span><strong>Collect the coins.</strong> Below the guide, run with the left and right arrow keys and jump with the space bar or the up arrow, or use the on-screen buttons. Jump into a floating <strong>?</strong> box from below to release a coin.</span></li>
+    <li><span><strong>Answer the question.</strong> Each coin asks one question about the guide. A coin is worth <strong>10 points</strong>, and each wrong answer takes <strong>2 points</strong> off it. You have 5 attempts; after 5 wrong answers the coin is worth 0.</span></li>
+    <li><span><strong>Clear the level.</strong> Collect all five coins to unlock the next level. There are 10 levels, 50 questions, and 500 points.</span></li>
+  </ol>
+  <form class="gate" id="gate" autocomplete="off">
+    <p class="gate-title">Already completed the game?</p>
+    <ul>
+      <li>Send a screenshot of your <strong>Results</strong> to your teacher.</li>
+      <li>Your teacher gives you a password.</li>
+      <li>Enter it here to open the full guide without playing again.</li>
+    </ul>
+    <div class="gate-row" id="gate-row">
+      <label for="gate-pw">Password</label>
+      <input id="gate-pw" type="text" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <button class="g-btn" type="submit">Open the guide</button>
+    </div>
+    <p class="gate-msg" id="gate-msg" role="status" aria-live="polite"></p>
+    <button class="g-btn line" type="button" id="gate-reset" hidden>Reset the game</button>
+    <div class="pu-bio" id="pu-bio-top" hidden></div>
+  </form>
+</section>
+
+<!-- LEVEL BAR -->
+<div class="lvbar" id="game">
+  <span class="lvbar-lbl">Levels</span>
+  <span id="lv-steps" style="display:contents"></span>
+  <span class="lvbar-right"><span id="lv-count"></span><button type="button" id="lv-reset">Reset progress</button></span>
+  <p class="lvbar-msg" id="lv-msg" role="status" aria-live="polite"></p>
+</div>
+
+<div id="levels">
+<!-- LEVEL 01 -->
+<div class="level" data-level="1">
 <!-- SECTION 01: INTRODUCTION & LEARNING OUTCOMES -->
 <section class="section alt" id="description">
   <p class="eyebrow">Section 01</p>
-  <h2 class="sec-title">Introduction &amp; Learning Outcomes</h2>
+  <h2 class="sec-title">Introduction</h2>
   <hr class="sec-rule">
-
-  <div class="two-col reveal">
-    <div class="desc-body">
-      <p>In Assignments 04 and 05, you worked <strong>forward</strong>&mdash;drawing a floor plan, sizing its elements against human measurements, understanding space through ergonomics and anthropometrics, and building a physical 1/8&Prime; scale model. Here you work <strong>backward</strong>. This is called Reverse Engineering.</p>
-      <p>Using the same floor plan from Assignment 05, your task is to peel back the layers of the design to discover the hidden spatial logic underneath. By tracing the plan, you will learn the graphic code of interior design. By abstracting it into boxes, colors, and bubbles, you will learn how designers solved the spatial puzzle. By encoding those relationships into a matrix, you will translate spatial intuition into data.</p>
-      <p>Finally, by assembling all the steps into a freestanding object, you will reconstruct the design process as a coherent narrative&mdash;from the most abstract diagram to the most concrete form.</p>
-    </div>
-    <div>
-      <div class="dark-callout">
-        <p class="dark-callout-label">Reverse Engineering</p>
-        <p><em>Working backward is not undoing&mdash;it is a method of discovery. Every trace layer, every bubble, every matrix cell is an act of interpretation that reveals a designer&rsquo;s decision.</em></p>
-        <p>The sequence of panels you assemble at the end should tell that story: from pure spatial data to a fully realized floor plan and physical model.</p>
-      </div>
-    </div>
+  <div class="desc-body reveal" style="max-width:780px;">
+    <p>In Assignment 06, we will learn by going <strong>backward</strong>. Using the same floor plan from Assignment 05, students must peel back the design layers to uncover the hidden spatial logic beneath.</p>
   </div>
-
   <!-- Student Learning Outcomes -->
   <div class="reveal d1" style="margin-top: 56px; border-top: 1px solid var(--rule); padding-top: 48px;">
     <div class="two-col" style="gap: 56px; align-items: start;">
@@ -788,295 +958,284 @@
       </div>
     </div>
   </div>
-
-  <!-- 4 Process Overview Cards -->
-  <div class="process-grid process-grid-4 reveal d2">
-    <div class="process-card">
-      <div class="process-num">Step 01</div>
-      <div class="process-title">The Analytic Trace</div>
-      <div class="process-body">Reproduce the floor plan across three tracing paper layers using disciplined pencil weights&mdash;walls, openings, and details.</div>
-    </div>
-    <div class="process-card">
-      <div class="process-num">Step 02</div>
-      <div class="process-title">The Block Plan</div>
-      <div class="process-body">Abstract rooms into labeled and colored zone boxes across three progressive drawings, culminating in a bubble diagram.</div>
-    </div>
-    <div class="process-card">
-      <div class="process-num">Step 03</div>
-      <div class="process-title">The Adjacency Matrix</div>
-      <div class="process-body">Encode spatial relationships between every pair of rooms into a complete graphic data matrix using a three-symbol key.</div>
-    </div>
-    <div class="process-card">
-      <div class="process-num">Step 04</div>
-      <div class="process-title">The Synthesis Object</div>
-      <div class="process-body">Connect all boards&mdash;including the 1/8&Prime; model&mdash;into a freestanding sequential display that reads from most abstract to most concrete.</div>
-    </div>
-  </div>
 </section>
+</div>
 
-<!-- SECTION 02: MATERIALS & RESOURCES -->
-<section class="inst-sec warm" id="materials">
-  <div class="ghost-label">02</div>
-  <div class="inst-inner">
-    <div class="inst-head reveal">
-      <span class="inst-pill">Section 02</span>
-      <span class="inst-title">Materials &amp; Resources</span>
-    </div>
-    <div class="inst-layout">
-      <div class="reveal">
-        <p class="instructions-label">Before You Begin</p>
-        <ol class="instruction-list">
-          <li><span><strong>Retrieve your 1/8&Prime; scale model from Assignment 05.</strong> You will use it before each step to read the space&mdash;the rooms, their proximity, their relationships, and their boundaries.</span></li>
-          <li><span><strong>Download and print the Deconstruction Formats 1, 2, and 3</strong> from Blackboard on 11&Prime;&times;8.5&Prime; paper. These contain the pre-drawn rectangles and grids for each step.</span></li>
-          <li><span><strong>Mount each format sheet onto a foam board</strong> using a glue stick. Secure the sheet flat against the surface before beginning any tracing.</span></li>
-          <li><span><strong>Pre-cut your tracing paper</strong> to match the rectangle dimensions printed on each format. Use your ruler and T-square for precision before you begin tracing.</span></li>
-        </ol>
-      </div>
-      <div class="reveal d1">
-        <div class="specs-panel">
-          <p class="specs-group-label">Reference Documents</p>
-          <div class="spec-row">
-            <span class="spec-k">1/8&Prime; Scale Model</span>
-            <span class="spec-v">From Assignment 05</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-k">Floor Plan Print</span>
-            <span class="spec-v">Blackboard</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-k">Format 1 &mdash; Trace</span>
-            <span class="spec-v">Print 11&Prime;&times;8.5&Prime;</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-k">Format 2 &mdash; Block Plan</span>
-            <span class="spec-v">Print 11&Prime;&times;8.5&Prime;</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-k">Format 3 &mdash; Matrix</span>
-            <span class="spec-v">Print 11&Prime;&times;8.5&Prime;</span>
-          </div>
-          <p class="specs-group-label">Boards &amp; Paper</p>
-          <div class="spec-row">
-            <span class="spec-k">Foam Boards</span>
-            <span class="spec-v">Three 11&Prime;&times;8.5&Prime;</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-k">Tracing Paper</span>
-            <span class="spec-v">Multiple sheets</span>
-          </div>
-          <p class="specs-group-label">Tools</p>
-          <div class="spec-row">
-            <span class="spec-k">Pencils</span>
-            <span class="spec-v">0.9 / 0.7 / 0.5mm</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-k">Color Markers</span>
-            <span class="spec-v">Required</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-k">Ruler &amp; T-Square</span>
-            <span class="spec-v">Required</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-k">Masking Tape</span>
-            <span class="spec-v">Hinges + assembly</span>
-          </div>
-          <div class="spec-row">
-            <span class="spec-k">Glue Stick</span>
-            <span class="spec-v">Layer mounting</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SECTION 03: INSTRUCTIONS -->
-<section class="section alt" id="instructions">
-  <p class="eyebrow">Section 03</p>
-  <h2 class="sec-title">Instructions</h2>
+<!-- LEVEL 02 -->
+<div class="level" data-level="2">
+<!-- SECTION 02: THE DECONSTRUCTION OF THE FLOOR PLAN -->
+<section class="section alt" id="deconstruction">
+  <p class="eyebrow">Section 02</p>
+  <h2 class="sec-title">The Deconstruction of the Floor Plan</h2>
   <hr class="sec-rule">
-
+  <figure class="slice-fig reveal">
+    <svg viewBox="0 0 595.45 397.16" role="img" aria-labelledby="slice-cap" xmlns="http://www.w3.org/2000/svg">
+      <g fill="#900" fill-rule="evenodd" stroke="none">
+        <polygon points="395.87 142.8 393.91 142 376.79 148.32 378.75 149.14 393.78 143.58 440.22 162.53 438.11 163.4 440.31 164.3 442.42 163.43 455.08 168.6 442.18 174.09 440.09 174.98 437.87 175.92 429.35 179.54 420.56 183.28 410.15 178.68 407.9 177.69 410.16 176.76 407.96 175.79 395.97 180.72 393.79 179.74 391.47 180.68 396.58 183 398.9 182.04 398.17 181.71 405.63 178.63 418.29 184.24 410.82 187.42 410.07 187.07 407.74 188.06 416.12 191.86 407.73 195.48 406.71 195.93 409.02 197 418.43 192.9 420.75 191.89 413.09 188.44 457.36 169.53 459.45 168.63 465.49 166.05 489.25 175.57 491.29 174.65 465.27 164.27 463.22 165.14 457.18 167.71 395.87 142.8"/>
+        <path d="M526.08,188.53l-5.12-2.04-2.04.98,2.56,1.02-2.72,1.32-1.43.69,2.57,1.04,6.18-3.01M507.34,197.66l-2.58-1.07-5.36,2.6-2.02.98-1.57.76-55.22,26.78-21.67-10.42-2.48,1.14,21.67,10.48,2.59,1.26,31.45-15.34,13.36,6.02,2.3-1.16-13.36-5.99,32.88-16.04Z"/>
+        <path d="M356.76,264.29l-2.53-1.46-10.81-6.23-2.94,1.37,10.8,6.27-10.36,4.95-8.56,4.09-2.88,1.38-1.41.67-17.03,8.14,2.51,1.59,43.22-20.78M312.66,238.88h0s0,0,0,0l6.37-2.77-2.27-1.29-6.37,2.75-2.91,1.26,4.54,2.64,2.91-1.27-2.28-1.31M295.59,293.69l-2.49-1.65-29.58,14.14-3.52,1.68-9.29,4.44-2.91,1.39-2.08.99-11.04,5.28-6.8-5.17-3.52-2.68-2.34-1.78-11.45-8.7-3.66,1.65,24.05,18.44-8.45,4.04,2.41,1.88,41.39-19.9,29.28-14.08Z"/>
+        <polygon points="203.66 337.88 201.28 335.92 192.36 340.19 176.57 326.9 153.95 307.87 191.56 291.52 193.71 293.17 197.34 291.58 195.19 289.94 193.04 288.32 144.06 309.5 146.13 311.27 150.05 309.56 163.5 320.99 159.54 322.77 161.8 324.71 165.77 322.92 188.35 342.1 178.03 347.04 180.37 349.08 203.66 337.88"/>
+        <polygon points="115.89 321.68 120 319.9 122.02 321.75 107.15 328.21 120.1 340.5 135.16 333.73 137.37 335.76 122.29 342.57 144.1 363.25 155.03 358.02 157.34 360.15 142.01 367.52 100.95 328.14 111.76 323.47 109.77 321.61 113.89 319.84 115.89 321.68"/>
+        <polygon points="126.12 294.1 124.19 292.44 122.27 290.8 118.4 292.38 120.31 294.03 118.81 294.65 85.99 308.14 79.02 301.53 74.92 303.19 83.71 311.61 94.33 307.22 96.22 308.98 100.29 307.29 98.4 305.55 126.12 294.1"/>
+        <polygon points="47.61 271.75 57.54 268.07 55.93 266.58 42.07 271.69 50.5 279.77 54.48 278.27 47.61 271.75"/>
+        <path d="M86.01,257.53l-1.66-1.42-7.49,2.76,1.65,1.44,7.51-2.78M113.23,247.45l-1.71-1.36-7.17,2.64,1.7,1.37,7.18-2.66Z"/>
+        <polygon points="289.4 224.53 288.45 224.92 277.25 218.47 293.24 212.06 304.51 218.32 303.58 218.7 305.73 219.9 367.08 194.55 369.55 193.53 367.46 192.53 365.38 191.53 365.19 191.43 362.72 192.44 364.9 193.49 362.77 194.37 353.18 198.31 352.78 198.47 350.35 199.48 341.71 203.03 329.43 208.07 328.11 208.62 307.29 217.17 291.87 208.66 289.1 209.76 291.17 210.91 289.23 211.68 275.19 217.28 268.5 213.42 265.94 211.95 263.01 210.26 260.81 208.99 243.71 199.14 259.47 193.31 261.69 194.54 264.42 193.52 263.67 193.11 262.2 192.29 263.56 191.79 261.67 190.75 130.67 239.03 132.41 240.35 240.88 200.19 285.56 226.11 287.69 227.35 291.54 225.76 289.4 224.53"/>
+        <polygon points="340.93 181.9 349.93 186.25 352.38 185.27 350.29 184.27 348.2 183.26 346.92 182.65 341.33 179.96 338.88 180.91 328.96 184.75 309.11 174.93 323.84 169.48 321.9 168.55 276.4 185.32 278.31 186.33 306.61 175.85 326.45 185.73 328.49 186.74 340.93 181.9"/>
+        <polygon points="375.44 171.46 362.64 165.69 360.7 164.81 354.47 162 349.76 159.88 354.36 158.17 352.41 157.3 335.02 163.71 336.97 164.61 347.46 160.73 374.41 172.95 365.04 176.63 367.14 177.6 376.51 173.9 378.61 174.85 380.93 173.93 375.44 171.46"/>
+        <polygon points="422.94 238.83 425.52 237.57 422.93 236.27 416.28 239.49 409.22 242.92 360.84 217.94 389.59 205.44 401.91 211.4 404.39 210.29 394.54 205.56 392.06 204.37 394.52 203.3 392.22 202.19 350.02 220.44 352.31 221.64 358.2 219.09 445.73 264.56 510.9 230.04 502.76 226.39 500.46 227.59 505.81 230 445.58 261.69 430.64 253.98 428.1 252.67 420.26 248.62 411.81 244.26 420.35 240.09 428.22 244.08 430.82 242.79 425.49 240.11 422.94 238.83"/>
+      </g>
+      <g fill="none" stroke="#848484" stroke-width=".45" stroke-linecap="round" stroke-dasharray="5.89 2.95">
+        <path d="M526.08 188.53 535.63 55.91M445.73 264.56 449.7 110.84M358.2 219.09 354.32 77.78M142.01 367.51 111.01 188M43.66 273.21 8.77 117.2M395.87 142.8 395.63 90.68"/>
+      </g>
+      <g fill="none" stroke="#000" stroke-width=".45" stroke-linecap="round" stroke-linejoin="round">
+        <ellipse cx="469.92" cy="244.94" rx=".38" ry=".19"/>
+        <ellipse cx="363.76" cy="191.51" rx=".41" ry=".18"/>
+        <ellipse cx="269.67" cy="290.02" rx="2.57" ry="1.4"/>
+        <ellipse cx="279.04" cy="285.67" rx="2.54" ry="1.38"/>
+        <ellipse cx="284.55" cy="289.33" rx="3.2" ry="1.75"/>
+        <ellipse cx="275.15" cy="293.76" rx="3.24" ry="1.78"/>
+        <path d="M445.3 290.38 509.22 254.67" stroke-dasharray=".4 .48"/>
+        <path d="M395.33 25.01 395.32 23.67" stroke-dasharray=".2 .1"/>
+        <path d="M294.81 235.76 293.24 212.06M420.28 246.99 420.35 240.09M471.18 238.64 472.15 214.83M170.03 350.87 165.77 322.92M154.48 337.05 150.05 309.56M389.79 228.86 389.59 205.44M393.88 159.71 393.78 143.58M99.71 334.63 94.33 307.22M341.71 203.03 340.93 181.9M442.18 174.09 442.42 163.43M422.11 63.99 424.98 63.14M132.43 118.9 134.86 120.23M137.83 139.73 134.86 120.23M123.13 142.53 120.92 128.85M199.05 111.54 201.59 112.77M405.76 44.68 405.77 40.14M405.77 35.21 405.77 32.64M73.79 120.61 78.61 119.38M445.61 20.75 445.76 13.9M443.36 13.32 445.76 13.9M294.81 235.76 292.29 236.83M106.42 356.28 144.84 394.69M304.96 241.71 294.81 235.76M289.23 211.68 289.1 209.76M261.69 194.54 263.01 210.26M506.17 216.81 515.9 211.84M522.4 212.27 487.28 230.35M518.44 212.92 519.9 191.54M506.01 219.3 518.44 212.92M515.9 211.84 518.44 212.92M425.49 240.11 425.52 237.57M440.16 254.62 471.18 238.64M440.7 230.17 440.16 254.62 437.6 253.32M420.6 207.67 456.68 191.36M484.93 232.78 493.22 236.62M500.14 232.98 500.46 227.59M485.52 220.85 484.93 232.78M471.18 238.64 480.73 243.2M487.22 231.6 495.5 235.42M484.93 232.78 487.22 231.6M369.66 198.95 376.86 195.93M367.14 177.6 367.46 192.53M118.81 294.65 118.4 292.38M154.48 337.05 162.95 344.57M170.03 350.87 172.58 353.13M246.61 301.74 247.8 313.69M227.88 314.79 227.42 310.69M244.24 300.04 245.72 314.68M509.32 254.49 445.07 290.38M445.73 264.56 445.07 290.38M510.9 230.04 509.32 254.49M442.3 288.86 445.07 290.38M409.02 197 408.95 220.05 406.67 218.93M418.23 215.78 408.95 220.05M389.79 228.86 385.66 230.76M320.11 256.95 350.75 242.98 353.01 244.24M358.85 243.08 316.16 262.71M320.23 259.26 353.01 244.24 352.31 221.64M393.9 164.21 375.44 171.46M348.16 182.16 346.92 182.65M307.87 197.97 268.5 213.42M243.13 223.38 60.97 294.87M354.36 158.17 354.47 162M378.9 159.49 378.75 149.14M362.64 165.69 378.9 159.49M79.41 271.57 59.87 278.98M104.36 248.73 106.65 261.23M335.02 163.71 335.45 174.39M360.7 164.81 376.95 158.64 376.79 148.32M47.93 297.79 42.07 271.69M130.67 239.03 132.72 251.34 115.11 258.02M76.86 258.87 79.41 271.57M277.24 196.48 265.05 201.11M276.4 185.32 277.24 196.48M106.65 261.23 88.11 268.27M337.38 175.31 335.45 174.39 324.26 178.64M279.14 197.52 277.24 196.48M49.5 299.36 47.93 297.79M378.9 159.49 376.95 158.64M134.45 252.68 132.72 251.34M81.05 273.03 79.41 271.57M108.34 262.63 106.65 261.23M78.5 260.31 81.05 273.03 60.3 280.95M279.14 197.52 265.19 202.84M263.67 193.11 263.56 191.79M278.31 186.33 279.14 197.52M134.45 252.68 115.45 259.92M132.41 240.35 134.45 252.68M106.05 250.11 108.34 262.63 88.49 270.2M336.97 164.61 337.38 175.31 324.34 180.29M332.35 273.28 316.21 263.5M308.94 263.64 328.06 275.33M329.47 274.66 313.34 264.82 312.03 241.47M340.91 269.19 340.48 257.97M316.21 263.5 313.34 264.82M406.7 201.38 405.6 200.87M430.7 249.79 437.6 253.32M416.44 218.43 416.28 239.49M401.94 235.07 401.91 211.4M389.79 228.86 401.94 235.07 404.38 233.92 404.39 210.29M89.32 339.18 83.71 311.61M93.36 337.41 89.32 339.18M57.33 291.34 54.48 278.27M77.74 316.72 53.38 292.87 50.5 279.77M57.33 291.34 53.38 292.87M49.5 299.36 89.32 339.18M100.29 307.29 104.05 326.8M110.24 324.12 109.77 321.61M96.22 308.98 101.58 336.45M99.71 334.63 101.58 336.45 102.49 336.05M428.22 244.08 428.1 252.67M352.38 185.27 352.78 198.47M349.93 186.25 350.35 199.48M362.77 194.37 362.72 192.44M170.03 350.87 166.15 352.73 161.8 324.71M137.37 335.76 141.72 361M163.91 350.72 166.15 352.73M518.92 187.46 518.76 189.81M516.15 208.12 506.94 204.22M497.38 200.17 488.21 196.29 489.25 175.57M524.44 211.21 526.08 188.53M516.27 206.3 507.05 202.42M499.4 199.19 490.24 195.33 491.29 174.65M522.43 212.25 524.44 211.21M488.21 196.29 490.24 195.33M464.72 187.73 495.8 200.93M506.85 205.63 516.06 209.54M380.93 173.93 381.22 195.97M348.16 182.16 349.44 182.78M352.76 184.37 365.36 190.41M376.86 195.93 378.94 196.93M378.61 174.85 378.94 196.93M391.63 202.44 391.47 180.68M394.53 204.41 396.68 205.44M396.58 183 396.68 205.44M407.73 195.48 407.74 188.06M381.22 195.97 378.94 196.93M398.97 204.44 396.68 205.44M420.53 214.73 418.23 215.78M307.87 197.97 327.47 208.29 328.11 208.62M195.13 318.36 197.26 320.07M200.82 318.42 197.34 291.58M197.26 320.07 193.71 293.17M206.91 303.29 210.31 330.56 213.75 333.33M200.82 318.42 197.26 320.07M458.74 190.43 464.72 187.73M311.03 283.47 311.2 286.46 295.61 293.96M178.03 347.04 178.5 350.28M222.88 328.94 222.51 325.78M357.51 290.1 356.76 264.29M147.09 396.94 357.51 290.1M142.01 367.52 147.09 396.94M313.54 285.06 313.71 288.06 295.8 296.73M204.08 341.09 225.28 330.84 224.92 327.66M180.37 349.08 180.84 352.33 157.87 363.45M144.84 394.69 147.09 396.94M311.2 286.46 313.71 288.06M222.88 328.94 225.28 330.84M178.5 350.28 180.84 352.33M289.4 251.68 293.19 250.03M307.14 243.93 305.73 219.9M307.14 243.93 307.77 243.65M319.17 238.67 350.17 225.11M287.69 227.35 289.4 251.68 287.29 250.39M307.14 243.93 305.02 242.68M393.9 164.21 429.35 179.54M458.74 190.43 456.68 191.36M150.64 338.82 154.48 337.05M176.57 326.9 195.13 318.36M148.6 336.98 150.64 338.82M146.13 311.27 150.64 338.82M144.06 309.5 148.6 336.98M442.3 288.86 358.85 243.08M130.82 321.03 126.12 294.1M93.36 337.41 99.71 334.63M122.54 324.65 130.82 321.03M329.43 208.07 328.49 186.74M398.97 203.77 405.6 200.87M410.15 178.68 410.16 176.76M440.31 164.3 440.09 174.98M438.11 163.4 437.87 175.92M277.25 218.47 293.24 212.06M100.95 328.14 139.74 365.34M307.29 217.17 291.87 208.66 289.1 209.76M259.47 193.31 261.69 194.54 264.42 193.52M519.9 191.54 524.01 189.54M517.33 190.5 519.9 191.54M507.34 197.67 504.76 196.59M425.52 237.57 422.93 236.27M438.11 228.91 440.7 230.17M413.09 188.44 457.36 169.53M472.15 214.83 485.52 220.85M500.46 227.59 505.81 230M508.11 228.79 502.76 226.39 500.46 227.59M487.82 219.69 474.46 213.7M485.52 220.85 487.82 219.69M350.29 184.27 352.73 183.3 350.64 182.3M367.14 177.6 376.51 173.9M374.41 172.95 365.04 176.63 367.14 177.6M348.2 183.26 350.29 184.27M118.4 292.38 120.31 294.03M124.19 292.44 122.27 290.8 118.4 292.38M224.36 312.12 227.42 310.69 225.08 308.92 222.02 310.34 224.36 312.12M250.68 297.05 244.24 300.04 246.61 301.74M253.05 298.74 250.68 297.05M445.73 264.56 510.9 230.04 508.11 228.79M442.92 263.09 445.73 264.56M406.71 195.93 409.02 197M394.52 203.3 392.22 202.19M319.04 236.11 316.77 234.82 310.4 237.57M350.02 220.44 352.31 221.64M312.66 238.88 319.04 236.11M409.02 197 418.43 192.9M395.87 142.8 393.91 142 376.79 148.32M76.86 258.87 78.5 260.31M352.41 157.3 335.02 163.71M321.9 168.55 276.4 185.32M261.67 190.75 130.67 239.03M111.52 246.09 104.36 248.73M84.35 256.11 76.86 258.87M55.93 266.58 42.07 271.69 43.66 273.21M130.67 239.03 132.41 240.35M104.36 248.73 106.05 250.11M86.01 257.53 84.35 256.11M57.54 268.07 55.93 266.58M376.79 148.32 378.75 149.14M113.23 247.45 111.52 246.09M276.4 185.32 278.31 186.33M335.02 163.71 336.97 164.61M323.84 169.48 321.9 168.55M354.36 158.17 352.41 157.3M263.56 191.79 261.67 190.75M78.5 260.31 86.01 257.53M106.05 250.11 113.23 247.45M354.22 262.83 343.41 256.6 340.48 257.97 351.28 264.23M307.49 238.83 312.03 241.47 314.95 240.19M310.4 237.57 307.49 238.83M405.63 178.63 418.29 184.24M389.59 205.44 401.91 211.4 404.39 210.29M416.44 218.43 438.11 228.91M440.59 227.71 418.92 217.29 416.44 218.43M54.48 278.27 47.61 271.75M43.66 273.21 50.5 279.77 54.48 278.27M74.92 303.19 83.71 311.61 87.84 309.91M79.02 301.53 74.92 303.19M263.52 306.17 253.05 298.74 249.55 300.37 260 307.86 263.52 306.17M115.89 321.68 113.89 319.84 109.77 321.61 111.76 323.47M100.29 307.29 98.4 305.55M94.33 307.22 96.22 308.98 100.29 307.29M420.35 240.09 428.22 244.08 430.82 242.79M349.93 186.25 352.38 185.27M365.19 191.43 362.72 192.44M367.08 194.55 369.55 193.53M341.33 179.96 338.88 180.91M163.5 320.99 159.54 322.77 161.8 324.71 165.77 322.92M122.29 342.57 137.37 335.76 135.16 333.73M518.92 187.46 521.47 188.49M526.08 188.53 520.95 186.48 518.92 187.46M491.29 174.65 465.27 164.27 463.22 165.14M524.04 189.52 526.08 188.53M489.25 175.57 491.29 174.65M391.47 180.68 396.58 183 398.9 182.04M378.61 174.85 380.93 173.93M393.79 179.74 391.47 180.68M410.07 187.07 407.74 188.06M418.43 192.9 420.75 191.89M306.61 175.85 326.45 185.73M328.96 184.75 309.11 174.93M191.56 291.52 193.71 293.17 197.34 291.58 195.19 289.94M206.91 303.29 230.96 321.74M210.57 301.64 206.91 303.29M459.45 168.63 465.49 166.05M463.22 165.14 457.18 167.71M142.01 367.52 157.34 360.15 155.03 358.02M180.37 349.08 203.66 337.88 201.28 335.92M224.92 327.66 295.59 293.69 293.1 292.04M313.54 285.06 356.76 264.29 354.22 262.83M139.74 365.34 142.01 367.52M311.03 283.47 313.54 285.06M222.51 325.78 224.92 327.66M178.03 347.04 180.37 349.08M287.69 227.35 291.54 225.76 289.4 224.53M305.73 219.9 367.08 194.55M303.58 218.7 305.73 219.9M285.56 226.11 287.69 227.35M457.36 169.53 459.45 168.63M193.04 288.32 144.06 309.5 146.13 311.27M107.15 328.21 122.02 321.75 120 319.9M195.19 289.94 193.04 288.32M358.2 219.09 442.92 263.09M240.88 200.19 285.56 226.11M126.12 294.1 124.19 292.44M326.45 185.73 328.49 186.74 340.93 181.9M440.31 164.3 442.42 163.43M440.22 162.53 438.11 163.4 440.31 164.3M407.96 175.79 395.97 180.72M410.16 176.76 407.96 175.79"/>
+        <path d="M282.22 45.46 264.41 49.67M102.28 149.94 61.18 123.86M251.65 38.62 252.2 45.38M248.47 37.54 249.04 44.28M526.33 56.03 527.65 36.44M529.14 56.77 530.59 35.56M517.03 39.6 516.05 55.71M444.46 61.23 444.12 76.52M441.55 62.1 441.27 75.64M462.08 17.81 413.95 30.04M493.65 55 493.17 64.72M516.45 57.28 479 47.27M496.09 55.66 495.67 63.92M374.05 20.63 345.34 27.33M363.88 26.41 364.01 32.69M348.31 36.46 348.21 33.01M361.64 26.94 361.75 32.04M371.77 20.02 343.07 26.68M85.78 100.36 83.76 99.23 88.23 98.15 90.25 99.27M84.04 100.78 83.76 99.23M122.55 109.84 118.05 111.01M227.56 110.06 227.93 113.85M225.17 110.74 225.55 114.54M199.05 111.54 231.89 102.42 234.48 103.58M450.49 80.36 449.74 109.34M522.08 57.31 450.49 80.36M522.08 57.31 520.33 84.29M447.34 79.38 450.49 80.36M518.95 56.48 522.08 57.31M409.49 39.16 409.47 45.74M409.46 50.97 409.43 60.64M406.96 39.82 406.95 45.02M406.95 50.23 406.93 59.88M347.86 78.25 347.16 55.53M310.24 65.22 310.27 65.75M376.88 20.12 376.7 7.91M72.54 75.01 76.72 97.81M329.2 18.39 329.51 25.94M6.82 114.56 .23 85.18 393.09 .23M102.34 68.43 106.06 90.78M41.25 81.91 45.93 105.19M264.94 32.57 265.35 38.06M265.76 43.44 266.1 47.96M374.77 19.56 374.6 8.37M395.22 .73 393.09 .23M1.84 86.2 .23 85.18M24.07 111.91 22.12 102.83M20.2 93.86 18.71 86.88M42.7 81.59 47.63 106.24M266.9 32.13 267.39 38.75M267.79 44.13 268.04 47.51M86.49 96.88 82.23 72.87M103.96 68.08 107.87 91.73M74.08 74.67 78.48 98.81M56.05 104.21 51.26 79.7M317.15 26.2 316.91 21.1M331.26 17.94 331.55 25.47M345.3 80.15 297.19 63.14M303.68 92.1 302.38 68.83M333.67 83.48 333.53 80M300.45 62.31 297.19 63.14M405.78 23.68 419.61 27.31M401.73 63.37 401.72 48.7M441.66 56.56 388.19 41.12M404.43 64.2 404.43 49.5M441.66 56.56 444.39 55.77M49.6 144.06 43.16 112.42 1.84 86.2M47.96 111.24 43.16 112.42M40.51 137.8 34.95 111.07M15.42 120.49 9.78 94.9M234.48 103.58 245.96 108.68 241.93 109.83 230.48 104.69 234.48 103.58M78.61 119.38 60.22 108.25 55.5 109.4M63.96 118.58 64.8 122.93M73.79 120.61 55.5 109.4M58.35 115.1 63.62 142.1M433.72 65.78 433.6 73.26M430.85 66.64 430.77 72.38M422.11 63.99 430.85 66.64 433.72 65.78M347.76 32.88 347.87 36.56M366.29 33.34 366.54 45.31M345.02 32.08 345.19 37.22M366.29 33.34 363.58 34.01M335.63 24.54 332.94 25.15M132.87 152.4 132.28 148.61M131.19 141.64 128.85 126.68M135.27 153.85 134.37 148M133.29 141.04 130.97 126.1M102.63 133.87 104.87 146.88M84.18 133.92 134.86 120.23M81.86 132.47 84.18 133.92M495.98 40.71 496.76 25.08M535.72 54.63 537.49 30.09 470.62 14.44M498.17 40.07 498.91 25.6M535.3 30.74 537.49 30.09M468.4 15 470.62 14.44M398.46 30.64 398.48 37.09M398.49 42.05 398.49 42.59M422.17 49.39 422.34 32.28 419.8 32.94M376.39 24.61 376.65 42.7M390.44 39.16 390.36 28.43M395.92 29.95 395.96 37.74M408.09 34.62 408.09 33.27M297.84 21.89 319.26 28.27M165.84 98.64 208.57 119.41 212.85 118.19M170 97.57 165.84 98.64M176.22 128.71 173.32 106.39M172.14 129.88 168.73 104.13M182.97 111.14 184.85 126.23M185.69 132.95 186.3 137.87M470.89 15.58 464.35 17.24 462.08 17.81M468.4 15 461.86 16.65M300.34 99.31 301.73 123.21M351.4 80.18 104.71 151.49 110.7 186.21M352.24 109.14 351.4 80.18M303 98.54 304.46 124.39M284.5 130.76 282.71 104.49M177.44 135.36 181.11 163.74M205.19 156.06 201.98 128.17M150.41 143.29 154.61 172.2M128.29 180.6 123.53 151.18M348.59 79.2 351.4 80.18M102.28 149.94 104.71 151.49M297.3 77 295.96 54.36M363.58 34.01 275.64 55.53 277.52 82.35M275.64 55.53 273.33 54.71M87.6 130.93 86.35 124.01M66.09 122.6 68.19 123.91M167.7 96.46 170 97.57M114.24 116.69 115.36 123.48M116.44 130.08 118.69 143.81M112.34 117.19 113.46 123.99M114.55 130.6 116.51 142.49M353.56 50.08 447.34 79.38M225.15 37.68 273.33 54.71M92.28 100.4 90.25 99.27M97.17 128.36 95.96 121.49M94.86 115.19 92.28 100.4M322.09 42.84 321.47 28.93M319.26 28.27 321.47 28.93 335.15 25.79M443.41 17.73 443.34 21.32M441 18.33 440.93 21.93M283.93 71.38 281.13 72.12M108.29 184.55 67.52 156.42M294.95 75.47 283.93 71.38M533.51 55.35 529.14 56.77 526.33 56.03M461.35 41.22 427.17 50.82M150.38 158.85 139.78 152.51M124.73 143.5 123.13 142.53M520.33 84.29 449.74 109.34 446.64 108.27M409.43 60.64 406.93 59.88M347.86 78.25 345.39 77.39M417.64 58.29 409.43 60.64M354.28 76.42 347.86 78.25M311.45 88.67 306.82 89.99M47.63 106.24 45.93 105.19M107.87 91.73 106.06 90.78M8.43 115.67 6.82 114.56M78.48 98.81 76.72 97.81M393.08 23.07 390.37 23.73M381.22 25.93 378.94 26.48M299.2 45.68 292.77 47.22M227.59 62.91 107.87 91.73M86.49 96.88 78.48 98.81M56.05 104.21 47.63 106.24M24.07 111.91 18.58 113.23M303.03 92.28 298.8 90.64M49.6 144.06 40.51 137.8M15.42 120.49 8.43 115.67M54.3 142.79 49.6 144.06M19.92 119.39 15.42 120.49M63.62 142.1 61.67 140.8M64.67 141.82 63.62 142.1M139.78 152.51 135.27 153.85 132.87 152.4M487.24 43.26 470.05 38.78 463.59 40.6 461.35 41.22M535.72 54.63 533.55 55.34M303.97 47.25 299.2 45.68M201.59 146.01 186.3 137.87M171.58 130.04 169.91 129.15 162.22 131.35M352.24 109.14 304.46 124.39 301.73 123.21M284.5 130.76 205.19 156.06 202.59 154.65M181.11 163.74 154.61 172.2 152.11 170.65M128.29 180.6 110.7 186.21 108.29 184.55M344.96 64.1 322.71 70.12M313.17 72.7 310.66 73.38M297.99 76.81 297.3 77 294.99 76.14M281.75 81.21 277.52 82.35 275.23 81.46M397.96 24.37 393.08 23.07M123.13 142.53 118.69 143.81 116.51 142.49M446.64 108.27 354.28 76.42M61.67 140.8 54.3 142.79"/>
+        <path d="M100.95 328.14 102.49 336.05 106.42 356.28M264.42 193.52 265.05 201.11 265.19 202.84 265.94 211.95M506.17 216.81 506.01 219.3M487.82 219.69 487.28 230.35 487.22 231.6M353.18 198.31 352.76 184.37 352.73 183.3M365.04 176.63 365.36 190.41 365.38 191.53M406.71 195.93 406.7 201.38 406.67 218.93M394.54 205.56 394.53 204.41 394.52 203.3M350.75 242.98 350.17 225.11 350.02 220.44M320.11 256.95 320.23 259.26M60.3 280.95 59.87 278.98 57.54 268.07M115.45 259.92 115.11 258.02 113.23 247.45M88.49 270.2 88.11 268.27 86.01 257.53M324.34 180.29 324.26 178.64 323.84 169.48M316.21 263.5 316.16 262.71 314.95 240.19M307.49 238.83 307.77 243.65 308.94 263.64M76.28 309.7 60.97 294.87 57.33 291.34M77.74 316.72 76.28 309.7 74.92 303.19M430.82 242.79 430.7 249.79 430.64 253.98M420.26 248.62 420.28 246.99M369.55 193.53 369.66 198.95 369.92 211.83M163.91 350.72 162.95 344.57 159.54 322.77M398.9 182.04 398.97 203.77 398.97 204.44M420.53 214.73 420.6 207.67 420.75 191.89M178.5 350.28 172.58 353.13 157.38 360.44M203.7 338.17 213.75 333.33 222.88 328.94M295.8 296.73 295.61 293.96 295.59 293.69M203.66 337.88 203.7 338.17 204.08 341.09M157.87 363.45 157.38 360.44 157.34 360.15M291.54 225.76 292.29 236.83 293.19 250.03M305.02 242.68 304.96 241.71 303.58 218.7M125.01 338.3 122.54 324.65 122.02 321.75M291.17 210.91 289.23 211.68 275.19 217.28M144.1 363.25 141.72 361M105.15 326.32 104.05 326.8 100.95 328.14M264.42 193.52 263.67 193.11 262.2 192.29M293.24 212.06 304.51 218.32M411.81 244.26 420.35 240.09M440.7 230.17 472.15 214.83M521.47 188.49 518.76 189.81 517.33 190.5M422.93 236.27 416.28 239.49 409.22 242.92M350.64 182.3 349.44 182.78 348.2 183.26M192.36 340.19 176.57 326.9 153.95 307.87M165.77 322.92 188.35 342.1M246.61 301.74 249.55 300.37M416.12 191.86 407.73 195.48 406.71 195.93M352.31 221.64 358.2 219.09M47.61 271.75 57.54 268.07M278.31 186.33 306.61 175.85M336.97 164.61 347.46 160.73M378.75 149.14 393.78 143.58M314.95 240.19 312.66 238.88M420.56 183.28 410.15 178.68 407.9 177.69M404.39 210.29 394.54 205.56 392.06 204.37M85.99 308.14 79.02 301.53M430.82 242.79 425.49 240.11 422.94 238.83M369.55 193.53 367.46 192.53M346.92 182.65 341.33 179.96M340.93 181.9 349.93 186.25M362.72 192.44 364.9 193.49M135.16 333.73 125.01 338.3 120.1 340.5M465.49 166.05 489.25 175.57M420.75 191.89 413.09 188.44M398.9 182.04 398.17 181.71M354.47 162 349.76 159.88M376.51 173.9 378.61 174.85M407.74 188.06 416.12 191.86M234.68 319.96 227.88 314.79M201.28 335.92 192.36 340.19M155.03 358.02 144.1 363.25M289.4 224.53 288.45 224.92M457.18 167.71 395.87 142.8M110.24 324.12 105.15 326.32M146.13 311.27 150.05 309.56M118.81 294.65 85.99 308.14M87.84 309.91 94.33 307.22M338.88 180.91 328.96 184.75M398.17 181.71 405.63 178.63M273.74 46.16 279.97 44.7M107.41 148.47 104.87 146.88M61.18 123.86 64.67 141.82 67.52 156.42M66.09 122.6 64.8 122.93 61.18 123.86M248.82 32.54 255.28 34.7M251.65 38.62 248.47 37.54M282.22 45.46 294.44 49.57M409.79 65.87 417.6 63.59M412.67 66.76 422.11 63.99M530.59 35.56 527.65 36.44 517.03 39.6M431.47 65.1 441.55 62.1 444.46 61.23M419.61 27.31 411.46 29.37M509.85 59.39 496.09 55.66 493.65 55M518.95 56.48 516.05 55.71 481.52 46.53M351.97 29.23 361.64 26.94 363.88 26.41M118.05 111.01 132.43 118.9M163.87 132.25 162.22 131.35 122.55 109.84M201.59 112.77 230.48 104.69M207.69 115.7 225.17 110.74 227.56 110.06M397.5 42.31 398.49 42.05M345.39 77.39 344.96 64.1 344.7 56.17M347.16 55.53 344.7 56.17 310.24 65.22M310.58 71.77 310.66 73.38 311.45 88.67M302.92 63.18 353.56 50.08M300.45 62.31 363.84 46M376.7 7.91 374.6 8.37 351.79 13.41M18.71 86.88 41.25 81.91 42.7 81.59M255.28 34.7 264.94 32.57 266.9 32.13M82.23 72.87 102.34 68.43 103.96 68.08M51.26 79.7 72.54 75.01 74.08 74.67M316.91 21.1 329.2 18.39 331.26 17.94M306.88 91.18 306.82 89.99 305.74 70.04M297.19 63.14 297.99 76.81 298.8 90.64M302.38 68.83 305.74 70.04M408.26 23.07 414.91 24.81 422.09 26.69M417.68 53.38 417.64 58.29 417.6 63.59M401.72 48.7 404.43 49.5M19.92 119.39 18.58 113.23 15.37 98.49M34.95 111.07 22.12 102.83M69.16 121.81 63.96 118.58 58.35 115.1M424.98 63.14 431.47 65.1 433.72 65.78M347.76 32.88 345.02 32.08M81.86 132.47 87.6 130.93M532.45 30.07 470.89 15.58M496.76 25.08 498.91 25.6 525.78 32.01M378.93 25.3 378.94 26.48 379.15 42.06M351.79 13.41 345.1 11.62M378.93 25.3 376.39 24.61M398.46 30.64 395.92 29.95M322.03 27.64 317.15 26.2 300.59 21.29M199.05 111.54 170 97.57M168.73 104.13 173.32 106.39 182.97 111.14M148.19 143.94 150.38 158.85 152.11 170.65M202.59 154.65 201.59 146.01 199.59 128.87M282.71 104.49 300.34 99.31 303 98.54M185.69 132.95 177.44 135.36M123.53 151.18 132.28 148.61M280.2 58.28 281.13 72.12 281.75 81.21M283.02 57.58 280.2 58.28M294.99 76.14 294.95 75.47 293.71 54.92M461.86 16.65 395.22 .73M443.36 13.32 392.96 1.22M118.05 111.01 68.19 123.91M86.35 124.01 95.96 121.49M356.48 49.32 388.34 59.21M228.3 37 246.67 43.44M55.5 109.4 47.96 111.24M405.78 23.68 397.64 25.67M414.91 24.81 441 18.33 443.41 17.73M443.36 13.32 397.96 24.37 395.25 25.03"/>
+        <path d="M515.9 211.84 516.06 209.54 516.15 208.12 516.27 206.3 517.33 190.5M319.04 236.11 319.17 238.67 320.11 256.95M289.1 209.76 291.17 210.91M422.94 238.83 425.52 237.57M474.46 213.7 507.34 197.67M455.08 168.6 442.18 174.09M429.35 179.54 420.56 183.28M150.05 309.56 163.5 320.99M480.73 243.2 445.58 261.69M392.22 202.19 391.63 202.44 369.92 211.83 367.48 212.89 350.02 220.44M132.41 240.35 240.88 200.19M262.2 192.29 263.56 191.79M309.11 174.93 323.84 169.48M349.76 159.88 354.36 158.17M367.46 192.53 365.38 191.53 365.19 191.43M352.38 185.27 350.29 184.27M410.82 187.42 410.07 187.07M395.97 180.72 393.79 179.74M347.46 160.73 374.41 172.95M227.88 314.79 224.36 312.12M340.91 269.19 332.35 273.28M328.06 275.33 311.03 283.47M293.1 292.04 263.52 306.17M230.96 321.74 222.51 325.78M188.35 342.1 178.03 347.04M304.51 218.32 303.58 218.7M442.42 163.43 455.08 168.6M111.76 323.47 110.24 324.12M445.58 261.69 430.64 253.98M420.26 248.62 411.81 244.26M288.45 224.92 277.25 218.47M260.81 208.99 243.71 199.14 259.47 193.31M120.31 294.03 118.81 294.65M98.4 305.55 126.12 294.1M407.9 177.69 410.16 176.76M262.18 48.89 266.1 47.96 268.04 47.51 273.74 46.16 267.79 44.13 265.76 43.44M255.28 34.7 265.35 38.06 267.39 38.75 292.77 47.22 297.53 48.82M265.76 43.44 251.65 38.62M245.79 33.2 279.97 44.7M417.6 63.59 441.66 56.56M134.86 120.23 159.21 133.59 137.83 139.73 133.29 141.04 131.19 141.64 124.73 143.5 107.41 148.47M478.09 69.55 450.28 78.44M398.49 42.05 405.77 40.14 406.96 39.82 409.49 39.16M363.84 46 366.54 45.31 374.41 43.28 376.65 42.7 379.15 42.06 390.44 39.16 395.96 37.74 398.48 37.09 405.77 35.21 408.09 34.62 417.27 32.25M6.39 85.21 225.15 37.68M310.27 65.75 302.92 63.18M305.74 70.04 310.58 71.77 313.17 72.7 333.53 80M409.46 50.97 417.68 53.38M397.5 42.31 390.91 40.41 419.8 32.94M46.03 110.03 20.2 93.86 6.39 85.21M22.12 102.83 15.37 98.49 9.78 94.9M335.63 24.54 343.07 26.68M354.67 34.91 348.21 33.01 347.76 32.88M335.15 25.79 361.2 33.32 354.67 34.91 348.31 36.46 347.87 36.56 345.19 37.22 335.66 39.54 322.09 42.84 319.95 43.36 303.97 47.25 297.53 48.82M119.86 122.27 132.43 118.9M130.97 126.1 128.85 126.68 120.92 128.85 116.44 130.08 114.55 130.6 102.63 133.87M374.77 19.56 351.79 13.41M390.36 28.43 381.22 25.93 378.93 25.3M408.09 33.27 405.77 32.64 398.46 30.64M417.27 32.25 374.05 20.63M371.77 20.02 342.59 12.17M201.98 128.17 199.59 128.87 185.69 132.95M132.28 148.61 134.37 148 138.89 146.67 148.19 143.94 150.41 143.29M295.96 54.36 293.71 54.92 283.02 57.58M282.68 52.43 276.55 53.92M73.79 120.61 69.16 121.81 66.09 122.6M95.96 121.49 112.34 117.19 114.24 116.69M85.78 100.36 84.04 100.78 46.03 110.03M92.28 100.4 60.22 108.25M329.51 25.94 322.03 27.64M445.76 13.9 408.26 23.07M507.34 197.67 507.05 202.42 506.94 204.22 506.85 205.63 506.17 216.81M141.72 361 122.29 342.57M120.1 340.5 107.15 328.21M504.76 196.59 499.4 199.19 497.38 200.17 495.8 200.93 440.59 227.71M442.18 174.09 440.09 174.98 437.87 175.92 429.35 179.54M418.29 184.24 410.82 187.42M493.22 236.62 480.73 243.2M348.2 183.26 346.92 182.65M380.93 173.93 375.44 171.46 362.64 165.69 360.7 164.81 354.47 162M222.02 310.34 210.57 301.64M351.28 264.23 340.91 269.19M332.35 273.28 329.47 274.66 328.06 275.33M260 307.86 250.71 312.3 247.8 313.69 245.72 314.68 234.68 319.96M350.35 199.48 341.71 203.03 329.43 208.07 328.11 208.62 307.29 217.17M393.78 143.58 440.22 162.53M120 319.9 115.89 321.68M153.95 307.87 191.56 291.52M430.64 253.98 428.1 252.67 420.26 248.62M275.19 217.28 268.5 213.42 265.94 211.95 263.01 210.26 260.81 208.99M104.87 146.88 84.18 133.92M81.86 132.47 68.19 123.91M424.98 63.14 479 47.27M440.93 21.93 422.09 26.69M493.17 64.72 478.09 69.55M356.48 49.32 388.19 41.12M348.59 79.2 322.71 70.12 310.27 65.75M404.43 49.5 406.95 50.23 409.46 50.97M419.67 48.67 409.47 45.74 406.95 45.02 405.76 44.68 398.49 42.59 397.5 42.31M345.34 27.33 351.97 29.23M87.6 130.93 97.17 128.36 113.46 123.99 115.36 123.48 119.86 122.27M376.88 20.12 374.77 19.56M212.85 118.19 207.69 115.7 201.59 112.77M294.44 49.57 282.68 52.43M459.6 17.22 445.76 13.9M167.7 96.46 94.86 115.19 78.61 119.38M165.84 98.64 122.55 109.84M246.67 43.44 249.04 44.28 252.2 45.38 262.18 48.89M332.94 25.15 331.55 25.47 329.51 25.94M392.06 204.37 394.52 203.3M409.22 242.92 360.84 217.94M481.52 46.53 535.26 30.75M459.6 17.22 445.61 20.75 443.34 21.32 440.93 21.93M495.67 63.92 493.17 64.72M228.3 37 245.79 33.2M422.17 49.39 419.67 48.67M351.97 29.23 361.75 32.04 364.01 32.69 366.29 33.34M390.37 23.73 376.88 20.12M388.34 59.21 401.73 63.37 404.43 64.2 409.79 65.87M412.67 66.76 422.05 69.67 430.77 72.38 433.6 73.26 441.27 75.64 444.12 76.52 450.28 78.44M264.41 49.67 276.55 53.92M505.81 230 500.14 232.98 495.5 235.42 493.22 236.62M364.9 193.49 362.77 194.37 353.18 198.31 352.78 198.47 350.35 199.48M444.39 55.77 487.24 43.26 495.98 40.71 498.17 40.07 525.78 32.01 532.45 30.07M509.85 59.39 495.67 63.92M444.39 55.77 427.17 50.82 422.17 49.39M395.25 25.03 390.37 23.73M516.45 57.28 509.85 59.39M248.82 32.54 297.84 21.89M405.78 27.85 397.64 25.67M300.59 21.29 342.59 12.17M411.46 29.37 405.78 27.85M422.34 32.28 413.95 30.04M176.22 128.71 172.14 129.88 171.58 130.04 163.87 132.25M345.1 11.62 392.96 1.22M184.85 126.23 176.22 128.71M208.57 119.41 184.85 126.23M393.88 159.71 393.9 162.93 393.9 164.21M231.28 112.89 227.93 113.85 225.55 114.54 212.85 118.19M241.93 109.83 231.28 112.89M333.67 83.48 306.88 91.18 303.68 92.1 303.03 92.28 245.96 108.68M345.3 80.15 333.67 83.48M259.47 193.31 260.81 208.99M376.86 195.93 376.51 173.9M250.71 312.3 249.55 300.37M358.2 219.09 358.85 243.08M240.88 200.19 243.13 223.38M306.61 175.85 307.87 197.97M347.46 160.73 348.16 182.16M405.6 200.87 405.63 178.63M465.49 166.05 464.72 187.73M195.13 318.36 191.56 291.52M275.23 81.46 227.59 62.91M282.22 45.46 282.68 52.43M283.02 57.58 283.93 71.38M246.67 43.44 245.79 33.2M422.05 69.67 422.11 63.99M478.09 69.55 479 47.27M374.05 20.63 374.41 43.28M138.89 146.67 139.78 152.51M119.86 122.27 118.05 111.01M230.48 104.69 231.28 112.89M354.28 76.42 353.56 50.08M388.34 59.21 388.19 41.12M227.59 62.91 225.15 37.68M299.2 45.68 297.84 21.89M343.07 26.68 342.59 12.17M393.08 23.07 392.96 1.22M405.78 27.85 405.78 23.68M55.5 109.4 61.67 140.8M335.66 39.54 335.15 25.79M470.89 15.58 470.05 38.78M169.91 129.15 165.84 98.64M287.29 250.39 243.13 223.38"/>
+        <path d="M353.06 245.75 352.4 246.05 321.01 260.48 320.31 260.81M379.05 170.04 378.52 170.25 375.44 171.46M315.04 311.66 314.25 312.06 298.24 320.2 297.42 320.61M404.38 230.95 407.41 232.49 408.02 232.2 404.38 230.36M406.08 219.2 408.36 220.32 408.95 220.05 406.67 218.93 406.08 219.2M407.79 220.04 408.56 220.44 409.28 220.87 409.94 221.32 410.54 221.79 411.08 222.27 411.56 222.78 411.97 223.29 412.31 223.82 412.58 224.36 412.77 224.91 412.9 225.46 412.95 226.02 412.93 226.58 412.84 227.14 412.67 227.69 412.43 228.24 412.12 228.79 411.73 229.32 411.27 229.84 410.75 230.35 410.16 230.84 409.5 231.31 408.78 231.76 408 232.19M396.68 205.44 397.22 205.7 399.51 204.7 398.97 204.44 396.68 205.44M404.39 211.17 406.68 210.14M406.68 210.66 404.39 211.69M397.8 205.45 397.16 205.74 396.57 206.06 396.13 206.32M228.15 355.78 227.22 356.25 208.31 365.85 207.35 366.34M279.98 208.92 279.33 209.17 268.5 213.42M272.18 215.54 272.73 215.41 272.92 215.63 273.37 215.75 272.99 216.02M272.5 215.73 272.92 215.63 272.66 215.82M307.14 243.93 306.46 244.23 304.33 242.98 305.02 242.68 307.14 243.93M293.19 250.03 293.89 249.72 293.14 249.26M307.89 245.78 305.23 244.22 305.92 243.91 307.85 245.05M293.37 249.4 293.99 249.75 294.67 250.08 295.39 250.39 296.16 250.67 296.96 250.92 297.81 251.14 298.68 251.34 299.59 251.51 300.52 251.64 301.48 251.74 302.45 251.82 303.44 251.86 304.44 251.86 305.44 251.84 306.45 251.78 307.45 251.69 308.24 251.6M136.52 265.22 173.16 250.84 230.3 228.41 243.13 223.38 289.4 251.68 293.19 250.03M279.98 208.92 281.28 208.41 299.16 201.39 300 201.06 307.46 198.13 307.87 197.97 328.11 208.62M379.05 170.04 393.9 164.21 397.33 165.69 403.26 168.26 403.92 168.54 425.39 177.83 426.09 178.13 429.35 179.54M420.6 207.67 425.74 205.35 426.48 205.01 454.43 192.38 455.12 192.07 461.31 189.27 464.72 187.73 488.14 197.68 488.73 197.93M520.41 213.29 522.04 212.45 524.44 211.21M487.28 230.35 508.06 219.65 508.58 219.38M353.06 245.75 358.85 243.08 445.31 290.51 509.56 254.61 509.32 254.49M308.94 263.64 313.42 266.38 313.99 266.72 328.06 275.33M316.16 262.71 320.31 260.81M315.04 311.66 357.51 290.1M228.15 355.78 297.42 320.61M184.57 377.91 207.35 366.34M163.91 350.72 166.06 352.65 165.08 353.12 162.93 351.19 163.91 350.72M147.09 396.94 162.06 389.34M80.26 330.12 89.32 339.18M47.93 297.79 55.91 305.77M60.97 294.87 63.1 294.03M83.64 285.97 91 283.08M110.66 275.37 117.7 272.6M164.54 352.63 167.71 355.48M166.73 355.95 163.57 353.1 164.54 352.63M413.99 327.89 354.61 291.57M595.23 222.66 413.99 327.89M419.76 152.51 420.95 152.04M595.23 222.66 525.65 194.47M517.29 191.08 491 180.42M458.37 167.2 420.95 152.04M136.52 265.22 135.68 265.55 118.57 272.26 117.7 272.6M379.46 197.18 381.74 196.22 381.22 195.97 378.94 196.93 379.46 197.18M381.17 196.46 381.99 196.13 382.85 195.83 383.75 195.56 384.69 195.31 385.65 195.08 386.65 194.89 387.66 194.72 388.7 194.58 389.75 194.48 390.81 194.4 391.57 194.37M200.82 318.42 197.26 320.07 197.79 320.5 201.36 318.85 200.82 318.42M198.69 320.08 179.19 329.1M179.72 329.55 199.22 320.51 198.69 320.08M210.22 329.89 209.75 330.11 210.31 330.56M210.22 329.88 209.37 330.26 208.04 330.8 206.67 331.3 205.27 331.75 203.83 332.15 202.37 332.5 200.9 332.8 199.41 333.05 197.92 333.25 196.44 333.39 194.96 333.48 193.49 333.51 192.05 333.49 190.64 333.41 189.26 333.27 187.92 333.08 186.62 332.84 185.38 332.54 184.19 332.2 183.06 331.8 182 331.36 181.67 331.19M80.26 330.12 55.91 305.77M79.82 329.68 56.31 306.17M184.57 377.91 183.56 378.42 163.1 388.81 162.06 389.34M520.41 213.29 519.9 213.55 533.42 219.33 532.92 219.59 519.4 213.81 517.19 214.95 514.74 216.21 512.28 217.48 509.8 218.75 508.62 219.36M508.6 219.37 508.86 219.48 509.82 219.83 510.81 220.16 511.85 220.46 512.91 220.73 514 220.97 515.12 221.17 516.25 221.35 517.4 221.49 518.55 221.6 519.71 221.68 520.87 221.72 522.02 221.72 523.16 221.69 524.28 221.63 525.38 221.53 526.46 221.4 527.5 221.23 528.51 221.03 529.49 220.8 530.41 220.54 531.3 220.25 532.13 219.93 532.9 219.59M436.99 253.63 439.54 254.94 440.16 254.62 437.6 253.32 436.99 253.63M438.9 254.61 439.77 255.08 440.58 255.58 441.33 256.11 442.02 256.66 442.65 257.23 443.2 257.81 443.68 258.42 444.1 259.04 444.43 259.67 444.69 260.32 444.87 260.97 444.94 261.36M282.4 208.42 286.21 210.54M318.71 212.48 306.39 205.86M319.34 212.22 299.16 201.39M99.94 299.38 99.36 298.85M147.91 291.43 146.73 291.92M147.09 279.38 147.69 279.87M133.64 297.4 132.44 297.91"/>
+        <path d="M302.75 283.87 291.4 276.56 286.95 273.7M89.66 306.63 87.39 304.51 99.94 299.38 102.24 301.46M96.77 296.5 106.6 292.52 107.82 292.02 119.86 287.14 121.05 286.66 122.24 286.18 133.99 281.42 135.16 280.94 144.38 277.21 147.09 279.38M157.23 287.53 147.91 291.43 146.73 291.92 134.84 296.9 133.64 297.4 132.44 297.91 127.17 300.11M153.81 284.78 154.43 285.28 157.23 287.53M147.69 279.87 153.81 284.78 165.23 280.05 159.06 275.23 147.69 279.87M250.58 295.42 261.75 303.33 274.76 297.15 290.43 289.72 302.75 283.87M99.36 298.85 96.77 296.5M208.25 276.25 213.25 279.88 217.31 282.81 275.94 257.2 271.76 254.56 266.6 251.31 259.28 254.44M146.73 291.92 153 297.09 141.05 302.17 134.84 296.9M130.82 321.03 144.95 314.85M267.81 240.91 252.12 231.26 249.53 232.3 239.04 236.53 237.14 235.33 251.61 229.52 271.24 241.55 256.63 247.69 254.63 246.42 246.75 241.42 239.04 236.53M147.91 291.43 145.13 289.15 142.99 287.38 139.95 284.89 137.84 283.15 135.16 280.94M132.44 297.91 138.63 303.2 128.46 307.52M102.08 286.96 107.82 292.02M142.99 287.38 128.78 293.26 126.16 294.34M125.78 290.7 123.33 291.7M118.63 293.63 111.27 296.65 109.22 294.83 106.6 292.52M154.43 285.28 145.13 289.15M125.78 290.7 121.05 286.66M119.86 287.14 114.05 282.18 102.08 286.96M133.99 281.42 128.12 276.57 116.42 281.24 122.24 286.18M216.3 272.81 208.25 276.25M99.36 298.85 109.22 294.83M265.2 242 267.81 240.91M214.35 267.84 226.88 262.55 239.12 257.38 251.09 252.33 254.04 251.08 259.28 254.44M257.28 237.1 246.75 241.42M139.95 284.89 125.78 290.7M147.09 279.38 137.84 283.15M133.64 297.4 128.78 293.26 125.78 290.7M112.12 297.4 111.27 296.65M144.18 310.18 130 316.32M211.18 269.18 214.35 267.84 221.65 272.99 234.23 267.58 246.52 262.3 258.53 257.14 251.09 252.33M177.79 265.44 180.76 264.23 192.51 259.45 190.64 258.11 174.31 264.72 185.54 273.09 201.99 266.24 200.07 264.87 188.27 269.76 185.28 271 177.79 265.44M188.27 269.76 180.76 264.23M223.5 274.29 260.42 258.35 258.53 257.14M234.23 267.58 226.88 262.55M240.76 249.58 230.1 242.64 201.31 254.31 211.78 261.63 240.76 249.58M234.01 230.76 230.3 228.41M173.16 250.84 176.74 253.43 234.01 230.76M246.52 262.3 239.12 257.38M200.07 264.87 192.51 259.45M221.65 272.99 223.5 274.29M264.42 257.74 221.32 276.38 216.3 272.81 211.18 269.18M221.32 276.38 213.25 279.88M259.28 254.44 264.42 257.74 271.76 254.56M265.2 242 257.28 237.1 249.53 232.3M254.63 246.42 265.2 242M250.58 295.42 246.21 292.33 286.95 273.7M274.76 297.15 263.53 289.44 279.12 282.23 290.43 289.72M263.53 289.44 250.58 295.42M279.12 282.23 291.4 276.56"/>
+        <path d="M361.59 189.79 356.6 191.81 362.28 194.57M365.1 191.47 361.59 189.79M360.93 195.13 352.97 191.24M307.85 245.05 306.46 244.23M109.78 275.71 91.91 282.72M130.85 324.88 130.37 324.44 123.08 327.65M123.19 328.25 130.84 324.89M101.58 336.45 102.05 336.9 102.6 336.66M352.91 189.31 358.44 187.09M304.33 242.98 305.92 243.91M82.73 286.33 64.05 293.66M352.83 186.58 353.33 186.82 355.8 185.83M379.46 197.18 381.17 196.46M406.08 219.2 407.79 220.04M480.25 243.45 477.89 242.32 477.1 241.98 476.25 241.69 475.35 241.45 474.42 241.26 473.47 241.14 472.52 241.07 471.58 241.06 470.68 241.12 469.82 241.24 469.02 241.41 468.29 241.64 467.65 241.92 463.09 244.28 462.67 244.53 462.34 244.82 462.09 245.13 461.93 245.46 461.86 245.81 461.89 246.17 462.01 246.53 462.23 246.89 462.53 247.25 462.92 247.58 463.39 247.9 463.92 248.2 467.7 250.05M404.97 234.22 404.38 233.92M403.73 235.38 403.14 235.08 404.97 234.22 402.53 235.37 401.94 235.07M457.58 245.65 467.13 250.35M402.53 235.37 398.39 237.33M398.98 237.63 403.73 235.38M454.47 192.86 427.6 205.02 432.12 207.11 458.2 219.17M457.64 219.44 426.48 205.01M464.4 197.19 458.99 194.83 454.47 192.86M458.99 194.83 432.12 207.11 464.4 197.19 485.02 206.16M454.43 192.38 485.54 205.91M281.28 208.41 288.01 212.17M306.39 205.86 302.84 203.95 299.01 201.89 282.4 208.42M286.21 210.54 288.66 211.91M286.21 210.54 289.11 209.87M292.59 209.06 306.39 205.86M302.84 203.95 286.21 210.54M381.05 183.5 391.53 188.34M400.26 170.43 380.98 178.18M416.33 181.19 420.7 179.35 424.35 177.82 403.9 168.97 400.26 170.43 408.85 176.18M410.16 177.06 416.33 181.19 416.08 181.3M381.05 183.02 391.52 187.86M304.79 203.63 300 201.06M307.46 198.13 312.27 200.67 304.79 203.63M416.6 181.53 425.39 177.83M420.7 179.35 400.26 170.43M420.87 180.33 424.13 181.76M397.33 165.69 392.13 167.75 398.05 170.34 403.26 168.26M426.09 178.13 420.87 180.33M460.77 194.52 466.97 191.69 461.31 189.27M424.68 211.05 431.4 207.97 425.74 205.35M397.46 232.78 393.33 234.72M420.58 209.12 424.68 211.05M455.12 192.07 460.77 194.52M403.92 168.54 380.98 177.75M130.84 324.89 131.52 325.66 132.11 326.48 132.59 327.33 132.96 328.22 133.21 329.14 133.36 330.09 133.39 331.07 133.31 332.07 133.11 333.09 132.8 334.12 132.46 334.95M356.27 197.04 355.23 196.97 354.15 196.94 353.14 196.93M266.31 307.76 295.59 293.69M266.31 307.76 224.92 327.66M507.29 255.87 507.06 255.76M249.03 109.77 282.41 100.12M351.4 80.18 336.67 75.01M302.75 94.24 351.4 80.18M249.03 109.77 201.45 123.53M176.83 130.64 149.71 138.48M61.18 123.86 73.79 120.61 71.69 119.33M55.5 109.4 43.16 112.42 34.02 106.63M.23 85.18 16.16 81.73M393.09 .23 461.86 16.65 470.62 14.44 499.14 21.11M537.49 30.09 530.83 32.05M481.52 46.53 496.35 50.47M302.92 63.18 305.41 64.05M122.74 146.28 104.71 151.49M57.47 110.61 55.5 109.4M8.84 90.65 .23 85.18M40.17 76.54 48.74 74.68M71.58 69.75 79.74 67.98M101.49 63.28 104.8 62.56 248.3 31.53M264.6 28.01 314.66 17.18M329.03 14.08 348.01 9.97M374.53 4.24 393.09 .23M531.82 28.76 537.49 30.09M517.25 36.04 481.52 46.53M512.98 54.9 522.08 57.31M389.59 205.44 360.84 217.94"/>
+      </g>
+    </svg>
+    <figcaption id="slice-cap">The 1/8&Prime; model sliced at 4 ft. The top part is lifted off, and the gray dashed lines show where it came from. The cut wall edges, shown in red, reveal the floor plan.</figcaption>
+  </figure>
   <div class="inst-parts-container">
-
-    <!-- STEP 1 -->
     <div class="inst-part-block reveal d1">
-      <p class="instructions-label">Step 1 &mdash; The Analytic Trace</p>
-      <p style="font-size:13px;color:var(--dark-gray);font-style:italic;margin-bottom:6px;">Objective: Understand the standard graphic language of architecture and develop discipline with line weights.</p>
-      <p style="font-size:14px;color:var(--dark-gray);line-height:1.75;margin-bottom:18px;">Before you begin, use your <strong>1/8&Prime; scale model from Assignment 05</strong> to read the space&mdash;the rooms, their proximity, their relationships, and their boundaries. Analyze which boundaries are physical (walls) and which are abstract (open space defined by furniture), and consider how this shapes the spatial adjacencies.</p>
+      <p style="font-size:14px;color:var(--dark-gray);line-height:1.75;margin-bottom:18px;">Using the <strong>1/8&Prime; scale model from Assignment 05</strong>, students must create a horizontal slice by cutting through the walls at a height of <strong>4 ft</strong>.</p>
       <ol class="instruction-list">
-        <li><span>Print <strong>Deconstruction Format 1</strong> on 11&Prime;&times;8.5&Prime; paper and paste it onto a foam board.</span></li>
-        <li><span>Cut <strong>three pieces of tracing paper</strong> matching the dimensions of the three rectangles printed on the format. Use your ruler and T-square to guarantee rigor and precision throughout.</span></li>
-        <li><span>Trace the floor plan <strong>three times on separate sheets</strong> of tracing paper, one layer per sheet, following the line weights and conventions below.</span></li>
+        <li><span>Measure, using the <strong>1/8&Prime; = 1&prime;-0&Prime; scale</strong>, 4 feet from the base of the walls.</span></li>
+        <li><span>Make several marks around the model, all at 4 feet.
+          <ul class="inst-sub"><li>Take photographs of this process.</li></ul></span></li>
+        <li><span>Trace a line that joins all 4&prime; markings around the model.
+          <ul class="inst-sub"><li>Take photographs of this process.</li></ul></span></li>
+        <li><span>Take a <strong>box cutter</strong>. Do not use a precision X-Acto knife. For this task, you will need a longer blade.
+          <ul class="inst-sub"><li>Make sure your box cutter has a new blade.</li></ul></span></li>
+        <li><span><strong>Patience is key.</strong> Take the time you need to cut the horizontal section.
+          <ul class="inst-sub"><li>It is safer to do repetitive cuts than to try to cut everything with a single cut.</li></ul></span></li>
+        <li><span>When the slicing is done, remove the top part of the model.
+          <ul class="inst-sub"><li>Take photographs of this process.</li></ul></span></li>
+        <li><span>Color the sliced edges of the cut walls with a marker, in the color of your choosing, highlighting the horizontal section.
+          <ul class="inst-sub"><li>Take photographs of this process.</li></ul></span></li>
+        <li><span>Use the <strong>Scan function in the Notes app</strong> and create:
+          <ul class="inst-sub">
+            <li>A crisp top photograph of the sliced model.</li>
+            <li>A crisp angled photograph of the sliced model.
+              <ul class="inst-sub"><li>It is very important that these photographs are clear and clean, without external shadows or objects in the shots.</li></ul></li>
+          </ul></span></li>
       </ol>
-      <p style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;color:var(--crimson);margin-top:24px;margin-bottom:4px;">Three Trace Layers</p>
-      <div class="legend-list">
-        <div class="legend-row l1">
-          <span class="legend-tag">Layer 1 &mdash; 0.9mm</span>
-          <span class="legend-desc"><strong>Cut Partitions.</strong> Trace the walls. A floor plan is a horizontal section cut through a building viewed from above. Walls must be hatched with diagonal lines or filled with rigor and precision. Avoid hairy lines and hatching that overruns the wall boundary.</span>
-        </div>
-        <div class="legend-row l2">
-          <span class="legend-tag">Layer 2 &mdash; 0.7mm</span>
-          <span class="legend-desc"><strong>Openings.</strong> Trace all doors, door swings, and windows.</span>
-        </div>
-        <div class="legend-row l3">
-          <span class="legend-tag">Layer 3 &mdash; 0.5mm</span>
-          <span class="legend-desc"><strong>Details.</strong> Trace furniture, plumbing fixtures, cabinetry, text, and floor textures.</span>
-        </div>
-      </div>
-      <div class="safety-note">All three layers must overlay to reconstruct the complete plan. Paste each tracing paper layer onto the corresponding rectangle indicated on Format 1.</div>
-    </div>
-
-    <!-- STEP 2 -->
-    <div class="inst-part-block reveal d2">
-      <p class="instructions-label">Step 2 &mdash; The Block Plan</p>
-      <p style="font-size:13px;color:var(--dark-gray);font-style:italic;margin-bottom:6px;">Objective: Understand how an area program is distributed into defined zones.</p>
-      <p style="font-size:14px;color:var(--dark-gray);line-height:1.75;margin-bottom:18px;">Before you begin, use your <strong>1/8&Prime; scale model</strong> again to think about the activities that take place in each space&mdash;not just their boundaries, but their function.</p>
-      <ol class="instruction-list">
-        <li><span>Print <strong>Deconstruction Format 2</strong> on 11&Prime;&times;8.5&Prime; paper and paste it onto a foam board.</span></li>
-        <li><span>Cut <strong>three pieces of tracing paper</strong> matching the dimensions of the three rectangles printed on the format.</span></li>
-        <li><span>Work through the three rectangles <strong>in sequence</strong> as described below.</span></li>
-      </ol>
-
-      <p class="inst-sub-label">Rectangle 1 &mdash; The Labeled Block Plan</p>
-      <p style="font-size:14px;color:var(--dark-gray);line-height:1.75;margin-bottom:12px;">Place the first tracing paper rectangle over the floor plan. Trace the boundaries of every space&mdash;remember that boundaries can be physical (a wall) or abstract (an open area divided by furniture). The result is a series of boxes side by side. Small spaces such as closets and pantries should be included as separate boxes, but are not required to be tagged.</p>
-      <p style="font-size:14px;color:var(--dark-gray);line-height:1.75;margin-bottom:8px;">For every major space, place a <strong>Room Tag</strong> inside its box:</p>
-      <div class="room-tag-example">
-        <div class="room-tag-row"><span class="room-tag-key">NAME OF THE SPACE</span><span class="room-tag-val">KITCHEN</span></div>
-        <div class="room-tag-row"><span class="room-tag-key">DIMENSIONS in Feet</span><span class="room-tag-val">12&prime; &times; 8&prime;</span></div>
-        <div class="room-tag-row"><span class="room-tag-key">AREA in Square Feet</span><span class="room-tag-val">96 Sq. Ft.</span></div>
-      </div>
-      <p style="font-size:14px;color:var(--dark-gray);line-height:1.75;margin-bottom:0;">Measure the length and width of each major space from the 1/16&Prime; drawings in the Deconstruction Format, calculate the area in square feet, name the space, and record all three in the tag. Paste this layer onto the rectangle indicated on Format 2.</p>
-
-      <p class="inst-sub-label">Rectangle 2 &mdash; The Colored Block Plan</p>
-      <p style="font-size:14px;color:var(--dark-gray);line-height:1.75;">Place the second tracing paper rectangle over the Labeled Block Plan. Trace only the <strong>major spaces</strong>&mdash;absorb minor dependencies, like closets and pantries, into the general block of the room they serve. Write the name of each space and fill each with a <strong>distinct color</strong>. The colors you choose here carry forward into Rectangle 3. Paste this layer onto the rectangle indicated on Format 2.</p>
-
-      <p class="inst-sub-label">Rectangle 3 &mdash; The Bubble Diagram</p>
-      <p style="font-size:14px;color:var(--dark-gray);line-height:1.75;margin-bottom:14px;">Place the third tracing paper rectangle over the Colored Block Plan. Draw <strong>loose circles (bubbles)</strong> centered over each zone, using the same names and colors from Rectangle 2. Connect bubbles with the line types below to describe the relationships you observe in the plan. Mark the <strong>entry point</strong> of the plan. Paste this layer onto the rectangle indicated on Format 2.</p>
-      <p style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;color:var(--crimson);margin-bottom:4px;">Connection Line Types</p>
-      <div class="legend-list">
-        <div class="legend-row l1">
-          <span class="legend-tag">Solid + Arrow</span>
-          <span class="legend-desc"><strong>Physical opening</strong>&mdash;door or archway.</span>
-        </div>
-        <div class="legend-row l2">
-          <span class="legend-tag">Dashed Line</span>
-          <span class="legend-desc"><strong>Visual connection</strong>&mdash;open plan, pass-through, sightline.</span>
-        </div>
-        <div class="legend-row l3">
-          <span class="legend-tag">Zig-Zag Line</span>
-          <span class="legend-desc"><strong>Sound barrier</strong>&mdash;acoustic separation between quiet and noisy zones.</span>
-        </div>
+      <div class="dark-callout" style="margin-top:28px;">
+        <p class="dark-callout-label">What the Slice Shows</p>
+        <p>This exercise will show you what a floor plan means: a scaled, top-down, two-dimensional technical drawing that shows the spatial layout of a construction from a bird&rsquo;s-eye view of a horizontal section.</p>
+        <p><em>What Assignment 05 drew is an abstraction of space. The sectioning is the experience of that abstraction.</em></p>
       </div>
     </div>
+  </div>
+</section>
+</div>
 
-    <!-- STEP 3 -->
-    <div class="inst-part-block reveal d3">
-      <p class="instructions-label">Step 3 &mdash; The Adjacency Matrix</p>
-      <p style="font-size:13px;color:var(--dark-gray);font-style:italic;margin-bottom:6px;">Objective: Create a graphic abstraction of the spatial and functional relationships between spaces.</p>
-      <p style="font-size:14px;color:var(--dark-gray);line-height:1.75;margin-bottom:18px;">Before you begin, use your <strong>1/8&Prime; scale model</strong> once more to analyze which boundaries are physical and which are abstract, and how this defines the spatial adjacencies between rooms.</p>
+<!-- LEVEL 03 -->
+<div class="level" data-level="3">
+<!-- SECTION 03: THE BLOCK PLAN -->
+<section class="section alt" id="blockplan">
+  <p class="eyebrow">Section 03</p>
+  <h2 class="sec-title">The Block Plan</h2>
+  <hr class="sec-rule">
+  <div class="inst-parts-container">
+    <div class="inst-part-block reveal d1">
+      <p style="font-size:14px;color:var(--dark-gray);line-height:1.75;margin-bottom:18px;">Before you begin, use your <strong>1/8&Prime; scale model</strong> again to think about the activities that take place in each space. Not just their boundaries, but the life that occurs inside the edges of each room, of each space.</p>
       <ol class="instruction-list">
-        <li><span>Print <strong>Deconstruction Format 3</strong> on 11&Prime;&times;8.5&Prime; paper and paste it onto a foam board.</span></li>
-        <li><span>Work through the <strong>four stages below in sequence</strong>.</span></li>
+        <li><span>Print the <strong>1/8&Prime; = 1&prime;-0&Prime; floor plan</strong> on an 8.5&Prime; &times; 11&Prime; format.
+          <ul class="inst-sub"><li>Download the format from this link: <a class="inst-link" href="https://alabama.box.com/s/v3ghe2vr1vdqtwa60wtivpys6x2cc8e9" target="_blank" rel="noopener">alabama.box.com/s/v3ghe2vr1vdqtwa60wtivpys6x2cc8e9</a></li></ul></span></li>
+        <li><span>Paste tracing paper on top of the entire floor plan.</span></li>
+        <li><span>Trace the boundaries of every space. Remember that boundaries can be <strong>physical</strong> (a wall) or <strong>abstract</strong> (an open area divided by furniture). The result is a series of side-by-side boxes.
+          <ul class="inst-sub"><li>Using colors for different types of areas is recommended.</li></ul></span></li>
+        <li><span>For every major space, place a <strong>Room Tag</strong> inside its box. Small spaces such as closets and pantries should be included as separate boxes but are not required to be tagged.</span></li>
+        <li><span>Each Room Tag must contain:
+          <div class="room-tag-example" style="margin-top:10px;">
+            <div class="room-tag-row"><span class="room-tag-key">NAME OF THE SPACE</span><span class="room-tag-val">KITCHEN</span></div>
+            <div class="room-tag-row"><span class="room-tag-key">DIMENSIONS in Feet</span><span class="room-tag-val">12&prime; &times; 8&prime;</span></div>
+            <div class="room-tag-row"><span class="room-tag-key">AREA in Square Feet</span><span class="room-tag-val">96 Sq. Ft.</span></div>
+          </div></span></li>
+        <li><span>Measure the length and width of each major space from the 1/8&Prime; drawings in the 1/8&Prime; printout, calculate the area in square feet, name the space, and record all three in the tag.</span></li>
+        <li><span>Take photographs of this process.</span></li>
+        <li><span>Paste the printout with the tracing paper containing the Block Plan onto an <strong>8.5&Prime; &times; 11&Prime; foam board base</strong>.</span></li>
       </ol>
+    </div>
+  </div>
+</section>
+</div>
 
-      <p style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;color:var(--crimson);margin-top:24px;margin-bottom:4px;">Four Stages</p>
+<!-- LEVEL 04 -->
+<div class="level" data-level="4">
+<!-- SECTION 04: THE BUBBLE DIAGRAM -->
+<section class="section alt" id="bubble">
+  <p class="eyebrow">Section 04</p>
+  <h2 class="sec-title">The Bubble Diagram</h2>
+  <hr class="sec-rule">
+  <div class="inst-parts-container">
+    <div class="inst-part-block reveal d1">
+      <ol class="instruction-list">
+        <li><span>Use an <strong>8.5&Prime; &times; 11&Prime; sheet of tracing paper</strong>.</span></li>
+        <li><span>Following the instructions given in class, draw <strong>loose circles (bubbles)</strong> representing each major box on the Block Plan, using the same names and colors. Connect bubbles with the line types below to describe the relationships you observe between spaces in the plan.</span></li>
+      </ol>
+      <p style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;color:var(--crimson);margin-top:24px;margin-bottom:4px;">Connection Line Types</p>
       <div class="legend-list">
-        <div class="legend-row l1">
-          <span class="legend-tag" style="min-width:64px;">Stage 1</span>
-          <span class="legend-desc">Paste or tape tracing paper over the floor plan on Format 3. Draw boxes over each space and name them to match the room names you will use in your Adjacency Matrix grid.</span>
-        </div>
-        <div class="legend-row l2">
-          <span class="legend-tag" style="min-width:64px;">Stage 2</span>
-          <span class="legend-desc">For each space, consider and list the activities that occur within it.</span>
-        </div>
-        <div class="legend-row l3">
-          <span class="legend-tag" style="min-width:64px;">Stage 3</span>
-          <span class="legend-desc">Based on those activities, analyze the type of adjacency relationship between each pair of spaces.</span>
-        </div>
-        <div class="legend-row l4">
-          <span class="legend-tag" style="min-width:64px;">Stage 4</span>
-          <span class="legend-desc">Fill every intersecting cell of the Adjacency Matrix grid using the three-symbol key below. <strong>Every cell must be filled. No blanks.</strong> Your symbol choices should be consistent with the Bubble Diagram and with what you observe in the floor plan.</span>
-        </div>
+        <div class="legend-row l1"><span class="legend-tag">Solid + Arrow</span><span class="legend-desc"><strong>Physical connection</strong>&mdash;door or archway.</span></div>
+        <div class="legend-row l2"><span class="legend-tag">Dashed Line</span><span class="legend-desc"><strong>Visual connection</strong>&mdash;open plan, pass-through, sightline.</span></div>
+        <div class="legend-row l3"><span class="legend-tag">Zig-Zag Line</span><span class="legend-desc"><strong>Sound barrier</strong>&mdash;acoustic separation between quiet and noisy zones.</span></div>
+        <div class="legend-row l4"><span class="legend-tag">Thick Dashed Line</span><span class="legend-desc"><strong>Circulation</strong>&mdash;hallways, corridors.</span></div>
       </div>
+      <div class="safety-note">When finished, paste the tracing paper onto an 8.5&Prime; &times; 11&Prime; foam board base.</div>
+    </div>
+  </div>
+</section>
+</div>
 
+<!-- LEVEL 05 -->
+<div class="level" data-level="5">
+<!-- SECTION 04 (CONTINUED): THE ADJACENCY MATRIX -->
+<section class="section alt" id="matrix">
+  <p class="eyebrow">Section 04 &middot; Continued</p>
+  <h2 class="sec-title">The Adjacency Matrix</h2>
+  <hr class="sec-rule">
+  <div class="inst-parts-container">
+    <div class="inst-part-block reveal d1">
+      <ol class="instruction-list">
+        <li><span>Download the <strong>Adjacency Matrix format</strong> from: <a class="inst-link" href="https://alabama.box.com/s/tjgm4jcffzpvkthnb5j5fcudn931x61l" target="_blank" rel="noopener">alabama.box.com/s/tjgm4jcffzpvkthnb5j5fcudn931x61l</a></span></li>
+        <li><span>Print the Adjacency Matrix in an 8.5&Prime; &times; 11&Prime; format.</span></li>
+        <li><span>Follow the instructions given in class to complete the Adjacency Matrix.
+          <ul class="inst-sub">
+            <li>For each space, consider and list the activities that occur within it.</li>
+            <li>Based on those activities, analyze the type of adjacency relationship between each of the spaces.</li>
+            <li>Fill every intersecting cell of the Adjacency Matrix grid using the three-symbol key below. <strong>Every cell must be filled. No blanks.</strong> Your symbol choices should be consistent with the Bubble Diagram and with what you observe in the floor plan.</li>
+            <li>For further guidance on completing the Adjacency Matrix, watch the explanation video: <a class="inst-link" href="https://youtu.be/fYFwns2cZ30?si=jMZt2BE9bKOF7NcS" target="_blank" rel="noopener">youtu.be/fYFwns2cZ30</a></li>
+          </ul></span></li>
+        <li><span>Paste the completed Adjacency Matrix onto an <strong>8.5&Prime; &times; 11&Prime; foam board base</strong>.</span></li>
+      </ol>
       <p style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;color:var(--crimson);margin-top:24px;margin-bottom:4px;">Symbol Key</p>
       <div class="legend-list">
-        <div class="legend-row l1">
-          <span class="legend-symbol">&#9679;</span>
-          <span class="legend-desc"><strong>Primary Adjacency</strong>&mdash;these spaces must be next to each other.</span>
-        </div>
-        <div class="legend-row l2">
-          <span class="legend-symbol">&#9675;</span>
-          <span class="legend-desc"><strong>Secondary Adjacency</strong>&mdash;these spaces should be close or convenient.</span>
-        </div>
-        <div class="legend-row l4">
-          <span class="legend-symbol">&ndash;</span>
-          <span class="legend-desc"><strong>No Relation</strong>&mdash;proximity does not matter.</span>
-        </div>
+        <div class="legend-row l1"><span class="legend-symbol">&#9679;</span><span class="legend-desc"><strong>Primary Adjacency</strong>&mdash;these spaces must be next to each other.</span></div>
+        <div class="legend-row l2"><span class="legend-symbol">&#9675;</span><span class="legend-desc"><strong>Secondary Adjacency</strong>&mdash;these spaces should be close for convenience.</span></div>
+        <div class="legend-row l4"><span class="legend-symbol">&ndash;</span><span class="legend-desc"><strong>No Relation</strong>&mdash;proximity does not matter.</span></div>
       </div>
-      <div class="safety-note">For further guidance on completing the Adjacency Matrix, watch the explanation video: <a href="https://youtu.be/fYFwns2cZ30?si=jMZt2BE9bKOF7NcS" target="_blank" rel="noopener">youtu.be/fYFwns2cZ30</a></div>
     </div>
+  </div>
+</section>
+</div>
 
-    <!-- STEP 4 -->
+<!-- LEVEL 06 -->
+<div class="level" data-level="6">
+<!-- SECTION 05: CLIENT PROFILE & DESIGN CONCEPT STATEMENT -->
+<section class="section alt" id="client">
+  <p class="eyebrow">Section 05</p>
+  <h2 class="sec-title">Client Profile &amp; Design Concept Statement</h2>
+  <hr class="sec-rule">
+  <div class="inst-parts-container">
     <div class="inst-part-block reveal d1">
-      <p class="instructions-label">Step 4 &mdash; The Synthesis Object</p>
-      <p style="font-size:13px;color:var(--dark-gray);font-style:italic;margin-bottom:6px;">Objective: Create a narrative within a volumetric composition that reconstructs and explains the design process.</p>
-      <p style="font-size:14px;color:var(--dark-gray);line-height:1.75;margin-bottom:18px;">Connect all four foam boards&mdash;including the <strong>1/8&Prime; scale model from Assignment 05</strong>&mdash;using masking-tape hinges on the reverse side so they fold into a freestanding volumetric display structure.</p>
+      <p class="instructions-label">Client Profile</p>
+      <ol class="instruction-list">
+        <li><span>Download the <strong>Client Profile format</strong> from: <a class="inst-link" href="https://alabama.box.com/s/jh7mwrtktuuu79kwff1c9grzc2dnifpz" target="_blank" rel="noopener">alabama.box.com/s/jh7mwrtktuuu79kwff1c9grzc2dnifpz</a></span></li>
+        <li><span>Select a client profile from the options given in the format.</span></li>
+        <li><span>Search for images of people who fit that profile. <strong>Do not use AI to generate the images.</strong> For this, you may:
+          <ul class="inst-sub">
+            <li>Use photos of your friends and family, including yourself.</li>
+            <li>Use magazines.</li>
+            <li>Search on the internet.</li>
+          </ul></span></li>
+        <li><span>Follow the instructions on the format to create the <strong>client backstory</strong> and the <strong>client representation collage</strong>.
+          <ul class="inst-sub">
+            <li>You can do this manually or digitally.</li>
+            <li>At the end, complete and print the format, regardless of the medium.</li>
+          </ul></span></li>
+        <li><span>Paste the completed format onto an <strong>8.5&Prime; &times; 11&Prime; foam board base</strong>.</span></li>
+      </ol>
+      <p class="instructions-label" style="margin-top:32px;">Design Concept Statement</p>
+      <ol class="instruction-list">
+        <li><span>Download the <strong>Design Concept Statement format</strong> from: <a class="inst-link" href="https://alabama.box.com/s/jh7mwrtktuuu79kwff1c9grzc2dnifpz" target="_blank" rel="noopener">alabama.box.com/s/jh7mwrtktuuu79kwff1c9grzc2dnifpz</a></span></li>
+        <li><span>According to your client&rsquo;s backstory, write a concept statement broken down into <strong>three paragraphs</strong>.
+          <ul class="inst-sub">
+            <li><strong>Paragraph 1:</strong> aspirational, conceptual, deep, and perceptual issues, such as feelings, atmospheric sensations, needs, and desires.</li>
+            <li><strong>Paragraph 2:</strong> descriptions of the activities that take place in the main spaces of the house.</li>
+            <li><strong>Paragraph 3:</strong> tangible spatial design decisions: spatial configuration, materials, colors, textures, finishes, and lighting design (natural and artificial).</li>
+            <li>Since you are deconstructing an existing house, your activity and spatial descriptions <strong>must match the spatial configuration</strong> of the floor plan and models you drew in Assignment 05.</li>
+          </ul></span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+</div>
 
+<!-- LEVEL 07 -->
+<div class="level" data-level="7">
+<!-- SECTION 05 (CONTINUED): MATERIAL BOARD -->
+<section class="section alt" id="material">
+  <p class="eyebrow">Section 05 &middot; Continued</p>
+  <h2 class="sec-title">The Material Board</h2>
+  <hr class="sec-rule">
+  <div class="inst-parts-container">
+    <div class="inst-part-block reveal d1">
+      <ol class="instruction-list">
+        <li><span>Download the <strong>Material Board format</strong> from: <a class="inst-link" href="https://alabama.box.com/s/jh7mwrtktuuu79kwff1c9grzc2dnifpz" target="_blank" rel="noopener">alabama.box.com/s/jh7mwrtktuuu79kwff1c9grzc2dnifpz</a></span></li>
+        <li><span>Use the <a class="inst-link" href="https://sites.ua.edu/dronderos/d-r-e-a-m-s/" target="_blank" rel="noopener">DREAMS-4-MatBoard app</a> to create the abstract bubble scheme describing the elements that make up the interior of the house.
+          <ul class="inst-sub">
+            <li>Create <strong>one board for the bedrooms</strong>, and <strong>another for the common areas</strong>.</li>
+            <li>Screenshot the step-by-step process when using the app for both boards.</li>
+          </ul></span></li>
+        <li><span>Create the material boards using <strong>Empathic Prompting</strong> and an AI image generator for each type of space.</span></li>
+        <li><span>All images must be included in the format.</span></li>
+        <li><span>The format must be printed and then pasted onto an <strong>8.5&Prime; &times; 11&Prime; foam board base</strong>.</span></li>
+      </ol>
+    </div>
+  </div>
+</section>
+</div>
+
+<!-- LEVEL 08 -->
+<div class="level" data-level="8">
+<!-- SECTION 06: THE SYNTHESIS OBJECT -->
+<section class="section alt" id="synthesis">
+  <p class="eyebrow">Section 06</p>
+  <h2 class="sec-title">The Synthesis Object</h2>
+  <hr class="sec-rule">
+  <div class="inst-parts-container">
+    <div class="inst-part-block reveal d1">
+      <p style="font-size:13px;color:var(--dark-gray);font-style:italic;margin-bottom:18px;">Objective: Create a narrative within a volumetric composition that reconstructs and explains the design process.</p>
       <div class="dark-callout" style="margin-top:0;margin-bottom:28px;">
         <p class="dark-callout-label">Structure Requirements</p>
         <p><strong>Stand independently</strong>&mdash;the structure may not lean against a wall or another object.</p>
         <p><strong>Read in sequence</strong>&mdash;panels must be arranged so a viewer can follow the design process from most abstract to most concrete.</p>
-        <p><em>The Synthesis Object is not decoration&mdash;it is an argument. The sequence of panels should tell the story of how a designer moves from pure spatial data to a fully realized floor plan and physical model.</em></p>
+        <p><em>The Synthesis Object is not decoration. It is an argument: the panel sequence should tell the story of how a designer moves from schematic drawings and data to a fully realized floor plan and physical model.</em></p>
       </div>
-
       <p style="font-size:11px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;color:var(--crimson);margin-bottom:4px;">Required Sequence &mdash; Abstract &rarr; Concrete</p>
       <div class="layer-stack">
-        <div class="layer-row accent">
-          <div class="layer-badge red">1</div>
-          <div>
-            <div class="layer-name">Adjacency Matrix</div>
-            <div class="layer-desc">Most abstract &mdash; pure spatial data encoded in a grid</div>
-          </div>
-        </div>
-        <div class="layer-row">
-          <div class="layer-badge mid">2</div>
-          <div>
-            <div class="layer-name">Bubble Diagram</div>
-            <div class="layer-desc">Spatial relationships as circles and connection lines</div>
-          </div>
-        </div>
-        <div class="layer-row">
-          <div class="layer-badge mid">3</div>
-          <div>
-            <div class="layer-name">Block Plan</div>
-            <div class="layer-desc">Area distribution as labeled and colored zone boxes</div>
-          </div>
-        </div>
-        <div class="layer-row">
-          <div class="layer-badge mid">4</div>
-          <div>
-            <div class="layer-name">Analytic Trace</div>
-            <div class="layer-desc">Graphic language of architecture &mdash; walls, openings, details</div>
-          </div>
-        </div>
-        <div class="layer-row">
-          <div class="layer-badge light">5</div>
-          <div>
-            <div class="layer-name">1/8&Prime; Physical Model</div>
-            <div class="layer-desc">Most concrete &mdash; a built form in three-dimensional space</div>
-          </div>
-        </div>
+        <div class="layer-row accent"><div class="layer-badge red">1</div><div><div class="layer-name">Adjacency Matrix</div><div class="layer-desc">Most abstract &mdash; pure spatial data encoded in a grid</div></div></div>
+        <div class="layer-row"><div class="layer-badge mid">2</div><div><div class="layer-name">Bubble Diagram</div><div class="layer-desc">Spatial relationships as circles and connection lines</div></div></div>
+        <div class="layer-row"><div class="layer-badge mid">3</div><div><div class="layer-name">Block Plan</div><div class="layer-desc">Area distribution as labeled and colored zone boxes</div></div></div>
+        <div class="layer-row"><div class="layer-badge light">4</div><div><div class="layer-name">Sliced 1/8&Prime; Physical Model</div><div class="layer-desc">Most concrete &mdash; built form in three-dimensional space</div></div></div>
       </div>
+      <p class="instructions-label" style="margin-top:32px;">Instructions</p>
+      <ol class="instruction-list">
+        <li><span>Connect, in a <strong>unique and creative way</strong>, all 8.5&Prime; &times; 11&Prime; foam boards, including the <strong>1/8&Prime; scale sliced model</strong>.</span></li>
+        <li><span>Use <strong>masking tape</strong> to create hinges so they fold into a freestanding volumetric display structure.</span></li>
+      </ol>
     </div>
-
   </div>
 </section>
+</div>
 
-<!-- SECTION 04: RUBRIC -->
+<!-- LEVEL 09 -->
+<div class="level" data-level="9">
+<!-- SECTION 07: RUBRIC -->
 <section class="section warm" id="rubric">
-  <p class="eyebrow">Section 04</p>
+  <p class="eyebrow">Section 07</p>
   <h2 class="sec-title">Evaluation Rubric</h2>
   <hr class="sec-rule">
   <div style="overflow-x: auto;" class="reveal d1">
@@ -1092,56 +1251,74 @@
       <tbody>
         <tr>
           <td class="item-col">
-            <span class="item-name">Graphic Precision &amp; Line Weight Discipline</span>
-            <span class="item-pts">40 pts</span>
+            <span class="item-name">Sliced 1/8&Prime; Model &mdash; Precision &amp; Documentation</span>
+            <span class="item-pts">30 pts</span>
           </td>
           <td>
-            <div><span class="range-badge range-excellent">35&ndash;40 pts</span></div>
-            All three trace layers are clearly distinguishable by pencil weight. Walls are uniformly hatched or filled with no overruns. Lines are controlled, straight, and precise. All three layers overlay correctly to reconstruct the complete plan.
+            <div><span class="range-badge range-excellent">26&ndash;30 pts</span></div>
+            The model is sliced cleanly and level at 4 ft (measured with the 1/8&Prime; = 1&prime;-0&Prime; scale) all the way around. The cut wall edges are colored precisely, clearly highlighting the horizontal section. Process photographs document every stage, and the top and angled scans are crisp, clean, and free of external shadows or objects.
           </td>
           <td>
-            <div><span class="range-badge range-proficient">22&ndash;34 pts</span></div>
-            Pencil weights are used but inconsistently&mdash;some layers are difficult to distinguish. Hatching is present but uneven in places, with minor overruns. Lines are mostly straight but occasionally waver. Layers overlay with minor misregistration.
+            <div><span class="range-badge range-proficient">16&ndash;25 pts</span></div>
+            The slice is mostly level at 4 ft, with minor irregularities or rough edges. The cut edges are colored, but unevenly in places. Process photographs are present but miss some stages, or the scans show minor shadows or clutter.
           </td>
           <td>
-            <div><span class="range-badge range-developing">0&ndash;21 pts</span></div>
-            Little or no differentiation between line weights. Walls are not hatched or are hatched carelessly, with significant overruns. Lines are imprecise without the use of a ruler. Layers do not register or are incomplete.
+            <div><span class="range-badge range-developing">0&ndash;15 pts</span></div>
+            The slice is uneven, at the wrong height, or incomplete, with torn or crushed walls. The cut edges are not colored. Process photographs or the top and angled scans are missing, blurry, or cluttered.
           </td>
         </tr>
         <tr>
           <td class="item-col">
             <span class="item-name">Spatial Abstraction &mdash; Block Plan &amp; Bubble Diagram</span>
-            <span class="item-pts">70 pts</span>
+            <span class="item-pts">50 pts</span>
           </td>
           <td>
-            <div><span class="range-badge range-excellent">60&ndash;70 pts</span></div>
-            The block plan accurately captures the spatial distribution of the floor plan, with major spaces clearly defined, labeled, and tagged. The color system is consistent and carries legibly into the bubble diagram. Spatial relationships are correctly identified and meaningfully encoded using all three connection line types.
+            <div><span class="range-badge range-excellent">44&ndash;50 pts</span></div>
+            The block plan accurately captures the spatial distribution of the floor plan, with major spaces clearly defined, labeled, and tagged. The color system is consistent and carries legibly into the bubble diagram. Spatial relationships are correctly identified and meaningfully encoded using all four connection line types.
           </td>
           <td>
-            <div><span class="range-badge range-proficient">40&ndash;59 pts</span></div>
+            <div><span class="range-badge range-proficient">28&ndash;43 pts</span></div>
             The spatial distribution is mostly legible, but some spaces are imprecisely defined or incompletely tagged. The color system is present but inconsistent. The bubble diagram shows relationships, but the line types are misapplied.
           </td>
           <td>
-            <div><span class="range-badge range-developing">0&ndash;39 pts</span></div>
+            <div><span class="range-badge range-developing">0&ndash;27 pts</span></div>
             The spatial distribution does not clearly correspond to the floor plan. Tags are largely absent or incorrect. Color is missing or applied arbitrarily. The bubble diagram is incomplete or contradicts the block plan.
           </td>
         </tr>
         <tr>
           <td class="item-col">
             <span class="item-name">Adjacency Matrix &mdash; Completeness &amp; Logic</span>
+            <span class="item-pts">30 pts</span>
+          </td>
+          <td>
+            <div><span class="range-badge range-excellent">26&ndash;30 pts</span></div>
+            All three symbols are used and applied consistently with the Bubble Diagram and the observed floor plan. Relationship assignments are spatially logical. No cells are left blank.
+          </td>
+          <td>
+            <div><span class="range-badge range-proficient">16&ndash;25 pts</span></div>
+            At least two symbol types are used. Some relationships are logical, but others contradict the Bubble Diagram or lack spatial justification. A few cells are blank or carry the wrong symbol.
+          </td>
+          <td>
+            <div><span class="range-badge range-developing">0&ndash;15 pts</span></div>
+            The grid is incomplete. Only one symbol type is used. Relationships do not correspond to the Bubble Diagram or the observed floor plan.
+          </td>
+        </tr>
+        <tr>
+          <td class="item-col">
+            <span class="item-name">Client Profile, Concept Statement &amp; Material Board</span>
             <span class="item-pts">40 pts</span>
           </td>
           <td>
             <div><span class="range-badge range-excellent">35&ndash;40 pts</span></div>
-            All three symbols are used and applied consistently with the Bubble Diagram and the observed floor plan. Relationship assignments are spatially logical. No cells are left blank.
+            The client backstory and collage follow the format and use real, non-AI images that fit the selected profile. The concept statement has three clear paragraphs (aspirations, activities, design decisions) that match the floor plan and models from Assignment 05. Both material boards (bedrooms and common areas) include the DREAMS-4-MatBoard process screenshots and AI images made with Empathic Prompting. All formats are printed and pasted onto foam board.
           </td>
           <td>
             <div><span class="range-badge range-proficient">22&ndash;34 pts</span></div>
-            At least two symbol types are used. Some relationships are logical, but others contradict the Bubble Diagram or lack spatial justification. A few cells are blank or carry the wrong symbol.
+            The formats are complete, but the collage only partly fits the profile, one paragraph of the concept statement is weak or misses a required topic, or some activities do not match the floor plan. One material board or some process screenshots are missing.
           </td>
           <td>
             <div><span class="range-badge range-developing">0&ndash;21 pts</span></div>
-            The grid is incomplete. Only one symbol type is used. Relationships do not correspond to the Bubble Diagram or the observed floor plan.
+            The formats are incomplete or not printed. The client collage uses AI-generated images. The concept statement lacks the three-paragraph structure or contradicts the floor plan. Material boards are missing or have no process screenshots.
           </td>
         </tr>
         <tr>
@@ -1166,44 +1343,135 @@
           <td class="item-col">Total</td>
           <td><span class="range-badge range-excellent">200 pts</span></td>
           <td><span class="range-badge range-proficient">170 pts max</span></td>
-          <td><span class="range-badge range-developing">108 pts max</span></td>
+          <td><span class="range-badge range-developing">105 pts max</span></td>
         </tr>
       </tbody>
     </table>
   </div>
 </section>
+</div>
 
-<!-- SECTION 05: DELIVERABLES -->
+<!-- LEVEL 10 -->
+<div class="level" data-level="10">
+<!-- SECTION 08: DELIVERABLES -->
 <section class="section alt" id="deliverables">
-  <p class="eyebrow">Section 05</p>
+  <p class="eyebrow">Section 08</p>
   <h2 class="sec-title">Deliverables</h2>
   <hr class="sec-rule">
   <div class="deliverables-grid">
 
     <div class="deliverable-card reveal">
-      <div class="deliverable-num">Deliverable 01 &mdash; Foam Board 1</div>
-      <div class="deliverable-title">The Analytic Trace</div>
-      <div class="deliverable-body">Three tracing paper layers pasted onto Deconstruction Format 1: cut partitions at 0.9mm, openings at 0.7mm, and details (furniture, fixtures, text, floor textures) at 0.5mm. All three layers must overlay to reconstruct the complete plan.</div>
+      <div class="deliverable-num">Deliverable 01 &mdash; Physical Model</div>
+      <div class="deliverable-title">The Sliced 1/8&Prime; Model</div>
+      <div class="deliverable-body">The 1/8&Prime; scale model from Assignment 05, sliced horizontally through the walls at 4 ft (measured with the 1/8&Prime; = 1&prime;-0&Prime; scale), with the top part removed and the cut wall edges colored with a marker to highlight the horizontal section. Include the process photographs and two crisp scans made with the Notes app: one top view and one angled view, clean and free of external shadows or objects.</div>
     </div>
 
     <div class="deliverable-card reveal d1">
-      <div class="deliverable-num">Deliverable 02 &mdash; Foam Board 2</div>
+      <div class="deliverable-num">Deliverable 02 &mdash; Foam Board</div>
       <div class="deliverable-title">The Block Plan</div>
-      <div class="deliverable-body">Three tracing paper rectangles on Deconstruction Format 2: the Labeled Block Plan (room tags with name, dimensions, and area), the Colored Block Plan (major spaces filled with distinct colors), and the Bubble Diagram (circles with connection lines and entry point marked).</div>
+      <div class="deliverable-body">The 1/8&Prime; floor plan printout (8.5&Prime; &times; 11&Prime;) with the tracing paper Block Plan on top: the boundaries of every space traced as side-by-side boxes, and a Room Tag (name, dimensions in feet, area in square feet) in every major space. Pasted onto an 8.5&Prime; &times; 11&Prime; foam board base.</div>
     </div>
 
     <div class="deliverable-card reveal d2">
-      <div class="deliverable-num">Deliverable 03 &mdash; Foam Board 3</div>
+      <div class="deliverable-num">Deliverable 03 &mdash; Foam Board</div>
+      <div class="deliverable-title">The Bubble Diagram</div>
+      <div class="deliverable-body">An 8.5&Prime; &times; 11&Prime; tracing paper sheet with loose bubbles for each major space of the Block Plan, using the same names and colors, connected with the four line types (physical, visual, sound barrier, circulation). Pasted onto an 8.5&Prime; &times; 11&Prime; foam board base.</div>
+    </div>
+
+    <div class="deliverable-card reveal d3">
+      <div class="deliverable-num">Deliverable 04 &mdash; Foam Board</div>
       <div class="deliverable-title">The Adjacency Matrix</div>
-      <div class="deliverable-body">Deconstruction Format 3 with a boxed floor plan overlay naming all spaces, and a completed Adjacency Matrix grid with every cell filled using the three-symbol key (&#9679;&nbsp;Primary, &#9675;&nbsp;Secondary, &ndash;&nbsp;No&nbsp;Relation).</div>
+      <div class="deliverable-body">The Adjacency Matrix format printed at 8.5&Prime; &times; 11&Prime;, with every cell filled using the three-symbol key (&#9679;&nbsp;Primary, &#9675;&nbsp;Secondary, &ndash;&nbsp;No&nbsp;Relation), consistent with the Bubble Diagram and the floor plan. Pasted onto an 8.5&Prime; &times; 11&Prime; foam board base.</div>
     </div>
 
-    <div class="deliverable-card reveal d3" style="grid-column: span 2;">
-      <div class="deliverable-num">Deliverable 04 &mdash; Physical Assembly</div>
+    <div class="deliverable-card reveal d4">
+      <div class="deliverable-num">Deliverable 05 &mdash; Foam Board</div>
+      <div class="deliverable-title">The Client Profile</div>
+      <div class="deliverable-body">The completed Client Profile format: the selected client profile, the client backstory, and the client representation collage, made manually or digitally with real images (friends and family, magazines, or the internet; no AI-generated images). Printed and pasted onto an 8.5&Prime; &times; 11&Prime; foam board base.</div>
+    </div>
+
+    <div class="deliverable-card reveal d4">
+      <div class="deliverable-num">Deliverable 06 &mdash; Format</div>
+      <div class="deliverable-title">The Design Concept Statement</div>
+      <div class="deliverable-body">The Design Concept Statement format with three paragraphs based on the client backstory: (1) feelings, atmospheric sensations, needs, and desires; (2) the activities in the main spaces of the house; (3) tangible design decisions on spatial configuration, materials, colors, textures, finishes, and lighting. All descriptions must match the floor plan and models from Assignment 05.</div>
+    </div>
+
+    <div class="deliverable-card reveal d4">
+      <div class="deliverable-num">Deliverable 07 &mdash; Foam Board</div>
+      <div class="deliverable-title">The Material Board</div>
+      <div class="deliverable-body">The Material Board format with two boards, one for the bedrooms and one for the common areas, each with its DREAMS-4-MatBoard abstract bubble scheme, the step-by-step screenshots, and the material images created with Empathic Prompting and an AI image generator. Printed and pasted onto an 8.5&Prime; &times; 11&Prime; foam board base.</div>
+    </div>
+
+    <div class="deliverable-card reveal d4">
+      <div class="deliverable-num">Deliverable 08 &mdash; Physical Assembly</div>
       <div class="deliverable-title">The Synthesis Object</div>
-      <div class="deliverable-body">All three foam boards connected with masking-tape hinges on the reverse side, together with the 1/8&Prime; scale model from Assignment 05, forming a freestanding volumetric display. Panels must be arranged in sequence from most abstract (Adjacency Matrix) to most concrete (1/8&Prime; model). The structure must stand independently without support from a wall or other object.</div>
+      <div class="deliverable-body">All 8.5&Prime; &times; 11&Prime; foam boards and the sliced 1/8&Prime; model, connected in a unique and creative way with masking-tape hinges into a freestanding volumetric display. Panels are arranged in sequence from most abstract (Adjacency Matrix) to most concrete (sliced 1/8&Prime; model). The structure must stand independently without support from a wall or other object.</div>
     </div>
 
+    <div class="deliverable-card reveal d4 span-2">
+      <div class="deliverable-num">Deliverable 09 &mdash; Process Documentation</div>
+      <div class="deliverable-title">Collaborative Memory Board</div>
+      <div class="deliverable-body">Continuous process documentation uploaded throughout all phases: measuring, drafting, cutting, building, and photographing. Entries must show genuine progression across the assignment, <strong>not only finalized work</strong>. Documentation uploaded only at submission in Blackboard will <strong>not</strong> meet this requirement.</div>
+    </div>
+
+  </div>
+</section>
+</div>
+</div>
+
+<!-- ARENA -->
+<section class="arena" id="arena">
+  <p class="eyebrow" id="arena-eyebrow">Checkpoint</p>
+  <h2 class="arena-title" id="arena-title">Collect the five coins</h2>
+  <div class="arena-grid">
+    <div class="stage-col">
+      <canvas id="stage" tabindex="0" aria-label="Game stage. Run with the left and right arrow keys and jump with the space bar or up arrow. Hit a question box from below to get a coin and a question."></canvas>
+      <div class="stage-status" id="stage-status" role="status" aria-live="polite"></div>
+      <div class="pad" aria-label="Game controls">
+        <button type="button" data-key="left" aria-label="Move left">&#9664;</button>
+        <button type="button" class="jump" data-key="jump">Jump</button>
+        <button type="button" data-key="right" aria-label="Move right">&#9654;</button>
+      </div>
+    </div>
+    <div class="qcard" id="qcard" tabindex="-1" aria-live="polite"></div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section class="section warm" id="results" hidden>
+  <p class="eyebrow">Results &middot; Assignment 06</p>
+  <h2 class="sec-title">All 10 levels cleared</h2>
+  <hr class="sec-rule">
+  <p class="results-note"><strong>Take a screenshot of this Results section and send it to your teacher.</strong> Your teacher will give you the password that opens the full guide without playing again.</p>
+  <div class="res-score"><b id="res-score">0</b><span>of 500 points</span></div>
+  <ul class="results-list" id="results-list"></ul>
+
+  <h3 class="res-h">Questionnaire Summary &amp; Correct Answers</h3>
+  <p class="res-sub">All 50 questions, level by level, with the correct answer and your result for each coin. Use it as a study guide.</p>
+  <div class="res-guide" id="res-guide"></div>
+
+  <form class="gate res-gate" id="res-gate" autocomplete="off">
+    <p class="gate-title">Have the password?</p>
+    <ul>
+      <li>Send a screenshot of your score and summary to your teacher.</li>
+      <li>Your teacher gives you a password.</li>
+      <li>Enter it here to open the full guide.</li>
+    </ul>
+    <div class="gate-row" id="res-gate-row">
+      <label for="res-gate-pw">Password</label>
+      <input id="res-gate-pw" type="text" autocomplete="off" autocapitalize="off" spellcheck="false">
+      <button class="g-btn" type="submit">Enter password</button>
+    </div>
+    <p class="gate-msg" id="res-gate-msg" role="status" aria-live="polite"></p>
+  </form>
+
+  <div class="pu-bio" id="pu-bio" hidden>
+    <p class="pu-k">The password &middot; Who is she?</p>
+    <h3>Patricia Urquiola</h3>
+    <p class="pu-meta">Spanish architect and designer &middot; born 1961, Oviedo, Spain &middot; based in Milan</p>
+    <p>Patricia Urquiola studied architecture at the Polytechnic University of Madrid and the Politecnico di Milano, where she graduated in 1989 under the designer Achille Castiglioni. She then worked with Vico Magistretti and at Lissoni Associati before opening her own studio in Milan in 2001.</p>
+    <p>Her studio works across architecture, interiors, and product design. She has designed furniture and lighting for companies such as Moroso, B&amp;B Italia, Kartell, and Haworth, and she has been art director of the Italian furniture brand Cassina since 2015. Her interiors include hotels such as the Mandarin Oriental in Barcelona and Il Sereno on Lake Como. Her work is known for its use of color, texture, and craft, and for mixing industrial production with handmade techniques.</p>
+    <p>Website: <a href="https://patriciaurquiola.com" target="_blank" rel="noopener">patriciaurquiola.com</a></p>
   </div>
 </section>
 
@@ -1221,6 +1489,752 @@
     });
   }, { threshold: 0.08, rootMargin: '0px 0px -30px 0px' });
   els.forEach(el => obs.observe(el));
+</script>
+
+<script>
+/* ── COIN TRIVIA (platformer) ──
+   10 levels, one per part of the guide, 5 coins each (50 coins x 10 points = 500).
+   Each wrong answer takes 2 points off that coin; after 5 wrong answers the coin is worth 0.
+   a = index of the correct option. */
+(function(){
+var LEVELS=[
+ {short:"Introduction",name:"Introduction & Learning Outcomes"},
+ {short:"Deconstruction",name:"The Deconstruction of the Floor Plan"},
+ {short:"Block Plan",name:"The Block Plan"},
+ {short:"Bubble Diagram",name:"The Bubble Diagram"},
+ {short:"Matrix",name:"The Adjacency Matrix"},
+ {short:"Client",name:"Client Profile & Design Concept Statement"},
+ {short:"Materials",name:"The Material Board"},
+ {short:"Synthesis",name:"The Synthesis Object"},
+ {short:"Rubric",name:"Evaluation Rubric"},
+ {short:"Deliverables",name:"Deliverables"}
+];
+var NAVMAP={"#deconstruction":2,"#blockplan":3,"#bubble":4,"#client":6,"#synthesis":8,"#rubric":9,"#deliverables":10};
+var QUIZ=[
+ [
+  {q:"Which floor plan do you analyze in Assignment 06?",opts:[
+   "A floor plan of your own home",
+   "Any floor plan you find online",
+   "A new plan provided only for Assignment 06, drawn at a larger scale with new furniture and finishes",
+   "The same floor plan from Assignment 05",
+   "The plan of the classroom",
+   "The floor plan your instructor draws in class"],a:3},
+  {q:"What does “learning by going backward” mean here?",opts:[
+   "Building the design layers forward from a new program, to draw a brand-new floor plan and then build a new scale model of it",
+   "Peeling back the design layers of the Assignment 05 floor plan to uncover the hidden spatial logic beneath",
+   "Redrawing the Assignment 05 plan at a larger scale",
+   "Starting the course from Assignment 01 again",
+   "Undoing the Assignment 05 model and throwing it away",
+   "Copying a precedent plan from a magazine"],a:1},
+  {q:"Under “Understand” (Bloom’s Taxonomy), what do you learn?",opts:[
+   "How the floor plan distributes furniture across rooms, by redrawing it as a furnished perspective of each space",
+   "How much the materials of the house cost",
+   "How the floor plan distributes area across functional zones, by abstracting it into a Block Plan",
+   "How the house is built, by studying its foundations",
+   "How to draw a facade",
+   "How to choose paint colors"],a:2},
+  {q:"Under “Evaluate”, what do you judge, and with what evidence?",opts:[
+   "The designer’s spatial decisions, by interpreting the Bubble Diagram and the Matrix as evidence",
+   "The model’s craft and finish, by comparing it with your classmates’ models and with their process photographs",
+   "The price of the house, using catalogs",
+   "The furniture style, using magazines",
+   "Your own drawing speed, using a timer",
+   "The client’s budget, using invoices"],a:0},
+  {q:"Under “Create”, what do you make?",opts:[
+   "A new floor plan with a different layout",
+   "A digital model of the house",
+   "A wall-mounted poster that sequences the drawings from concrete to abstract in a flat, framed display hung in the studio hallway",
+   "A written report",
+   "A freestanding Synthesis Object that sequences the design process from abstract to concrete in a coherent volumetric display",
+   "A video presentation"],a:4}
+ ],
+ [
+  {q:"At what height do you slice the 1/8″ model, and how do you measure it?",opts:[
+   "At 4 inches, measured with a regular ruler from the top of the walls",
+   "At 4 ft, measured with the 1/8″ = 1′-0″ scale from the base of the walls",
+   "At half the wall height, estimated by eye",
+   "At 8 ft, measured with the 1/4″ = 1′-0″ scale from the top of the walls, so only the ceiling is removed",
+   "At the height of the windows, wherever they are",
+   "At 1 ft, so the furniture stays visible"],a:1},
+  {q:"Which cutting tool do you use?",opts:[
+   "A precision X-Acto knife with a new blade, not a box cutter, because the task needs a shorter, finer blade",
+   "Scissors",
+   "A box cutter with a new blade, not a precision X-Acto knife, because the task needs a longer blade",
+   "A saw",
+   "Any knife you have at home",
+   "A hot-wire cutter"],a:2},
+  {q:"What do you do after removing the top part of the model?",opts:[
+   "Color the sliced edges of the cut walls with a marker of your choice, highlighting the horizontal section",
+   "Paint the whole model white to hide the cut, so the slice cannot be seen in any of the process photographs",
+   "Glue the top part back on",
+   "Throw the model away",
+   "Add new furniture to every room",
+   "Cover the cut with masking tape"],a:0},
+  {q:"How do you photograph the sliced model?",opts:[
+   "With any camera app, from far away and at night, including the table, the box cutter, and the other tools in the shot so the process is visible",
+   "You do not photograph it",
+   "With a single blurry photo",
+   "With a scanner, after flattening the model",
+   "With the Scan function in the Notes app: one crisp top photograph and one crisp angled photograph, clean and free of external shadows or objects",
+   "With a video instead of photographs"],a:4},
+  {q:"What does the slicing exercise show you?",opts:[
+   "That a floor plan is a vertical section through the building, seen from the side like an elevation of the exterior walls",
+   "That models are more important than drawings",
+   "That a floor plan is a scaled, top-down, two-dimensional drawing of a horizontal section, seen from a bird’s-eye view",
+   "That walls should always be 4 ft high",
+   "That a floor plan is a perspective view",
+   "That the model was built incorrectly"],a:2}
+ ],
+ [
+  {q:"Before you begin the Block Plan, what do you think about?",opts:[
+   "Only the color of each room",
+   "The activities that take place in each space: not just their boundaries, but the life that occurs inside them",
+   "The cost of the furniture in each space",
+   "Only the walls, ignoring how each room is used",
+   "The exterior facade of the house: its windows, its doors, and its materials, as seen from the street in front of it",
+   "Nothing; you start tracing right away"],a:1},
+  {q:"Which drawing do you trace the Block Plan over, and where does it come from?",opts:[
+   "The 1/8″ = 1′-0″ floor plan, printed on an 8.5″ × 11″ format downloaded from the Box link in the guide",
+   "The 1/4″ floor plan, printed on an 11″ × 17″ format downloaded from Blackboard and taped to the wall of the studio",
+   "Your own sketch of the house",
+   "A photograph of the sliced model",
+   "The Adjacency Matrix",
+   "A plan from a magazine"],a:0},
+  {q:"How do you draw the boundaries of the spaces?",opts:[
+   "Only along walls; open areas are ignored",
+   "As loose circles",
+   "As one large box for the whole house",
+   "Trace every space as side-by-side boxes; boundaries can be physical (a wall) or abstract (an open area divided by furniture); colors for area types are recommended",
+   "Trace only the rooms with doors, as overlapping circles in a single color, ignoring the open areas between them, because boundaries can only be physical walls",
+   "With dimension lines only"],a:3},
+  {q:"What does each Room Tag contain?",opts:[
+   "The name only",
+   "The color and the furniture of the space",
+   "The name of the space, its ceiling height in feet, and its volume in cubic feet (e.g., KITCHEN · 9′ · 864 Cu. Ft.)",
+   "The room number and the door width",
+   "Nothing; tags are optional",
+   "The name of the space, its dimensions in feet, and its area in square feet (e.g., KITCHEN · 12′ × 8′ · 96 Sq. Ft.)"],a:5},
+  {q:"How do you treat small spaces such as closets and pantries?",opts:[
+   "Leave them out",
+   "Include them as separate boxes; they are not required to be tagged",
+   "Merge them into the hallway",
+   "Tag them with full dimensions and area",
+   "Include them as separate bubbles, each with a full tag, its own color, and its own dimensions and area",
+   "Color them black"],a:1}
+ ],
+ [
+  {q:"What do you draw the Bubble Diagram on?",opts:[
+   "Directly on the floor plan printout",
+   "An 8.5″ × 11″ sheet of tracing paper",
+   "The foam board, without paper",
+   "An 11″ × 17″ sheet of bond paper, taped to the Block Plan with masking tape along the top edge",
+   "The Adjacency Matrix format",
+   "A digital file"],a:1},
+  {q:"What do the bubbles represent?",opts:[
+   "Each piece of furniture",
+   "Each door and window",
+   "Each major box on the Block Plan, using the same names and colors",
+   "Each room of a new house you design, using new names and new colors that contrast with the Block Plan",
+   "The walls of the house",
+   "Random shapes for decoration"],a:2},
+  {q:"Which line types connect the bubbles?",opts:[
+   "Solid + arrow: physical connection. Dashed: visual connection. Zig-zag: sound barrier. Thick dashed: circulation (hallways, corridors)",
+   "Solid + arrow: circulation (hallways, corridors). Dashed: sound barrier. Zig-zag: physical connection. Thick dashed: visual connection",
+   "One line type for everything",
+   "Colored lines with no meaning",
+   "Dimension lines",
+   "No lines; bubbles only"],a:0},
+  {q:"Which line type shows circulation, such as hallways and corridors?",opts:[
+   "A zig-zag line",
+   "A solid line with an arrow",
+   "A thin dashed line",
+   "A dotted line",
+   "A thick dashed line",
+   "A double solid line"],a:4},
+  {q:"What do you do when the Bubble Diagram is finished?",opts:[
+   "Throw the tracing paper away",
+   "Tape it to the wall",
+   "Keep it loose in a folder",
+   "Paste the tracing paper onto an 8.5″ × 11″ foam board base",
+   "Paste it on top of the sliced model, covering the cut walls so the horizontal section is hidden",
+   "Scan it and delete the original"],a:3}
+ ],
+ [
+  {q:"Where do you get the Adjacency Matrix format, and how do you print it?",opts:[
+   "Draw it by hand on any paper",
+   "Download it from the Box link in the guide and print it in an 8.5″ × 11″ format",
+   "Copy a classmate’s matrix",
+   "Download it from Blackboard and print it in an 11″ × 17″ format on tracing paper, pasted over the Block Plan",
+   "It is included in the floor plan printout",
+   "Use the matrix from Assignment 05"],a:1},
+  {q:"In which order do you complete the matrix?",opts:[
+   "Fill the grid at random, then check it against the plan",
+   "List the activities of each space; analyze the adjacency type between each pair of spaces; fill every intersecting cell with the symbol key",
+   "Fill only the cells you are sure about",
+   "Draw the bubbles first, then copy them into the grid",
+   "Analyze the adjacency types first; then draw the bubbles; then color the rooms of the Block Plan; then build the model; and finally list the activities",
+   "There is no order"],a:1},
+  {q:"What do the three symbols mean?",opts:[
+   "● Secondary adjacency: should be close for convenience. ○ Primary adjacency: must be next to each other. – Sound barrier: must be acoustically separated",
+   "● Large room. ○ Small room. – Hallway",
+   "● Door. ○ Window. – Wall",
+   "● No relation. ○ Primary. – Secondary",
+   "● Primary adjacency: must be next to each other. ○ Secondary adjacency: should be close for convenience. – No relation: proximity does not matter",
+   "They are decorative"],a:4},
+  {q:"What must be true of the completed grid?",opts:[
+   "Only the primary adjacencies are filled",
+   "Half the cells may stay blank",
+   "Every cell is filled, with no blanks, and the symbols are consistent with the Bubble Diagram and the floor plan",
+   "Every cell is filled with the same symbol, so the grid reads clearly and stays consistent with the Bubble Diagram",
+   "It is colored like the Block Plan",
+   "It is optional"],a:2},
+  {q:"Where can you find more guidance, and what do you do with the finished matrix?",opts:[
+   "In the explanation video linked in the guide; then paste the completed matrix onto an 8.5″ × 11″ foam board base",
+   "In the rubric only; then keep the matrix loose",
+   "There is no guidance; then throw the matrix away",
+   "In the Assignment 05 video; then tape the finished matrix to the inside of the sliced model so it is hidden from view",
+   "In the deliverables list; then email it",
+   "In a textbook; then fold it"],a:0}
+ ],
+ [
+  {q:"Where do you get the Client Profile format, and what do you do first?",opts:[
+   "Create your own client from scratch on a blank sheet, without the format, and invent any profile you like",
+   "Ask your teacher to assign you a client at random during the next class",
+   "Download it from the Box link in the guide, then select a client profile from the options in the format",
+   "Copy a classmate’s client",
+   "Use the client from Assignment 05",
+   "Skip it; the client is optional"],a:2},
+  {q:"Which images can you use to represent your client?",opts:[
+   "Only AI-generated images, created with an image generator so the people match the profile exactly",
+   "Photos of friends and family (including yourself), magazines, or the internet; no AI-generated images",
+   "Only stock photos bought from licensed image banks, to avoid using real people you know personally in the collage",
+   "Only drawings you make by hand",
+   "Any images, including AI-generated ones",
+   "No images; the profile is text only"],a:1},
+  {q:"How do you make the client backstory and collage, and how do you present them?",opts:[
+   "Only digitally; the format is submitted as a PDF on Blackboard instead of being printed or mounted",
+   "Only by hand, with no digital tools, and the collage is taped directly onto the sliced 1/8″ model for display",
+   "Read aloud in class",
+   "Manually or digitally; the completed format is printed and pasted onto an 8.5″ × 11″ foam board base",
+   "On the back of the Block Plan board",
+   "Emailed to your teacher"],a:3},
+  {q:"How is the Design Concept Statement organized?",opts:[
+   "Three paragraphs: feelings and desires; the activities in the main spaces; tangible design decisions",
+   "Two paragraphs: the client’s family history, then a list of the furniture you would buy for the house",
+   "Three paragraphs: the client’s budget, then the construction schedule, then the list of contractors",
+   "A single sentence",
+   "A bulleted list of rooms",
+   "Five paragraphs, one per room"],a:0},
+  {q:"What must the activity and spatial descriptions in the concept statement match?",opts:[
+   "A new floor plan you design for the client, because the concept statement replaces the Assignment 05 house",
+   "Any house the client likes, found in magazines or online, as long as it fits the selected client profile",
+   "Nothing; they can be imaginary",
+   "The Assignment 07 project",
+   "The floor plan and models from Assignment 05, because you are deconstructing an existing house",
+   "The classmate’s floor plan"],a:4}
+ ],
+ [
+  {q:"Which tool do you use to create the abstract bubble scheme for the Material Board?",opts:[
+   "AutoCAD",
+   "The Scan function in the Notes app",
+   "A hand-drawn sketch on tracing paper, traced over the Bubble Diagram from Section 04",
+   "Photoshop",
+   "The DREAMS-4-MatBoard app",
+   "Revit"],a:4},
+  {q:"How many boards do you create with the app, and for which spaces?",opts:[
+   "One board for the whole house, combining the bedrooms and the common areas in a single scheme",
+   "Two: one for the bedrooms and one for the common areas",
+   "Three: kitchen, bathrooms, and bedrooms",
+   "One per room in the house",
+   "Four",
+   "None"],a:1},
+  {q:"What must you capture while you use the app?",opts:[
+   "Only a screenshot of the final board, taken after you finish both schemes in the app",
+   "A video recording of your screen with narration",
+   "Screenshots of the step-by-step process for both boards",
+   "Nothing",
+   "A printed receipt",
+   "Hand sketches of each screen"],a:2},
+  {q:"How do you create the material boards themselves?",opts:[
+   "With fabric and material samples glued by hand onto the foam board, one sample per room",
+   "With photos of the Assignment 05 model",
+   "By copying images from a classmate",
+   "With Empathic Prompting and an AI image generator, for each type of space",
+   "With a 3D rendering of the house",
+   "With colored pencils only"],a:3},
+  {q:"What happens with the images and the Material Board format?",opts:[
+   "All images go in the format, which is printed and pasted onto an 8.5″ × 11″ foam board base",
+   "Only the best image is kept, and the format is submitted digitally on Blackboard without printing",
+   "The images are taped directly onto the sliced model",
+   "The images are emailed separately",
+   "Nothing; the format is optional",
+   "The format is pinned to the wall"],a:0}
+ ],
+ [
+  {q:"What is the objective of the Synthesis Object?",opts:[
+   "To decorate the boards with color",
+   "To create a narrative within a volumetric composition that reconstructs and explains the design process",
+   "To build a new model of the house",
+   "To create a flat wall display that hides the design process behind a single finished image of the house",
+   "To store the boards safely",
+   "To photograph the model"],a:1},
+  {q:"How must the structure stand?",opts:[
+   "Leaning against a wall",
+   "Held by a classmate",
+   "Independently, without leaning on a wall or another object",
+   "Leaning against the sliced model, which supports all the panels from behind",
+   "Lying flat on the floor",
+   "Hanging from the ceiling"],a:2},
+  {q:"What is the required sequence, from most abstract to most concrete?",opts:[
+   "Sliced 1/8″ model, Block Plan, Bubble Diagram, Adjacency Matrix",
+   "Block Plan, Bubble Diagram, Adjacency Matrix, sliced 1/8″ model",
+   "Bubble Diagram, Adjacency Matrix, sliced 1/8″ model, Block Plan",
+   "Adjacency Matrix, Bubble Diagram, Block Plan, sliced 1/8″ model",
+   "Any order",
+   "Adjacency Matrix, Block Plan, sliced 1/8″ model, Bubble Diagram"],a:3},
+  {q:"According to the guide, the Synthesis Object is not decoration. What is it?",opts:[
+   "A decorative object: its panels should show off the colors and the craft of the boards, in any order that looks good on the display table in class",
+   "A storage box for the boards",
+   "A gift for the client",
+   "A sculpture unrelated to the plan",
+   "An argument: the panel sequence tells how a designer moves from schematic drawings and data to a fully realized floor plan and physical model",
+   "A practice exercise with no grade"],a:4},
+  {q:"How do you connect the boards?",opts:[
+   "In a unique and creative way: all 8.5″ × 11″ foam boards and the sliced 1/8″ model, with masking-tape hinges so they fold into a freestanding display",
+   "With hot glue along the front edges, so all the foam boards lie flat in a single row next to the sliced 1/8″ model on a display table for the final review",
+   "Stapled together",
+   "They are not connected",
+   "With string",
+   "With nails"],a:0}
+ ],
+ [
+  {q:"How many points is the assignment worth, and across how many criteria?",opts:[
+   "100 points across three criteria",
+   "350 points across five criteria",
+   "250 points across five criteria",
+   "200 points across five criteria",
+   "200 points across four criteria",
+   "300 points across four criteria"],a:3},
+  {q:"Which two criteria carry the most points?",opts:[
+   "Sliced 1/8″ Model and Adjacency Matrix (30 pts each)",
+   "Client Profile, Concept Statement & Material Board (40 pts) and Synthesis Object (50 pts)",
+   "All five are worth 40 points each",
+   "Spatial Abstraction: Block Plan & Bubble Diagram and Synthesis Object: Sequence & Craft (50 pts each)",
+   "Spatial Abstraction: Block Plan & Bubble Diagram (70 pts) and Client Profile, Concept Statement & Material Board (50 pts)",
+   "Adjacency Matrix (40 pts) and Synthesis Object (40 pts)"],a:3},
+  {q:"Which criterion evaluates the client profile, concept statement, and material board, and how many points is it worth?",opts:[
+   "Synthesis Object: Sequence & Craft, 50 points",
+   "Spatial Abstraction: Block Plan & Bubble Diagram, 50 points, together with the block plan and the bubble diagram",
+   "They are not graded",
+   "Client Profile, Concept Statement & Material Board, 40 points",
+   "Adjacency Matrix, 30 points",
+   "Client Profile, Concept Statement & Material Board, 50 points"],a:3},
+  {q:"Which two criteria are worth 30 points each?",opts:[
+   "Spatial Abstraction, and Synthesis Object",
+   "Sliced 1/8″ Model: Precision & Documentation, and Adjacency Matrix: Completeness & Logic",
+   "Synthesis Object, and Adjacency Matrix",
+   "Spatial Abstraction: Block Plan & Bubble Diagram, and Synthesis Object: Sequence & Craft",
+   "None of them",
+   "Sliced 1/8″ Model, and Synthesis Object"],a:1},
+  {q:"Your slice is uneven and your top and angled scans are blurry. Which band is that for the Sliced 1/8″ Model criterion?",opts:[
+   "Excellent",
+   "Proficient",
+   "It is not graded",
+   "Developing",
+   "Excellent, if the cut edges are colored",
+   "Proficient, if the model stands on its own"],a:3}
+ ],
+ [
+  {q:"What is Deliverable 01?",opts:[
+   "The Analytic Trace: three tracing paper layers on a deconstruction format, traced at 0.9, 0.7, and 0.5mm and pasted on foam board",
+   "The sliced 1/8″ model: sliced at 4 ft, cut edges colored, with process photographs and crisp top and angled scans",
+   "The Adjacency Matrix",
+   "A new 1/4″ model",
+   "The Bubble Diagram",
+   "A written report"],a:1},
+  {q:"What is the Block Plan deliverable?",opts:[
+   "Three rectangles on a single foam board: the labeled block plan, the colored block plan, and the bubble diagram with its connection lines",
+   "A colored drawing on bond paper",
+   "The 1/8″ floor plan printout with the tracing paper Block Plan (boxes and Room Tags), pasted onto an 8.5″ × 11″ foam board base",
+   "The Block Plan drawn directly on the sliced model",
+   "A photo of the plan",
+   "The room list only"],a:2},
+  {q:"What is the Material Board deliverable?",opts:[
+   "One board for the whole house, with fabric samples glued by hand and no app screenshots",
+   "A digital file only",
+   "Two boards (bedrooms and common areas) with DREAMS-4-MatBoard schemes, screenshots, and AI material images, printed on foam board",
+   "Two boards (kitchen and bathrooms) with photos of the Assignment 05 model, submitted as a PDF on Blackboard without printing or mounting",
+   "Part of the Client Profile",
+   "It is optional"],a:2},
+  {q:"What does the Collaborative Memory Board require?",opts:[
+   "Photographs of the finished sliced model and the finished boards only, uploaded together on the day of submission",
+   "Process documentation uploaded continuously through every phase (measuring, drafting, cutting, building, photographing)",
+   "A single collage of the final work, uploaded to Blackboard at submission together with the other deliverables as one file",
+   "Nothing; it is optional",
+   "A written reflection",
+   "Sketches only"],a:1},
+  {q:"How many deliverables are there?",opts:[
+   "Three: the foam boards only",
+   "Six: the sliced model, the Block Plan, Bubble Diagram, and Matrix boards, the Synthesis Object, and the Memory Board",
+   "Two",
+   "Nine: the sliced model, three analysis boards, Client Profile, Concept Statement, Material Board, Synthesis Object, Memory Board",
+   "Nine: the sliced model, the Block Plan and Bubble Diagram boards, a written report, a final presentation, and a digital rendering of the house",
+   "One"],a:3}
+ ]
+];
+var N=LEVELS.length, COINS=5, MAXTRY=5, PER=10, PENALTY=2, KEY="ctd121_a06_coins_v3", PASS="cGF0cmljaWEgdXJxdWlvbGE=", LETTERS="ABCDEF";
+var state={lv:{},current:null,view:1,review:false,doneAt:null};
+function $(id){return document.getElementById(id);}
+function el(tag,cls,text){var e=document.createElement(tag);if(cls)e.className=cls;if(text!=null)e.textContent=text;return e;}
+function pad2(n){return n<10?"0"+n:""+n;}
+function load(){try{var s=JSON.parse(localStorage.getItem(KEY)||"null");if(s&&s.lv)state=s;}catch(e){}}
+function save(){try{localStorage.setItem(KEY,JSON.stringify(state));}catch(e){}}
+function lv(n){return state.lv[n]||(state.lv[n]={results:[],used:[]});}
+function done(n){return lv(n).results.length>=COINS;}
+function cleared(){var c=0;while(c<N&&done(c+1))c++;return c;}
+function unlocked(n){return n>=1&&n<=N&&n<=cleared()+1;}
+function lvPoints(n){return lv(n).results.reduce(function(t,r){return t+r.points;},0);}
+function total(){var t=0;for(var n=1;n<=N;n++)t+=lvPoints(n);return t;}
+
+/* ---------- world: three alternating layouts, 5 question boxes each ---------- */
+var VW=960,VH=540,WORLD=2500,GROUND=460,GRAV=1800,JUMPV=720,SPEED=270;
+var LAYOUTS=[
+ {cols:[[600,90],[1500,110]],plats:[[820,330,192],[1880,340,192]],boxes:[[340,330],[900,200],[1200,330],[1960,206],[2200,330]]},
+ {cols:[[500,110],[1300,90],[2000,110]],plats:[[700,330,224],[1600,330,192]],boxes:[[300,330],[780,200],[1100,330],[1680,200],[2250,330]]},
+ {cols:[[800,90],[1700,110]],plats:[[400,340,192],[1100,330,224],[2000,330,192]],boxes:[[460,206],[650,330],[1180,200],[1500,330],[2080,200]]}
+];
+var solids=[],boxes=[],cur=1,G={mode:"play"};
+var P={x:90,y:GROUND-44,w:28,h:44,vx:0,vy:0,on:false,face:1,run:0};
+var keys={left:false,right:false,jump:false},jumpBuf=0,cam=0,coinsFx=[],lastPad=0,padHeld=false;
+var canvas=$("stage"),ctx=canvas.getContext("2d"),qcard=$("qcard"),arena=$("arena"),statusEl=$("stage-status");
+function buildWorld(n){
+ var L=LAYOUTS[(n-1)%LAYOUTS.length];cur=n;
+ solids=[{x:0,y:GROUND,w:WORLD,h:VH-GROUND,kind:"ground"}];
+ L.cols.forEach(function(c){solids.push({x:c[0],y:GROUND-c[1],w:64,h:c[1],kind:"column"});});
+ L.plats.forEach(function(p){solids.push({x:p[0],y:p[1],w:p[2],h:24,kind:"brick"});});
+ boxes=L.boxes.map(function(b,i){var o={x:b[0],y:b[1],w:32,h:32,kind:"box",i:i,used:lv(n).used.indexOf(i)>=0,bump:0};solids.push(o);return o;});
+ P.x=90;P.y=GROUND-P.h;P.vx=0;P.vy=0;P.on=true;P.face=1;cam=0;coinsFx=[];
+ keys.left=keys.right=keys.jump=false;G.mode="play";
+}
+function hitTest(a,b){return a.x<b.x+b.w&&a.x+a.w>b.x&&a.y<b.y+b.h&&a.y+a.h>b.y;}
+function update(dt){
+ var mv=(keys.left?-1:0)+(keys.right?1:0);
+ P.vx=mv*SPEED;if(mv)P.face=mv;
+ if(keys.jump)jumpBuf=0.12;else jumpBuf=Math.max(0,jumpBuf-dt);
+ if(jumpBuf>0&&P.on){P.vy=-JUMPV;P.on=false;jumpBuf=0;keys.jump=false;}
+ P.vy=Math.min(P.vy+GRAV*dt,1100);
+ P.x+=P.vx*dt;
+ solids.forEach(function(s){if(hitTest(P,s)){if(P.vx>0)P.x=s.x-P.w;else if(P.vx<0)P.x=s.x+s.w;}});
+ P.x=Math.max(0,Math.min(WORLD-P.w,P.x));
+ P.y+=P.vy*dt;P.on=false;
+ var bumped=null;
+ solids.forEach(function(s){
+  if(!hitTest(P,s))return;
+  if(P.vy>0){P.y=s.y-P.h;P.vy=0;P.on=true;}
+  else if(P.vy<0){P.y=s.y+s.h;P.vy=0;if(s.kind==="box"&&!bumped)bumped=s;}
+ });
+ if(bumped)bump(bumped);
+ P.run=mv&&P.on?P.run+dt:0;
+ cam=Math.max(0,Math.min(WORLD-VW,P.x-VW*0.38));
+}
+function bump(b){
+ b.bump=0.18;
+ var L=lv(cur);
+ if(b.used||state.current||done(cur))return;
+ b.used=true;L.used.push(b.i);
+ state.current={level:cur,q:L.results.length,wrong:0,picks:[]};save();
+ coinsFx.push({x:b.x+8,y:b.y-8,t:0});
+ keys.left=keys.right=keys.jump=false;G.mode="question";
+ showQuestion("",false,null);
+}
+
+/* ---------- drawing ---------- */
+function rect(c,x,y,w,h){ctx.fillStyle=c;ctx.fillRect(Math.round(x),Math.round(y),w,h);}
+function fit(){
+ var w=canvas.clientWidth,h=canvas.clientHeight;if(!w||!h)return 0;
+ var dpr=window.devicePixelRatio||1;
+ if(canvas.width!==Math.round(w*dpr)||canvas.height!==Math.round(h*dpr)){canvas.width=Math.round(w*dpr);canvas.height=Math.round(h*dpr);}
+ var s=w/VW;ctx.setTransform(dpr*s,0,0,dpr*s,0,0);return s;
+}
+function drawBackground(){
+ var g=ctx.createLinearGradient(0,0,0,VH);g.addColorStop(0,"#6aa8ff");g.addColorStop(1,"#cfe4ff");
+ ctx.fillStyle=g;ctx.fillRect(0,0,VW,VH);
+ ctx.fillStyle="#ffffff";
+ for(var i=0;i<12;i++){var cx=(i*330+80)-cam*0.3,cy=70+(i%3)*42;cx=((cx%(VW+400))+VW+400)%(VW+400)-200;
+  ctx.beginPath();ctx.arc(cx,cy,22,0,7);ctx.arc(cx+26,cy-10,28,0,7);ctx.arc(cx+56,cy,22,0,7);ctx.fill();}
+ for(var j=0;j<9;j++){var hx=j*420-cam*0.55;
+  ctx.fillStyle=j%2?"#2f9e44":"#40b354";ctx.beginPath();ctx.moveTo(hx,GROUND);ctx.quadraticCurveTo(hx+120,GROUND-(j%2?120:80),hx+240,GROUND);ctx.fill();}
+}
+function drawSolid(s,t){
+ var x=s.x-cam;if(x>VW||x+s.w<0)return;
+ if(s.kind==="ground"){
+  for(var gx=Math.floor(cam/32)*32;gx<cam+VW+32;gx+=32){var X=gx-cam;
+   rect("#c84c0c",X,s.y,32,s.h);rect("#58a828",X,s.y,32,8);rect("#3c8418",X,s.y+8,32,3);
+   ctx.strokeStyle="rgba(0,0,0,.25)";ctx.lineWidth=2;ctx.strokeRect(X+1,s.y+14,30,24);ctx.strokeRect(X+1,s.y+40,30,24);}
+ }else if(s.kind==="column"){
+  rect("#b9b4aa",x,s.y+14,s.w,s.h-14);rect("#d9d4ca",x-6,s.y,s.w+12,14);rect("#8f8a80",x-6,s.y+12,s.w+12,3);
+  for(var f=10;f<s.w;f+=14)rect("rgba(0,0,0,.12)",x+f,s.y+16,3,s.h-16);
+ }else if(s.kind==="brick"){
+  rect("#c84c0c",x,s.y,s.w,s.h);
+  ctx.save();ctx.beginPath();ctx.rect(x,s.y,s.w,s.h);ctx.clip();
+  for(var bx=0;bx<=s.w;bx+=32){ctx.strokeStyle="#000";ctx.lineWidth=2;ctx.strokeRect(x+bx+1,s.y+1,30,10);ctx.strokeRect(x+bx-15,s.y+13,30,10);}
+  ctx.restore();ctx.strokeStyle="#000";ctx.lineWidth=2;ctx.strokeRect(x+1,s.y+1,s.w-2,s.h-2);
+ }else if(s.kind==="box"){
+  var off=s.bump>0?-Math.sin((0.18-s.bump)/0.18*Math.PI)*10:0,y=s.y+off;
+  rect("#000",x,y,32,32);
+  if(s.used){rect("#9a5a22",x+2,y+2,28,28);}
+  else{rect(["#f8b800","#ffcf3a","#e89c00"][Math.floor(t/220)%3],x+2,y+2,28,28);
+   ctx.fillStyle="#fff";ctx.font="bold 20px 'Source Sans 3', sans-serif";ctx.textAlign="center";ctx.textBaseline="middle";ctx.fillText("?",x+16,y+17);}
+  rect("#000",x+5,y+5,3,3);rect("#000",x+24,y+5,3,3);rect("#000",x+5,y+24,3,3);rect("#000",x+24,y+24,3,3);
+ }
+}
+/* the player: a designer with round glasses, a ponytail, a crimson cardigan, and a sketchbook */
+function drawPlayer(){
+ var x=Math.round(P.x-cam),y=Math.round(P.y),f=P.face,leg=P.on?(P.run>0?Math.floor(P.run*12)%2:0):2;
+ rect("#3b2416",x+(f>0?-5:25),y+5,8,13);rect("#9e1b32",x+(f>0?0:24),y+7,4,4);
+ rect("#3b2416",x+3,y,22,8);rect("#3b2416",x+3,y+6,4,8);rect("#3b2416",x+21,y+6,4,8);
+ rect("#f1c6a0",x+7,y+7,14,12);
+ rect("#111",x+6,y+10,7,6);rect("#111",x+15,y+10,7,6);rect("#111",x+13,y+12,2,2);
+ rect("#dff1ff",x+7,y+11,5,4);rect("#dff1ff",x+16,y+11,5,4);
+ rect("#111",x+(f>0?10:8),y+12,2,2);rect("#111",x+(f>0?19:17),y+12,2,2);
+ rect("#9e1b32",x+3,y+19,22,13);rect("#ffffff",x+12,y+19,4,7);
+ rect("#f1c6a0",x+(f>0?23:-1),y+25,6,5);
+ rect("#1f3d8c",x+(f>0?22:-2),y+20,8,10);rect("#ffffff",x+(f>0?22:5),y+21,1,8);
+ rect("#3a3530",x+4,y+31,20,6);
+ if(leg===0){rect("#2b2b2b",x+7,y+37,5,6);rect("#2b2b2b",x+16,y+35,5,6);}
+ else if(leg===1){rect("#2b2b2b",x+7,y+35,5,6);rect("#2b2b2b",x+16,y+37,5,6);}
+ else{rect("#2b2b2b",x+6,y+36,5,7);rect("#2b2b2b",x+17,y+34,5,7);}
+ rect("#7a1424",x+5,y+42,8,2);rect("#7a1424",x+15,y+42,8,2);
+}
+function drawHud(){
+ ctx.fillStyle="rgba(26,23,20,.55)";ctx.fillRect(0,0,VW,40);
+ ctx.font="bold 17px 'Source Sans 3', sans-serif";ctx.textBaseline="middle";ctx.fillStyle="#fff";
+ ctx.textAlign="left";ctx.fillText("LEVEL "+pad2(cur)+"  ·  "+LEVELS[cur-1].short.toUpperCase(),16,21);
+ ctx.textAlign="center";ctx.fillStyle="#f8b800";ctx.beginPath();ctx.ellipse(VW/2-30,20,6,9,0,0,7);ctx.fill();
+ ctx.fillStyle="#fff";ctx.fillText("× "+lv(cur).results.length+" / "+COINS,VW/2+22,21);
+ ctx.textAlign="right";ctx.fillText("SCORE "+String(total()).padStart(3,"0"),VW-16,21);
+}
+function isActive(now){return document.activeElement===canvas||padHeld||now-lastPad<4000;}
+function draw(t){
+ if(!fit())return;
+ drawBackground();
+ solids.forEach(function(s){drawSolid(s,t);});
+ coinsFx.forEach(function(c){
+  var x=c.x-cam,y=c.y-Math.sin(Math.min(1,c.t/0.45)*Math.PI)*70,w=Math.abs(Math.cos(c.t*14))*8+2;
+  ctx.fillStyle="#000";ctx.beginPath();ctx.ellipse(x+8,y,w+2,13,0,0,7);ctx.fill();
+  ctx.fillStyle="#f8b800";ctx.beginPath();ctx.ellipse(x+8,y,w,11,0,0,7);ctx.fill();
+ });
+ drawPlayer();drawHud();
+ var paused=G.mode==="play"&&!isActive(performance.now()),asking=G.mode==="question";
+ if(paused||asking){
+  ctx.fillStyle="rgba(26,23,20,.62)";ctx.fillRect(0,VH/2-44,VW,88);
+  ctx.fillStyle="#fff";ctx.textAlign="center";ctx.textBaseline="middle";
+  ctx.font="bold 24px 'Source Sans 3', sans-serif";
+  if(asking)ctx.fillText("Answer the question to continue",VW/2,VH/2);
+  else{ctx.fillText("Click the stage to play",VW/2,VH/2-12);ctx.font="16px 'Source Sans 3', sans-serif";ctx.fillText("Arrow keys to run  ·  Space or ↑ to jump  ·  or use the buttons below",VW/2,VH/2+18);}
+ }
+}
+function updateStatus(){statusEl.innerHTML="Coins <b>"+lv(cur).results.length+" / "+COINS+"</b> &middot; Level score <b>"+lvPoints(cur)+" / "+(COINS*PER)+"</b>";}
+var last=0;
+function frame(t){
+ var dt=Math.min(0.033,(t-last)/1000||0);last=t;
+ boxes.forEach(function(b){if(b.bump>0)b.bump=Math.max(0,b.bump-dt);});
+ coinsFx.forEach(function(c){c.t+=dt;});coinsFx=coinsFx.filter(function(c){return c.t<0.5;});
+ if(!state.review&&!arena.classList.contains("cleared")){
+  if(padHeld)lastPad=t;
+  if(G.mode==="play"&&isActive(t))update(dt);
+  draw(t);
+ }
+ requestAnimationFrame(frame);
+}
+
+/* ---------- questions (in the card beside the stage) ---------- */
+function renderIdle(msg,good){
+ qcard.innerHTML="";
+ qcard.appendChild(el("div","q-kicker","Coins "+lv(cur).results.length+" / "+COINS));
+ qcard.appendChild(el("p","q-idle","Jump into a ? box from below to release a coin and get a question. Read the guide above before you answer."));
+ if(msg)qcard.appendChild(el("p","q-fb "+(good?"good":"bad"),msg));
+ updateStatus();
+}
+function showQuestion(msg,good,fin){
+ var c=state.current||fin.c,q=QUIZ[c.level-1][c.q],value=Math.max(0,PER-PENALTY*c.wrong);
+ qcard.innerHTML="";
+ var meta=el("div","q-meta");
+ meta.innerHTML="<span>Coin <b>"+(c.q+1)+"</b> of "+COINS+"</span><span>Worth <b>"+(fin?fin.points:value)+"</b> pts</span><span>Attempts left <b>"+(fin?0:MAXTRY-c.wrong)+"</b></span>";
+ qcard.appendChild(meta);
+ qcard.appendChild(el("p","q-text",q.q));
+ q.opts.forEach(function(o,i){
+  var b=el("button","q-opt");b.type="button";
+  b.appendChild(el("span","k",LETTERS[i]));b.appendChild(el("span",null,o));
+  if(c.picks.indexOf(i)>=0){b.classList.add("wrong");b.disabled=true;}
+  if(fin){b.disabled=true;if(i===q.a)b.classList.add("right");}
+  else b.addEventListener("click",function(){pick(i);});
+  qcard.appendChild(b);
+ });
+ qcard.appendChild(el("p","q-fb "+(good?"good":"bad"),msg||""));
+ if(fin){
+  var nb=el("button","g-btn",done(c.level)?"Finish this level":"Continue");nb.type="button";
+  nb.addEventListener("click",resume);qcard.appendChild(nb);nb.focus({preventScroll:true});
+ }
+ updateStatus();
+}
+function pick(i){
+ var c=state.current;if(!c)return;
+ var q=QUIZ[c.level-1][c.q],L=lv(c.level);
+ if(i===q.a){
+  var pts=Math.max(0,PER-PENALTY*c.wrong);
+  L.results.push({q:c.q,wrong:c.wrong,points:pts});state.current=null;save();
+  showQuestion("Correct! This coin earned "+pts+" point"+(pts===1?"":"s")+".",true,{c:c,points:pts});
+ }else{
+  c.wrong++;c.picks.push(i);
+  if(c.wrong>=MAXTRY){
+   L.results.push({q:c.q,wrong:c.wrong,points:0});state.current=null;save();
+   showQuestion("5 wrong answers. This coin is now worth 0 points. The correct answer is shown in green.",false,{c:c,points:0});
+  }else{
+   save();
+   showQuestion("Incorrect. This coin is now worth "+(PER-PENALTY*c.wrong)+" points. "+(MAXTRY-c.wrong)+" attempt"+(MAXTRY-c.wrong===1?"":"s")+" left.",false,null);
+  }
+ }
+}
+function resume(){
+ if(done(cur)){
+  if(cleared()===N&&!state.doneAt)state.doneAt=new Date().toISOString();
+  save();showLevel(cur,false);return;
+ }
+ G.mode="play";renderIdle("",false);
+ try{canvas.focus({preventScroll:true});}catch(e){canvas.focus();}
+}
+function renderCleared(n){
+ qcard.innerHTML="";
+ qcard.appendChild(el("div","q-kicker","Level "+pad2(n)+" of "+pad2(N)));
+ qcard.appendChild(el("p","q-text","Level cleared ✓"));
+ qcard.appendChild(el("p","q-idle","You collected all five coins for "+lvPoints(n)+" of "+(COINS*PER)+" points. You can reread this level at any time from the level bar."));
+ var b=el("button","g-btn",n<N?"Continue to Level "+pad2(n+1)+": "+LEVELS[n].short+" →":"See your Results ↓");
+ b.type="button";
+ b.addEventListener("click",function(){if(n<N)showLevel(n+1,true);else $("results").scrollIntoView();});
+ qcard.appendChild(b);
+}
+
+/* ---------- page ---------- */
+function renderSteps(){
+ var box=$("lv-steps");box.innerHTML="";
+ LEVELS.forEach(function(l,i){
+  var n=i+1,b=el("button","lv-btn");b.type="button";
+  b.appendChild(el("span",null,pad2(n)));b.appendChild(el("span","lv-name"," "+l.short));
+  if(done(n))b.classList.add("done");
+  if(n===state.view){b.classList.add("current");b.setAttribute("aria-current","step");}
+  b.disabled=!unlocked(n);
+  b.title="Level "+pad2(n)+": "+l.name+(unlocked(n)?"":" (locked)");
+  b.addEventListener("click",function(){showLevel(n,true);});
+  box.appendChild(b);
+ });
+ $("lv-count").textContent=cleared()+" of "+N+" cleared · "+total()+" pts";
+}
+function renderResults(){
+ var box=$("results"),fin=cleared()===N;
+ box.hidden=!fin;if(!fin)return;
+ var ul=$("results-list"),tw=0;ul.innerHTML="";
+ LEVELS.forEach(function(l,i){
+  var n=i+1,w=lv(n).results.reduce(function(t,r){return t+r.wrong;},0);tw+=w;
+  ul.appendChild(el("li",null,"Level "+pad2(n)+" · "+l.name+": 5 of 5 coins, "+lvPoints(n)+" of 50 points, "+w+(w===1?" wrong answer":" wrong answers")));
+ });
+ var li=el("li");li.appendChild(el("strong",null,"Total: "+total()+" of "+(N*COINS*PER)+" points · "+(N*COINS)+" of "+(N*COINS)+" coins · "+tw+" wrong answers"));ul.appendChild(li);
+ if(state.doneAt)ul.appendChild(el("li",null,"Completed: "+new Date(state.doneAt).toLocaleString()));
+ $("res-score").textContent=total();
+ var g=$("res-guide");g.innerHTML="";
+ LEVELS.forEach(function(l,i){
+  var n=i+1,ol=el("ol");
+  g.appendChild(el("h4",null,"Level "+pad2(n)+" · "+l.name+" · "+lvPoints(n)+" of 50 points"));
+  QUIZ[i].forEach(function(q,k){
+   var r=lv(n).results.filter(function(x){return x.q===k;})[0],li=el("li");
+   li.appendChild(el("div","rq",q.q));
+   var a=el("div","ra","Correct answer: ");a.appendChild(el("b",null,LETTERS[q.a]+". "+q.opts[q.a]));li.appendChild(a);
+   if(r)li.appendChild(el("div","rs","Your result: "+r.points+" of 10 points, "+r.wrong+(r.wrong===1?" wrong answer":" wrong answers")));
+   ol.appendChild(li);
+  });
+  g.appendChild(ol);
+ });
+}
+function renderGate(){
+ [["gate-msg","gate-row"],["res-gate-msg","res-gate-row"]].forEach(function(p){
+  var msg=$(p[0]);$(p[1]).hidden=state.review;
+  if(state.review){msg.className="gate-msg good";msg.textContent="Password accepted. The full guide is open.";}
+  else if(msg.classList.contains("good")){msg.className="gate-msg";msg.textContent="";}
+ });
+ $("gate-reset").hidden=!state.review;
+ $("pu-bio").hidden=!state.review;
+ var top=$("pu-bio-top");top.hidden=!state.review||cleared()===N;
+ if(!top.hidden&&!top.innerHTML)top.innerHTML=$("pu-bio").innerHTML;
+}
+function showLevel(n,scroll){
+ if(!unlocked(n))n=Math.min(cleared()+1,N);
+ state.view=n;save();
+ document.body.classList.toggle("review",state.review);
+ document.querySelectorAll(".level").forEach(function(s){s.classList.toggle("on",Number(s.dataset.level)===n);});
+ $("arena-eyebrow").textContent="Level "+pad2(n)+" of "+pad2(N)+" · Checkpoint";
+ $("arena-title").textContent=LEVELS[n-1].name;
+ $("lv-msg").textContent="";
+ cur=n;
+ if(done(n)){arena.classList.add("cleared");G.mode="done";renderCleared(n);}
+ else{
+  arena.classList.remove("cleared");buildWorld(n);
+  if(state.current&&state.current.level===n){G.mode="question";showQuestion("",false,null);}
+  else renderIdle("",false);
+ }
+ renderSteps();renderResults();renderGate();
+ if(scroll&&!state.review)$("game").scrollIntoView();
+}
+function tryPassword(v,msgId){
+ var k="";
+ try{k=btoa(String(v).trim().toLowerCase().replace(/\s+/g," "));}catch(e){}
+ if(k!==PASS){var m=$(msgId||"gate-msg");m.className="gate-msg bad";m.textContent="Incorrect password. Check it with your teacher.";return;}
+ state.review=true;save();$("gate-pw").value="";$("res-gate-pw").value="";
+ showLevel(state.view,false);
+ var bio=$("pu-bio-top").hidden?$("pu-bio"):$("pu-bio-top");
+ if(bio.scrollIntoView)bio.scrollIntoView({block:"center"});
+}
+function resetGame(){
+ if(!confirm("Reset your progress and start again from Level 01?"))return;
+ state={lv:{},current:null,view:1,review:false,doneAt:null};
+ try{localStorage.removeItem(KEY);}catch(e){}
+ showLevel(1,true);
+}
+
+/* ---------- input ---------- */
+var KEYMAP={ArrowLeft:"left",ArrowRight:"right",a:"left",d:"right",A:"left",D:"right"," ":"jump",Spacebar:"jump",ArrowUp:"jump",w:"jump",W:"jump"};
+canvas.addEventListener("keydown",function(e){
+ var k=KEYMAP[e.key];if(!k)return;
+ e.preventDefault();if(G.mode==="play")keys[k]=true;
+});
+canvas.addEventListener("keyup",function(e){var k=KEYMAP[e.key];if(k&&k!=="jump"){e.preventDefault();keys[k]=false;}});
+canvas.addEventListener("blur",function(){keys.left=keys.right=false;});
+canvas.addEventListener("pointerdown",function(){try{canvas.focus({preventScroll:true});}catch(e){canvas.focus();}});
+document.querySelectorAll(".pad button").forEach(function(b){
+ var k=b.dataset.key;
+ function on(e){e.preventDefault();padHeld=true;lastPad=performance.now();if(G.mode==="play")keys[k]=true;}
+ function off(){padHeld=false;if(k!=="jump")keys[k]=false;lastPad=performance.now();}
+ b.addEventListener("pointerdown",on);
+ ["pointerup","pointerleave","pointercancel"].forEach(function(t){b.addEventListener(t,off);});
+});
+document.querySelectorAll("nav ul a").forEach(function(a){
+ a.addEventListener("click",function(e){
+  var n=NAVMAP[a.getAttribute("href")];
+  if(!n||state.review)return;
+  e.preventDefault();
+  if(!unlocked(n)){$("game").scrollIntoView();$("lv-msg").textContent="Locked. Clear Level "+pad2(cleared()+1)+" ("+LEVELS[cleared()].short+") first.";return;}
+  showLevel(n,true);
+ });
+});
+$("gate").addEventListener("submit",function(e){e.preventDefault();tryPassword($("gate-pw").value,"gate-msg");});
+$("res-gate").addEventListener("submit",function(e){e.preventDefault();tryPassword($("res-gate-pw").value,"res-gate-msg");});
+$("gate-reset").addEventListener("click",resetGame);
+$("lv-reset").addEventListener("click",resetGame);
+
+load();
+showLevel(state.view||1,false);
+requestAnimationFrame(frame);
+/*TEST_HOOK*/
+})();
 </script>
 
 </body>
