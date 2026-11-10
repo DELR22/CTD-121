@@ -268,6 +268,34 @@
     .ctd-global-brand span { display: none; }
   }
 
+  /* ===== CONVERSATION SCRIPT ===== */
+  .chat-script { margin-top: 24px; background: var(--warm-gray); border-top: 3px solid var(--crimson); padding: 24px 24px 20px; }
+  .chat-script-k { font-size: 10px; font-weight: 700; letter-spacing: 0.22em; text-transform: uppercase; color: var(--crimson); margin-bottom: 8px; }
+  .chat-script-intro { font-size: 14px; color: var(--dark-gray); line-height: 1.7; margin-bottom: 8px; }
+  .chat-script-intro strong { color: var(--charcoal); }
+  .chat-step { font-size: 10px; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--mid-gray); margin: 20px 0 8px; }
+  .chat-script .msg { display: block; max-width: 620px; background: var(--white); border: 1px solid var(--rule); border-radius: 14px 14px 14px 3px; padding: 10px 14px; margin-bottom: 8px; font-size: 14px; color: var(--charcoal); line-height: 1.6; }
+  .chat-script .cue { font-size: 13px; font-style: italic; color: var(--crimson); margin: 2px 0 10px 4px; }
+  .chat-q { list-style: none; counter-reset: cq; display: flex; flex-direction: column; gap: 12px; }
+  .chat-q li { counter-increment: cq; }
+  .chat-q-t { display: block; font-size: 13px; font-weight: 700; color: var(--charcoal); margin-bottom: 6px; }
+  .chat-q-t::before { content: counter(cq) ". "; color: var(--crimson); }
+
+  /* ===== ASSIGNMENT CALENDAR ===== */
+  table.cal-table { width: 100%; min-width: 720px; border-collapse: collapse; font-size: 13.5px; background: var(--white); }
+  table.cal-table th { background: var(--charcoal); color: rgba(255,255,255,.9); text-align: left; font-size: 10px; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; padding: 14px 16px; }
+  table.cal-table td { padding: 14px 16px; vertical-align: top; color: var(--dark-gray); line-height: 1.65; border-bottom: 1px solid var(--rule); border-right: 1px solid var(--rule); }
+  table.cal-table td:last-child { border-right: none; }
+  table.cal-table strong { color: var(--charcoal); }
+  table.cal-table a { color: var(--crimson); font-weight: 600; word-break: break-word; }
+  table.cal-table td.cal-n { font-weight: 700; color: var(--crimson); text-align: center; }
+  table.cal-table td.cal-d { font-weight: 700; color: var(--charcoal); white-space: nowrap; }
+  table.cal-table tr.cal-break td { background: var(--crimson-pale); }
+  table.cal-table tr.cal-final td { background: var(--warm-gray); }
+  table.cal-table tr.cal-final td { border-top: 2px solid var(--crimson); border-bottom: 2px solid var(--crimson); border-right-color: var(--crimson); }
+  table.cal-table tr.cal-final td:first-child { border-left: 2px solid var(--crimson); }
+  table.cal-table tr.cal-final td:last-child { border-right: 2px solid var(--crimson); }
+
   /* ===== STEP LISTS, LINKS & INFO NOTES ===== */
   .info-note { font-size: 14px; color: var(--dark-gray); line-height: 1.7; max-width: 760px; margin-bottom: 36px; padding: 12px 18px; background: var(--white); border-left: 3px solid var(--mid-gray); }
   .step-list { list-style: none; counter-reset: st; display: flex; flex-direction: column; gap: 10px; }
@@ -422,6 +450,7 @@
     <li><a href="#adabath">ADA Bathroom</a></li>
     <li><a href="#foamboard">Synthesis Object</a></li>
     <li><a href="#deliverables">Deliverables</a></li>
+    <li><a href="#calendar">Calendar</a></li>
     <li><a href="#rubric">Rubric</a></li>
   </ul>
 </nav>
@@ -479,10 +508,10 @@
   <h2 class="sec-title">The guide is now a game</h2>
   <hr class="sec-rule">
   <ol class="howto-steps">
-    <li><span><strong>Read the section.</strong> The guide is divided into 7 sections that follow the stages of the Final Project. Each section shows its instructions first. Read them before you play.</span></li>
+    <li><span><strong>Read the section.</strong> The guide is divided into 8 sections that follow the stages of the Final Project. Each section shows its instructions first. Read them before you play.</span></li>
     <li><span><strong>Play Pac-Man.</strong> Below the instructions, click the maze and move Pac-Man with the arrow keys, or use the on-screen pad. Ghosts send you back to the start; you can turn them off.</span></li>
     <li><span><strong>Answer a question for every dot.</strong> Each of the 5 dots asks one question about the section. A dot is worth <strong>10 points</strong>, and each wrong answer takes <strong>2 points</strong> off it. Keep trying until you answer correctly.</span></li>
-    <li><span><strong>Leave the maze.</strong> When all 5 dots are collected, the exit opens at the bottom right. Leave the maze to unlock the next section. There are 7 sections, 35 questions, and 350 points. The Student Learning Outcomes and the Rubric are always open for reference and have no questions.</span></li>
+    <li><span><strong>Leave the maze.</strong> When all 5 dots are collected, the exit opens at the bottom right. Leave the maze to unlock the next section. There are 8 sections, 40 questions, and 400 points. The Student Learning Outcomes and the Rubric are always open for reference and have no questions.</span></li>
     <li><span><strong>Get your Results.</strong> At the end you see your score, a summary of every question with the correct answer, and a box for the password your teacher gives you.</span></li>
   </ol>
   <form class="gate" id="gate" autocomplete="off">
@@ -613,6 +642,38 @@
           <li>Write down the <strong>conclusion</strong> of the research and analysis as indicated in Format 1.</li>
         </ol>
         <p class="safety-note"><strong>IMPORTANT NOTE:</strong> All written texts must be done using technical lettering.</p>
+
+        <div class="chat-script">
+          <p class="chat-script-k">Conversation Script &middot; Text Message Exchanges</p>
+          <p class="chat-script-intro">Follow this script with each of your two friends. Send the introduction and consent messages in your <strong>first conversation</strong>, then use one guiding question per conversation. Ask follow-up questions in your own words, and take screenshots of every exchange.</p>
+
+          <p class="chat-step">Introduction</p>
+          <p class="msg">Hi [Name of the interviewee], thanks for agreeing to help with my final project! Before we start &mdash; I&rsquo;m an Interior Design student enrolled in CTD 121: Introduction to Interior Design at the University of Alabama, and I&rsquo;m asking a few questions about the spaces you use daily or regularly, and others regarding your spatial, aesthetic, and material preferences, requirements, needs and desires. This is for a project imagining a shared residence. Nothing will actually get built.</p>
+          <p class="msg">Taking part is totally optional. You can skip anything and stop any time &mdash; just let me know.</p>
+          <p class="msg">Nothing you share leaves our conversation, as I&rsquo;ll only include what you agree with in my presentation. This isn&rsquo;t posted publicly.</p>
+          <p class="msg">This chat will serve as my notes for our conversation, but first, I need to obtain consent regarding the management of personal information.</p>
+
+          <p class="chat-step">Consent</p>
+          <p class="msg">1. Can I use your name in class presentations, or would you rather I describe you generally, like &lsquo;Woman, Student, age 20&rsquo;?</p>
+          <p class="cue">Allow the interviewee to answer.</p>
+          <p class="msg">2. Can I use a photo if you send me one?</p>
+          <p class="cue">Allow the interviewee to answer.</p>
+          <p class="cue">If the interviewee answers no to any of the questions, adjust accordingly: describe them generally instead of using their name, and do not use their photo.</p>
+          <p class="msg">Now that I have your consent on personal information management, we may proceed with the interview.</p>
+
+          <p class="chat-step">Five Guiding Questions &middot; one per conversation</p>
+          <ol class="chat-q">
+            <li><span class="chat-q-t">Daily routines &amp; rest</span><span class="msg">Walk me through a typical weekday and a typical weekend at home. When do you wake up and go to bed, where do you spend most of your time, and what do you need to sleep well (type of lighting, noise level, temperature)?</span></li>
+            <li><span class="chat-q-t">Cooking, eating, working &amp; studying</span><span class="msg">Do you like to cook? How do you use the kitchen? Where do you like to eat, work, or study, and what do you need or wish to have for optimal use of these spaces?</span></li>
+            <li><span class="chat-q-t">Shared life &amp; privacy</span><span class="msg">If you lived with your best friend, which moments would you want to share the most, and when do you need privacy or silence? How much does noise bother you?</span></li>
+            <li><span class="chat-q-t">Your current home</span><span class="msg">What do you love and what do you hate about where you live now? Is there anything you would never want to repeat in a new home? Is there something you had in a previous home that you wish it came back?</span></li>
+            <li><span class="chat-q-t">Style, materials &amp; DOs and DON&rsquo;Ts</span><span class="msg">Which colors, materials, textures, and styles make you feel at home, and which ones do you dislike? If you could give me one big DO and one huge DON&rsquo;T for this shared home, what would they be?</span></li>
+          </ol>
+
+          <p class="chat-step">Closing</p>
+          <p class="msg">Thank you so much! This really helps. Can I text you if I have a follow-up question?</p>
+          <p class="cue">After each conversation, take screenshots, print them, and paste them on Format 1. Then record the preferences, needs, desires, DOs, and DON&rsquo;Ts you learned.</p>
+        </div>
       </div>
     </div>
 
@@ -885,6 +946,34 @@
   </div>
 </section>
 </div>
+
+<!-- SECTION 08 -->
+<div class="level" data-level="8">
+<section class="section warm" id="calendar">
+  <p class="eyebrow">Section 08</p>
+  <h2 class="sec-title">Assignment Calendar</h2>
+  <hr class="sec-rule">
+  <p class="info-note reveal" style="background:var(--white);">Class meets every <strong>Monday and Wednesday until December 9</strong>. Every class has work due, so the rhythm stays constant and your deliverables are ready on time. <strong>There are no additional or extended deadlines.</strong> There is no class during Thanksgiving week (11/23&ndash;11/27), but you must keep developing your Final Project.</p>
+  <div style="overflow-x: auto;" class="reveal d1">
+    <table class="cal-table">
+      <thead>
+        <tr><th style="width:17%;">Date</th><th style="width:38%;">In-class work / feedback</th><th style="width:45%;">Independent homework</th></tr>
+      </thead>
+      <tbody>
+        <tr><td class="cal-d">Mon 11/9</td><td>&mdash;</td><td>Watch the <strong>video assignment walkthrough</strong>. Read the instructions using the Trivia Game. <strong>Submit the Trivia Game results.</strong></td></tr>
+        <tr><td class="cal-d">Wed 11/11</td><td>DREAMS-4-Mood App demo; ADA Bathroom explanation (Format 3).</td><td>Complete the client interactions and <strong>Format 1</strong>: 5+ conversations with each friend, preferences, needs, desires, DOs and DON&rsquo;Ts, and conclusion.</td></tr>
+        <tr><td class="cal-d">Mon 11/16</td><td>Design Concept Statement feedback; visit to the Material Library; classwork on the AI mood board with process screenshots and the physical mood board.</td><td>Complete <strong>Format 2</strong>: physical project mood board, Bubble Diagram, and Adjacency Matrix.</td></tr>
+        <tr><td class="cal-d">Wed 11/18</td><td>Red Marks on Format 2; Block Plan on Format 4&mdash;critique and Red Marks.</td><td>Complete the <strong>First Draft on Format 4</strong> and review the ADA guidelines for bathroom design:<br>&mdash; Toilet Rooms: <a href="https://www.access-board.gov/ada/guides/chapter-6-toilet-rooms/" target="_blank" rel="noopener">access-board.gov/ada/guides/chapter-6-toilet-rooms</a><br>&mdash; Bathing Rooms: <a href="https://www.access-board.gov/ada/guides/chapter-6-bathing-rooms/" target="_blank" rel="noopener">access-board.gov/ada/guides/chapter-6-bathing-rooms</a></td></tr>
+        <tr class="cal-break"><td class="cal-d">11/23&ndash;11/27<br>Thanksgiving: <strong>NO CLASS</strong></td><td>Independent work. Read the ADA guides for toilet and bathing rooms.</td><td><strong>Bring to class on Monday, 11/30:</strong> the first draft of your floor plan with walls, windows, doors, and basic furniture in the key rooms and spaces of the project, including a first draft of the ADA bathroom design in the 1/8&Prime; scale floor plan.</td></tr>
+        <tr><td class="cal-d">Mon 11/30</td><td>Red Marks on the First Draft and the ADA bathroom design in the project.</td><td><strong>Format 4:</strong> evolve the First Draft into the Second Draft of the 1/8&Prime; scale floor plan. Bring Format 4 completed.</td></tr>
+        <tr><td class="cal-d">Wed 12/2</td><td>Red Marks on the Second Draft, and revisions of the ADA bathroom inside the Second Draft 1/8&Prime; floor plan.</td><td>Complete <strong>Format 3</strong>: ADA Bathroom floor plan and elevations.</td></tr>
+        <tr><td class="cal-d">Mon 12/7</td><td>Final Furnished Floor Plans at 1/8&Prime; and 1/4&Prime; (Format 5) + ADA Bathroom complete (floor plan and right and left elevations at &frac12;&Prime;, Format 3).</td><td><strong>Final Furnished Floor Plans</strong> at 1/8&Prime; and 1/4&Prime; (Format 5) + <strong>ADA Bathroom complete</strong> (floor plan and right and left elevations at &frac12;&Prime;, Format 3).</td></tr>
+        <tr class="cal-final"><td class="cal-d" style="color:var(--crimson);">Wed 12/9</td><td><strong>Synthesis Object</strong> narrative design check: boards in order, freestanding test. <strong>Final project presentation.</strong> Students explain their projects.</td><td>&mdash;</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+</div>
 </div>
 
 <!-- ARENA -->
@@ -912,14 +1001,14 @@
 <!-- RESULTS -->
 <section class="section warm" id="results" hidden>
   <p class="eyebrow">Results &middot; Final Project</p>
-  <h2 class="sec-title">All 7 sections cleared</h2>
+  <h2 class="sec-title">All 8 sections cleared</h2>
   <hr class="sec-rule">
   <p class="results-note"><strong>Take a screenshot of your score and summary and send it to your teacher.</strong> Your teacher will give you the password that opens the full guide.</p>
-  <div class="res-score"><b id="res-score">0</b><span>of 350 points</span></div>
+  <div class="res-score"><b id="res-score">0</b><span>of 400 points</span></div>
   <ul class="results-list" id="results-list"></ul>
 
   <h3 class="res-h">Questionnaire Summary &amp; Correct Answers</h3>
-  <p class="res-sub">All 35 questions, section by section, with the correct answer and your result for each dot. Use it as a study guide.</p>
+  <p class="res-sub">All 40 questions, section by section, with the correct answer and your result for each dot. Use it as a study guide.</p>
   <div class="res-guide" id="res-guide"></div>
 
   <form class="gate res-gate" id="res-gate" autocomplete="off">
@@ -1038,7 +1127,7 @@
 
 <script>
 /* ── PAC-MAN TRIVIA ──
-   7 sections, one per stage of the Final Project (the Learning Outcomes and the Rubric are information only).
+   8 sections, one per stage of the Final Project (the Learning Outcomes and the Rubric are information only).
    Each section is one maze with 5 dots; each dot asks one question.
    A dot is worth 10 points; each wrong answer takes 2 points off (minimum 0).
    a = index of the correct option (options are shuffled when shown). */
@@ -1050,7 +1139,8 @@ var LEVELS=[
  {href:"#finalplan",short:"Final Plan",name:"Final Furnished Floor Plans at 1/8″ and 1/4″"},
  {href:"#adabath",short:"ADA Bathroom",name:"ADA Bathroom at ½″ Scale"},
  {href:"#foamboard",short:"Synthesis Object",name:"Foam Board Presentation: The Synthesis Object"},
- {href:"#deliverables",short:"Deliverables",name:"Deliverables"}
+ {href:"#deliverables",short:"Deliverables",name:"Deliverables"},
+ {href:"#calendar",short:"Calendar",name:"Assignment Calendar"}
 ];
 var QUIZ=[
  [
@@ -1241,6 +1331,33 @@ var QUIZ=[
    "They are erased before the formats are mounted on the foam boards",
    "They are kept only on the Block Plan and removed from the later drafts",
    "They are copied onto a separate sheet of paper and handed in after the final critique is over"],a:0}
+ ],
+ [
+  {q:"Which parts of Format 2 do you complete as homework after class on Monday 11/16?",opts:[
+   "The Design Concept Statement and the AI mood board with process screenshots",
+   "The physical mood board, the Bubble Diagram, and the Adjacency Matrix",
+   "The client conversations, the DOs and DON’Ts, and the research conclusion",
+   "The Block Plan with Room Tags and the First Draft of the floor plan"],a:1},
+  {q:"There is no class during Thanksgiving week (11/23–11/27). What does that mean for your project?",opts:[
+   "The project is paused, and the whole schedule moves one week later",
+   "You only need to read the instructions in the Trivia Game again",
+   "You keep working: you develop the First Draft and read the ADA guides",
+   "You can turn in the First Draft whenever you are ready after the break ends"],a:2},
+  {q:"What must you bring to class on Monday 11/30?",opts:[
+   "A first draft floor plan with walls, windows, doors, basic furniture, and a first ADA bathroom draft",
+   "The finished Synthesis Object, with all five foam boards mounted and standing on their own",
+   "Only the Block Plan from 11/18, with all of the Red Marks erased and every one of the Room Tags written again",
+   "The fully furnished 1/4″ floor plan and the ADA bathroom elevations, both drawn at ½″ scale"],a:0},
+  {q:"When must the Final Furnished Floor Plans (Format 5) and the complete ADA Bathroom (Format 3) be ready?",opts:[
+   "Wednesday 12/2",
+   "Monday 11/30",
+   "Wednesday 12/9",
+   "Monday 12/7"],a:3},
+  {q:"What can you do if you need more time for a deliverable?",opts:[
+   "Ask for an extension and turn the work in after the final presentation",
+   "Nothing: there are no extended deadlines, so keep up with the class rhythm",
+   "Turn in the work during the week after December 9 for partial credit",
+   "Skip one class deliverable now and turn in both of them together at the next class meeting instead"],a:1}
  ]
 ];
 var N=LEVELS.length, DOTS=5, PER=10, PENALTY=2, KEY="ctd121_final_pacman_v2", PASS="emFoYSBoYWRpZA==";
